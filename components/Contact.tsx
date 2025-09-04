@@ -34,17 +34,17 @@ const Contact: React.FC = () => {
   return (
     <section className="max-w-2xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100">Get In Touch</h2>
-        <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
+        <h2 className="text-4xl font-bold text-slate-900 dark:text-zinc-100">Get In Touch</h2>
+        <p className="mt-4 text-lg text-slate-600 dark:text-zinc-400">
           Have a question or want to work together? Fill out the form below, and I'll get back to you as soon as possible.
         </p>
       </div>
 
-      <div className="bg-white dark:bg-slate-800 p-8 shadow-lg rounded-lg">
+      <div className="bg-white dark:bg-zinc-900 p-8 shadow-lg rounded-lg">
         <form onSubmit={handleSubmit} noValidate>
           <div className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+              <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-zinc-300 mb-1">
                 Full Name
               </label>
               <input
@@ -55,11 +55,11 @@ const Contact: React.FC = () => {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="block w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="block w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-md shadow-sm placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+              <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-zinc-300 mb-1">
                 Email Address
               </label>
               <input
@@ -70,11 +70,11 @@ const Contact: React.FC = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="block w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="block w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-md shadow-sm placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+              <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-zinc-300 mb-1">
                 Message
               </label>
               <textarea
@@ -84,7 +84,7 @@ const Contact: React.FC = () => {
                 required
                 value={formData.message}
                 onChange={handleChange}
-                className="block w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="block w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-md shadow-sm placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               ></textarea>
             </div>
           </div>
@@ -92,7 +92,7 @@ const Contact: React.FC = () => {
             <button
               type="submit"
               disabled={status === 'submitting'}
-              className="inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-indigo-400 disabled:cursor-not-allowed dark:focus:ring-offset-slate-800"
+              className="inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-indigo-400 disabled:cursor-not-allowed dark:focus:ring-offset-zinc-900"
             >
               {status === 'submitting' ? 'Sending...' : 'Send Message'}
             </button>

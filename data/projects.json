@@ -66,9 +66,9 @@
   {
     "id": 8,
     "title": "Full Belly Sundays",
-    "description": "Fighting hunger in Dade County by connecting food donations with those who need it most, featuring a simple and effective user interface.",
-    "image": "https://image.thum.io/get/width/600/crop/400/https://full-belly-sundays.com.netlify.app/",
-    "live_link": "https://full-belly-sundays.com.netlify.app/",
+    "description": "Fighting hunger in Dade County by connecting food donations with those who need it most.",
+    "image": "https://image.thum.io/get/width/600/crop/400/https://full-belly-sundays.netlify.app/",
+    "live_link": "https://full-belly-sundays.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/full-belly-sundays",
     "tech_stack": ["React", "Non-profit", "Netlify"]
   },

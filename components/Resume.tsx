@@ -9,9 +9,9 @@ const ResumeSection: React.FC<{ title: string; children: React.ReactNode }> = ({
 
 const Job: React.FC<{ title: string; company: string; duration: string; children: React.ReactNode }> = ({ title, company, duration, children }) => (
   <div className="mb-6">
-    <h4 className="text-xl font-semibold text-slate-800 dark:text-slate-200">{title}</h4>
-    <p className="text-md text-slate-600 dark:text-slate-400 font-medium">{company} | {duration}</p>
-    <ul className="list-disc list-inside mt-2 text-slate-600 dark:text-slate-400 space-y-1">
+    <h4 className="text-xl font-semibold text-slate-800 dark:text-zinc-200">{title}</h4>
+    <p className="text-md text-slate-600 dark:text-zinc-400 font-medium">{company} | {duration}</p>
+    <ul className="list-disc list-inside mt-2 text-slate-600 dark:text-zinc-400 space-y-1">
       {children}
     </ul>
   </div>
@@ -77,11 +77,11 @@ Agile Methodologies, Continuous Integration/Continuous Deployment (CI/CD), Deplo
   };
 
   return (
-    <section className="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 md:p-12 shadow-lg rounded-lg">
+    <section className="max-w-4xl mx-auto bg-white dark:bg-zinc-900 p-8 md:p-12 shadow-lg rounded-lg">
       <div className="flex flex-col sm:flex-row justify-between items-start mb-8">
         <div>
-          <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100">Alejandro Ubilla</h2>
-          <div className="mt-2 text-slate-500 dark:text-slate-400 space-y-1 sm:space-y-0 sm:flex sm:flex-wrap sm:gap-x-4">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-zinc-100">Alejandro Ubilla</h2>
+          <div className="mt-2 text-slate-500 dark:text-zinc-500 space-y-1 sm:space-y-0 sm:flex sm:flex-wrap sm:gap-x-4">
              <p>+1 772-634-9743</p>
              <p className="hidden sm:inline">|</p>
              <p>alexubilla8185@gmail.com</p>
@@ -98,7 +98,7 @@ Agile Methodologies, Continuous Integration/Continuous Deployment (CI/CD), Deplo
       </div>
 
       <ResumeSection title="Summary">
-        <p className="text-slate-600 dark:text-slate-400">
+        <p className="text-slate-600 dark:text-zinc-400">
           Results-driven Technology Leader with 15+ years of experience defining strategic roadmaps, leading cross-functional teams, and spearheading initiatives to improve software quality, all to drive business growth and exceptional customer satisfaction.
         </p>
       </ResumeSection>
@@ -132,13 +132,13 @@ Agile Methodologies, Continuous Integration/Continuous Deployment (CI/CD), Deplo
 
       <ResumeSection title="Education">
          <div>
-          <h4 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Indian River State College</h4>
-          <p className="text-md text-slate-600 dark:text-slate-400">Associate Degree</p>
+          <h4 className="text-xl font-semibold text-slate-800 dark:text-zinc-200">Indian River State College</h4>
+          <p className="text-md text-slate-600 dark:text-zinc-400">Associate Degree</p>
          </div>
       </ResumeSection>
 
       <ResumeSection title="Skills">
-        <p className="text-slate-600 dark:text-slate-400">
+        <p className="text-slate-600 dark:text-zinc-400">
           Agile Methodologies, Continuous Integration/Continuous Deployment (CI/CD), Deployment, Product Management, Project Management, Quality Assurance, Testing, Requirements Gathering, Software Development Life Cycle (SDLC), Issue Tracking, User Interface/User Experience (UI/UX), Web & Mobile Development, Hardware Integration, Artificial Intelligence (AI), Digital Strategy, Business Process Improvement, Customer Relations, Technical Writing
         </p>
       </ResumeSection>

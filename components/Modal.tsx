@@ -40,16 +40,16 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] bg-slate-50 dark:bg-slate-900 rounded-lg shadow-xl m-4 animate-fade-in"
+        className="relative w-full max-w-4xl max-h-[90vh] bg-slate-50 dark:bg-zinc-900 rounded-lg shadow-xl m-4 animate-fade-in"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-start justify-between p-4 border-b border-slate-200 dark:border-slate-700">
-          <h2 id="modal-title" className="text-xl font-semibold text-slate-900 dark:text-slate-100">
+        <div className="flex items-start justify-between p-4 border-b border-slate-200 dark:border-zinc-700">
+          <h2 id="modal-title" className="text-xl font-semibold text-slate-900 dark:text-zinc-100">
             {title}
           </h2>
           <button
             onClick={onClose}
-            className="p-1 rounded-full text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-offset-slate-50 dark:focus:ring-offset-slate-900"
+            className="p-1 rounded-full text-slate-400 hover:bg-slate-200 dark:hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-offset-slate-50 dark:focus:ring-offset-zinc-900"
             aria-label="Close modal"
           >
             <CloseIcon className="h-6 w-6" />

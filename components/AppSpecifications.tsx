@@ -3,7 +3,7 @@ import React from 'react';
 const SpecSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="mb-6">
     <h3 className="text-lg font-semibold text-indigo-600 dark:text-indigo-400 mb-2">{title}</h3>
-    <div className="text-slate-600 dark:text-slate-400 space-y-1">{children}</div>
+    <div className="text-slate-600 dark:text-zinc-400 space-y-1">{children}</div>
   </div>
 );
 
@@ -33,7 +33,7 @@ const AppSpecifications: React.FC = () => {
             <ul className="space-y-2">
                 <ListItem><strong>Fully Responsive Design:</strong> Adapts seamlessly to all screen sizes, from mobile to desktop.</ListItem>
                 <ListItem><strong>Light/Dark Theme:</strong> User-selectable theme with system preference detection and localStorage persistence.</ListItem>
-                <ListItem><strong>Dynamic Project Loading:</strong> Project data is fetched asynchronously from a JSON file, allowing for easy updates.</ListItem>
+                <ListItem><strong>Static Project Data:</strong> Project data is imported directly as a TypeScript module, ensuring it's bundled with the app for fast, reliable loading.</ListItem>
                 <ListItem><strong>Interactive Easter Egg:</strong> This modal! Triggered by a triple-click on the profile picture.</ListItem>
                 <ListItem><strong>Dynamic Resume Download:</strong> Generates a Markdown file of the resume on-the-fly.</ListItem>
             </ul>
