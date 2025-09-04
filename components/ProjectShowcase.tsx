@@ -165,15 +165,15 @@ const ProjectShowcase: React.FC = () => {
   }, [prevProject, nextProject]);
 
   return (
-    <section className="flex flex-col items-center w-full py-8">
-      <div className="text-center mb-12">
+    <section className="flex flex-col w-full h-[calc(100vh-4rem)] py-6 sm:py-8">
+      <div className="text-center mb-6 sm:mb-8 flex-shrink-0 px-4">
         <h2 className="text-4xl font-bold text-slate-900 dark:text-zinc-100">My Projects</h2>
         <p className="mt-4 text-lg text-slate-600 dark:text-zinc-400 max-w-2xl mx-auto">
           Here are some of the projects I've worked on, showcasing my skills in web development and design.
         </p>
       </div>
 
-      <div className="relative w-full max-w-5xl h-[500px] sm:h-[480px] flex items-center justify-center">
+      <div className="relative w-full flex-grow flex items-center justify-center min-h-0">
         {/* Main carousel area */}
         <div className="relative w-full h-full perspective-1000">
           {projectsData.map((project, index) => {
@@ -212,7 +212,7 @@ const ProjectShowcase: React.FC = () => {
                   pointerEvents: offset === 0 ? 'auto' : 'none',
                 }}
               >
-                <div className="w-full h-full max-w-lg mx-auto p-4">
+                <div className="w-full h-full max-w-sm sm:max-w-md md:max-w-lg mx-auto py-2">
                     <ProjectCard project={project} />
                 </div>
               </div>
@@ -223,14 +223,14 @@ const ProjectShowcase: React.FC = () => {
         {/* Navigation Arrows */}
         <button
           onClick={prevProject}
-          className="absolute left-0 md:-left-8 lg:-left-12 top-1/2 -translate-y-1/2 z-30 p-2 bg-white/60 dark:bg-zinc-800/60 rounded-full shadow-lg hover:bg-white dark:hover:bg-zinc-700 transition-colors"
+          className="absolute left-0 md:-left-4 lg:-left-8 top-1/2 -translate-y-1/2 z-30 p-2 bg-white/60 dark:bg-zinc-800/60 rounded-full shadow-lg hover:bg-white dark:hover:bg-zinc-700 transition-colors"
           aria-label="Previous project"
         >
           <ChevronLeftIcon className="h-6 w-6 text-slate-800 dark:text-zinc-200" />
         </button>
         <button
           onClick={nextProject}
-          className="absolute right-0 md:-right-8 lg:-right-12 top-1/2 -translate-y-1/2 z-30 p-2 bg-white/60 dark:bg-zinc-800/60 rounded-full shadow-lg hover:bg-white dark:hover:bg-zinc-700 transition-colors"
+          className="absolute right-0 md:-right-4 lg:-right-8 top-1/2 -translate-y-1/2 z-30 p-2 bg-white/60 dark:bg-zinc-800/60 rounded-full shadow-lg hover:bg-white dark:hover:bg-zinc-700 transition-colors"
           aria-label="Next project"
         >
           <ChevronRightIcon className="h-6 w-6 text-slate-800 dark:text-zinc-200" />
@@ -238,7 +238,7 @@ const ProjectShowcase: React.FC = () => {
       </div>
       
       {/* Indicator Dots */}
-      <div className="flex justify-center space-x-2 mt-8">
+      <div className="flex justify-center space-x-2 mt-6 flex-shrink-0 pb-2">
         {projectsData.map((_, index) => (
           <button
             key={index}
