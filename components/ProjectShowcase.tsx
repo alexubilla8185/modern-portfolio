@@ -67,10 +67,10 @@ const ProjectShowcase: React.FC = () => {
 
     return (
         <section>
-            <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold text-slate-900 dark:text-zinc-100">My Projects</h2>
+            <div className="text-center mb-8">
+                {/* The h2 title has been removed for a cleaner mobile view */}
                 <p className="mt-4 text-lg text-slate-600 dark:text-zinc-400 max-w-2xl mx-auto">
-                    A selection of my work. Click the side cards or use the arrows to navigate.
+                    A selection of projects I've been working on this year. Click the side cards or use the arrows to navigate.
                 </p>
             </div>
 
