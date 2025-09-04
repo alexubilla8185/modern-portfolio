@@ -20,10 +20,10 @@ const projects: Project[] = [
   {
     "id": 3,
     "title": "FancyFam",
-    "description": "An elegant e-commerce platform for family-oriented luxury goods, featuring a polished user interface and an intuitive shopping experience.",
+    "description": "Your modern digital card.",
     "live_link": "https://fancyfam.com/",
     "github_link": "https://github.com/alexubilla8185/fancy-fam",
-    "tech_stack": ["React", "E-commerce", "Tailwind CSS"]
+    "tech_stack": ["React", "Social", "Tailwind CSS"]
   },
   {
     "id": 4,
@@ -44,7 +44,7 @@ const projects: Project[] = [
   {
     "id": 6,
     "title": "TEKGUYZ",
-    "description": "Professional tech services and solutions. Built with React, TypeScript, and Tailwind CSS, offering a seamless user experience for clients.",
+    "description": "Partner with TEKGUYZ for cutting-edge DevOps solutions, custom software development, and strategic technology consulting that drives measurable business results.",
     "live_link": "https://tekguyz.com/",
     "github_link": "https://github.com/alexubilla8185/tek-guyz-site",
     "tech_stack": ["React", "TypeScript", "Tailwind CSS"]
@@ -75,7 +75,7 @@ const projects: Project[] = [
   },
   {
     "id": 10,
-    "title": "Meet4Weed (Legacy Version)",
+    "title": "Meet4Weed (Alpha)",
     "description": "The original version of the cannabis social platform, demonstrating the project's evolution and foundational features.",
     "live_link": "https://meet4weed-v1.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/meet-4-weed-v1",
@@ -100,7 +100,7 @@ const projects: Project[] = [
   {
     "id": 13,
     "title": "My Modern Resume",
-    "description": "A modern, minimalist portfolio website built with React, TypeScript, and Tailwind CSS, inspired by Google's M3 Expressive design. It features sections for projects, a resume, and an executive summary.",
+    "description": "A modern, minimalist portfolio, inspired by Google's M3 Expressive design. It features sections for projects, a resume, and an executive summary.",
     "live_link": "https://my-modern-resume.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/my-modern-resume",
     "tech_stack": ["React", "TypeScript", "Tailwind CSS"]
@@ -119,11 +119,11 @@ const projects: Project[] = [
     "description": "An AI-driven tool for analyzing and checking web content, leveraging AI for web diagnostics.",
     "live_link": "https://web-check-ai.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/web-check-ai",
-    "tech_stack": ["React", "AI", "Web Scraping"]
+    "tech_stack": ["React", "AI", "Dev Tools"]
   },
   {
     "id": 16,
-    "title": "Digital 'Spanish Jenga",
+    "title": "Spanish Jenga",
     "description": "A digital drinking game where players take turns creating 'holes' on a surface. The player who makes the center object fall loses. A modern, cool take on the classic party game.",
     "live_link": "https://spanish-jenga.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/spanish-jenga",
