@@ -1,6 +1,14 @@
 
 [
   {
+    "id": 17,
+    "title": "Interactive 3D Carousel",
+    "description": "A reusable React component for showcasing content in an engaging, 3D animated carousel. You're using it right now! It's built with TypeScript and styled with Tailwind CSS, featuring smooth transitions and intuitive navigation. \n\nUsage:\n```jsx\n<ProjectShowcase projects={...} />\n```",
+    "live_link": "#",
+    "github_link": "https://github.com/alexubilla8185/my-modern-resume/blob/main/components/ProjectShowcase.tsx",
+    "tech_stack": ["React", "TypeScript", "Tailwind CSS", "Component"]
+  },
+  {
     "id": 1,
     "title": "DemBoyzBBQ",
     "description": "A delicious online destination for BBQ lovers. Explore menus, catering options, and more.",
