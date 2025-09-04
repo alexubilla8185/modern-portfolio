@@ -165,7 +165,7 @@ const ProjectShowcase: React.FC = () => {
   }, [prevProject, nextProject]);
 
   return (
-    <section className="flex flex-col items-center w-full">
+    <section className="flex flex-col items-center w-full py-8">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-slate-900 dark:text-zinc-100">My Projects</h2>
         <p className="mt-4 text-lg text-slate-600 dark:text-zinc-400 max-w-2xl mx-auto">
@@ -173,29 +173,31 @@ const ProjectShowcase: React.FC = () => {
         </p>
       </div>
 
-      <div className="relative w-full max-w-4xl h-[550px] md:h-[500px] flex items-center justify-center">
+      <div className="relative w-full max-w-5xl h-[600px] sm:h-[550px] md:h-[520px] flex items-center justify-center">
         {/* Main carousel area */}
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full perspective-1000">
           {projectsData.map((project, index) => {
             const offset = index - currentIndex;
-            const isVisible = Math.abs(offset) <= 1; // Show current, next, and previous
+            const direction = Math.sign(offset);
 
-            const getTransformStyle = () => {
-              if (offset === 0) return 'translateX(0%) scale(1)';
-              if (offset === 1) return 'translateX(70%) scale(0.8)';
-              if (offset === -1) return 'translateX(-70%) scale(0.8)';
-              // Hide cards further away but keep them in position for smooth transition
-              if (offset > 1) return 'translateX(70%) scale(0.8)'; 
-              if (offset < -1) return 'translateX(-70%) scale(0.8)';
-              return '';
-            };
+            let transform = '';
+            let opacity = '0';
+            let zIndex = 0;
+            let filter = 'blur(4px)';
             
-            const getOpacity = () => (offset === 0 ? 1 : 0.4);
-            
-            const getZIndex = () => {
-                if (offset === 0) return 20;
-                if (Math.abs(offset) === 1) return 10;
-                return 0;
+            if (offset === 0) {
+              transform = 'translateX(0) scale(1)';
+              opacity = '1';
+              zIndex = 20;
+              filter = 'blur(0px)';
+            } else if (Math.abs(offset) === 1) {
+              transform = `translateX(${direction * 60}%) scale(0.85)`;
+              opacity = '0.6';
+              zIndex = 10;
+            } else {
+              transform = `translateX(${direction * 60}%) scale(0.85)`;
+              opacity = '0';
+              zIndex = 0;
             }
 
             return (
@@ -203,13 +205,14 @@ const ProjectShowcase: React.FC = () => {
                 key={project.id}
                 className="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-in-out"
                 style={{
-                  transform: getTransformStyle(),
-                  opacity: isVisible ? getOpacity() : 0,
-                  zIndex: getZIndex(),
+                  transform: transform,
+                  opacity: opacity,
+                  zIndex: zIndex,
+                  filter: filter,
                   pointerEvents: offset === 0 ? 'auto' : 'none',
                 }}
               >
-                <div className="w-full h-full max-w-lg mx-auto">
+                <div className="w-full h-full max-w-lg mx-auto p-4">
                     <ProjectCard project={project} />
                 </div>
               </div>
@@ -220,14 +223,14 @@ const ProjectShowcase: React.FC = () => {
         {/* Navigation Arrows */}
         <button
           onClick={prevProject}
-          className="absolute left-0 sm:-left-4 top-1/2 -translate-y-1/2 z-30 p-2 bg-white/50 dark:bg-zinc-800/50 rounded-full shadow-lg hover:bg-white dark:hover:bg-zinc-700 transition-colors"
+          className="absolute left-0 md:-left-8 lg:-left-12 top-1/2 -translate-y-1/2 z-30 p-2 bg-white/60 dark:bg-zinc-800/60 rounded-full shadow-lg hover:bg-white dark:hover:bg-zinc-700 transition-colors"
           aria-label="Previous project"
         >
           <ChevronLeftIcon className="h-6 w-6 text-slate-800 dark:text-zinc-200" />
         </button>
         <button
           onClick={nextProject}
-          className="absolute right-0 sm:-right-4 top-1/2 -translate-y-1/2 z-30 p-2 bg-white/50 dark:bg-zinc-800/50 rounded-full shadow-lg hover:bg-white dark:hover:bg-zinc-700 transition-colors"
+          className="absolute right-0 md:-right-8 lg:-right-12 top-1/2 -translate-y-1/2 z-30 p-2 bg-white/60 dark:bg-zinc-800/60 rounded-full shadow-lg hover:bg-white dark:hover:bg-zinc-700 transition-colors"
           aria-label="Next project"
         >
           <ChevronRightIcon className="h-6 w-6 text-slate-800 dark:text-zinc-200" />
