@@ -96,8 +96,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick, theme, toggl
               <h1 className="text-xl font-bold text-indigo-600 dark:text-indigo-400">Alejandro Ubilla</h1>
             </div>
             <div className="flex items-center space-x-2 sm:space-x-4">
-              <nav className="hidden md:block">
-                <ul className="flex items-center space-x-1 md:space-x-2">
+              <nav className="hidden lg:block">
+                <ul className="flex items-center space-x-1 lg:space-x-2">
                   {navItems.map(item => (
                     <NavItem key={item.section} {...item} activeSection={activeSection} onClick={handleNavClick} />
                   ))}
@@ -124,7 +124,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick, theme, toggl
                       </div>
                   )}
               </div>
-              <div className="md:hidden">
+              <div className="lg:hidden">
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -141,7 +141,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick, theme, toggl
       </header>
 
       {isMenuOpen && (
-        <div className="fixed inset-0 top-16 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg md:hidden animate-fade-in" id="mobile-menu">
+        <div className="fixed inset-0 top-16 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg lg:hidden animate-fade-in" id="mobile-menu">
           <div className="pt-2 pb-3">
             <ul>
               {navItems.map(item => (
