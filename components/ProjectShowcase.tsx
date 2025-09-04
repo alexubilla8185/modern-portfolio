@@ -173,7 +173,7 @@ const ProjectShowcase: React.FC = () => {
         </p>
       </div>
 
-      <div className="relative w-full max-w-5xl h-[600px] sm:h-[550px] md:h-[520px] flex items-center justify-center">
+      <div className="relative w-full max-w-5xl h-[500px] sm:h-[480px] flex items-center justify-center">
         {/* Main carousel area */}
         <div className="relative w-full h-full perspective-1000">
           {projectsData.map((project, index) => {

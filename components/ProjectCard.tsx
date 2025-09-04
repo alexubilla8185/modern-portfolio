@@ -24,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     <div className="bg-white dark:bg-zinc-900 rounded-lg shadow-md dark:shadow-lg dark:shadow-zinc-950/50 overflow-hidden flex flex-col h-full">
       
       {/* Card Header with Gradient */}
-      <div className={`h-48 w-full bg-gradient-to-br ${gradient} flex items-center justify-center p-6 text-center relative`}>
+      <div className={`h-48 w-full bg-gradient-to-br ${gradient} flex items-center justify-center p-6 text-center relative flex-shrink-0`}>
          <div className="absolute inset-0 bg-black/20"></div> {/* Overlay for text readability */}
          <h3 className="text-2xl font-bold text-white relative z-10" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
             {project.title}
@@ -32,11 +32,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       </div>
 
       {/* Card Body */}
-      <div className="p-6 flex flex-col flex-grow">
-        <p className="text-slate-600 dark:text-zinc-400 text-base flex-grow mb-4">{project.description}</p>
+      <div className="p-6 flex flex-col flex-grow overflow-hidden">
+        {/* Scrollable description area */}
+        <div className="flex-grow overflow-y-auto pr-2 pb-4">
+          <p className="text-slate-600 dark:text-zinc-400 text-base">{project.description}</p>
+        </div>
         
-        {/* Tech Stack */}
-        <div className="mb-4">
+        {/* Tech Stack (always visible) */}
+        <div className="flex-shrink-0">
           <div className="flex flex-wrap gap-2">
             {project.tech_stack.map((tech) => (
               <span key={tech} className="bg-slate-100 text-slate-700 dark:bg-zinc-800 dark:text-zinc-300 text-xs font-semibold px-2.5 py-1 rounded-full">
@@ -46,8 +49,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </div>
         </div>
         
-        {/* Footer with links */}
-        <div className="mt-auto pt-4 border-t border-slate-200 dark:border-zinc-700 flex items-center justify-end space-x-4">
+        {/* Footer with links (always visible) */}
+        <div className="flex-shrink-0 mt-4 pt-4 border-t border-slate-200 dark:border-zinc-700 flex items-center justify-end space-x-4">
           <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400 transition-colors duration-300" title="View Live Demo">
             <ExternalLinkIcon className="h-6 w-6" />
           </a>

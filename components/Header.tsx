@@ -116,7 +116,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick, theme, toggl
                       className="p-2 rounded-full text-slate-500 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300"
                       aria-label="Share profile"
                   >
-                      <ShareIcon className="h-5 w-5" />
+                      <ShareIcon className="h-6 w-6" />
                   </button>
                   {showCopied && (
                       <div className="absolute top-full right-0 mt-2 bg-zinc-800 text-white text-xs font-semibold px-2 py-1 rounded-md shadow-lg animate-fade-in">
@@ -127,7 +127,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick, theme, toggl
               <div className="lg:hidden">
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="p-2 rounded-md text-slate-500 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="p-2 rounded-full text-slate-500 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300"
                   aria-controls="mobile-menu"
                   aria-expanded={isMenuOpen}
                 >
