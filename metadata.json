@@ -1,0 +1,5 @@
+{
+  "name": "Modern Portfolio Website",
+  "description": "A modern, minimalist portfolio website built with React, TypeScript, and Tailwind CSS, inspired by Google's M3 Expressive design. It features sections for projects, a resume, and an executive summary.",
+  "requestFramePermissions": []
+}
