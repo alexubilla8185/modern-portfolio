@@ -46,7 +46,15 @@ const gradients = [
 
 const ProjectShowcase: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
     const autoplayIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const projectsLength = useMemo(() => projectsData.length, []);
 
@@ -91,14 +99,16 @@ const ProjectShowcase: React.FC = () => {
         const isLeft = (activeIndex - 1 + projectsLength) % projectsLength === index;
         const isRight = (activeIndex + 1) % projectsLength === index;
         
+        const horizontalTranslate = isMobile ? '48%' : '55%';
+
         if (isActive) {
             return { zIndex: 3, transform: `translateY(0px) scale(1)`, opacity: 1, filter: 'blur(0px)' };
         }
         if (isLeft) {
-            return { zIndex: 2, transform: `translateX(-55%) translateY(0px) scale(0.8) rotateY(15deg)`, opacity: 0.6, filter: 'blur(4px)' };
+            return { zIndex: 2, transform: `translateX(-${horizontalTranslate}) translateY(0px) scale(0.8) rotateY(15deg)`, opacity: 0.6, filter: 'blur(4px)' };
         }
         if (isRight) {
-            return { zIndex: 2, transform: `translateX(55%) translateY(0px) scale(0.8) rotateY(-15deg)`, opacity: 0.6, filter: 'blur(4px)' };
+            return { zIndex: 2, transform: `translateX(${horizontalTranslate}) translateY(0px) scale(0.8) rotateY(-15deg)`, opacity: 0.6, filter: 'blur(4px)' };
         }
         return { zIndex: 1, opacity: 0, pointerEvents: 'none', transform: `scale(0.7)` };
     }
@@ -112,13 +122,13 @@ const ProjectShowcase: React.FC = () => {
                 </p>
             </div>
 
-            <div className="relative w-full min-h-[550px] [perspective:1200px] flex items-center justify-center">
+            <div className="relative w-full min-h-[520px] md:min-h-[550px] [perspective:1200px] flex items-center justify-center">
                 {projectsData.map((project, index) => {
                     const gradient = gradients[project.id % gradients.length];
                     return (
                         <motion.div
                             key={project.id}
-                            className="absolute w-full h-[500px] max-w-2xl"
+                            className="absolute w-full h-[480px] md:h-[500px] max-w-2xl"
                             initial={false}
                             animate={getCardStyle(index)}
                             transition={{ type: 'spring', stiffness: 200, damping: 25, mass: 0.8 }}
@@ -127,7 +137,7 @@ const ProjectShowcase: React.FC = () => {
                                 {/* Card Header */}
                                 <div className={`relative h-1/3 bg-gradient-to-br ${gradient} flex items-center justify-center p-6 text-center`}>
                                      <div className="absolute inset-0 bg-black/20"></div>
-                                    <h3 className="text-3xl font-bold text-white relative z-10" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
+                                    <h3 className="text-2xl md:text-3xl font-bold text-white relative z-10" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
                                         {project.title}
                                     </h3>
                                 </div>
