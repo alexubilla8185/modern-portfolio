@@ -48,7 +48,7 @@ const projects: Project[] = [
   },
   {
     "id": 6,
-    "title": "AfterLife (Alpha)",
+    "title": "AfterLife",
     "description": "Engineered an AI-powered digital memorial platform where users can create a personalized legacy. Implemented a feature allowing loved ones to interact with memories and AI-generated responses.",
     "live_link": "https://afterlife-alpha.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/after-life",
@@ -71,7 +71,7 @@ const projects: Project[] = [
     "live_link": "https://tekguyz.com/",
     "github_link": "https://github.com/alexubilla8185/tek-guyz-site",
     "tech_stack": ["React", "TypeScript", "Tailwind CSS"],
-    "date": "December 2023"
+    "date": "May 2023"
   },
   {
     "id": 9,
@@ -80,7 +80,7 @@ const projects: Project[] = [
     "live_link": "https://real-stone.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/real-stone",
     "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
-    "date": "November 2023"
+    "date": "April 2025"
   },
   {
     "id": 10,
@@ -89,7 +89,7 @@ const projects: Project[] = [
     "live_link": "https://meet4weed.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/meet-4-weed",
     "tech_stack": ["React", "Socket.IO", "Firebase"],
-    "date": "October 2023"
+    "date": "July 2025"
   },
   {
     "id": 11,
@@ -102,12 +102,12 @@ const projects: Project[] = [
   },
   {
     "id": 12,
-    "title": "Meet4Weed (Alpha)",
+    "title": "Meet4Weed (v1)",
     "description": "The original version of the cannabis social platform, demonstrating the project's evolution and foundational features from an earlier stage of development.",
     "live_link": "https://meet4weed-v1.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/meet-4-weed-v1",
     "tech_stack": ["React", "JavaScript", "CSS"],
-    "date": "August 2023"
+    "date": "August 2025"
   },
   {
     "id": 13,
@@ -116,7 +116,7 @@ const projects: Project[] = [
     "live_link": "https://transcription-assistant.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/transcription-assistant",
     "tech_stack": ["React", "Gemini API", "Web Audio API"],
-    "date": "July 2023"
+    "date": "July 2025"
   },
   {
     "id": 14,
@@ -125,7 +125,7 @@ const projects: Project[] = [
     "live_link": "https://reporter-assistant.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/reporter-assistant",
     "tech_stack": ["React", "Gemini API", "NLP"],
-    "date": "June 2023"
+    "date": "June 2025"
   },
   {
     "id": 15,
@@ -134,7 +134,7 @@ const projects: Project[] = [
     "live_link": "https://palm-city-condo.netlify.app",
     "github_link": "https://github.com/alexubilla8185/palm-city-condo",
     "tech_stack": ["React", "Tailwind CSS", "Real Estate"],
-    "date": "May 2023"
+    "date": "August 2025"
   },
   {
     "id": 16,
@@ -143,7 +143,7 @@ const projects: Project[] = [
     "live_link": "https://web-check-ai.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/web-check-ai",
     "tech_stack": ["React", "Gemini API", "Puppeteer"],
-    "date": "April 2023"
+    "date": "April 2025"
   },
   {
     "id": 17,
@@ -152,7 +152,7 @@ const projects: Project[] = [
     "live_link": "https://spanish-jenga.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/spanish-jenga",
     "tech_stack": ["React", "Three.js", "Game Logic"],
-    "date": "March 2023"
+    "date": "March 2025"
   }
 ];
 
