@@ -28,7 +28,7 @@ const projects: Project[] = [
   {
     "id": 4,
     "title": "AfterLife (Alpha)",
-    "description": "AfterLife is an interactive memorial platform allowing users to create a personalized digital legacy. Creators can add memories and pre-program responses, allowing loved ones to interact with their profile after they pass away",
+    "description": "An AI-powered digital memorial platform that creates a personalized legacy, allowing loved ones to interact with memories and pre-programmed responses.",
     "live_link": "https://afterlife-alpha.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/after-life",
     "tech_stack": ["React", "AI", "Database"]
@@ -68,7 +68,7 @@ const projects: Project[] = [
   {
     "id": 9,
     "title": "DarkChat (Alpha)",
-    "description": "Secure, peer-to-peer video chat application that runs directly in your browser. It focuses on privacy and simplicity, allowing you to have encrypted video calls, text chats, and file sharing sessions just by sharing a link, with no sign-up required.",
+    "description": "A secure, peer-to-peer video chat that runs directly in your browser. Share a link to have encrypted video calls, text chats, and file sharing sessions.",
     "live_link": "https://darkchat-alpha.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/dark-chat",
     "tech_stack": ["WebRTC", "React", "P2P", "Security"]
@@ -108,7 +108,7 @@ const projects: Project[] = [
   {
     "id": 14,
     "title": "Palm City Condo Getaway",
-    "description": "Discover your ideal Florida getaway in this beautiful ground-floor condo, nestled in the heart of Palm City. Features 2 beds, 2 baths, and a stunning lake view",
+    "description": "Discover your ideal Florida getaway in this beautiful ground-floor condo, nestled in the heart of Palm City.",
     "live_link": "https://palm-city-condo.netlify.app",
     "github_link": "https://github.com/alexubilla8185/palm-city-condo",
     "tech_stack": ["React", "Real Estate", "Netlify"]
