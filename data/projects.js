@@ -36,10 +36,10 @@ const projects = [
   {
     "id": 3,
     "title": "FancyFam",
-    "description": "Designed and developed a proof-of-concept e-commerce platform for luxury goods, focusing on a clean UI, intuitive navigation, and a seamless shopping experience integrated with the Stripe API.",
+    "description": "A modern and interactive digital business card platform, designed to make a memorable first impression with a clean, elegant interface and seamless sharing capabilities.",
     "live_link": "https://fancyfam.com/",
     "github_link": "https://github.com/alexubilla8185/fancy-fam",
-    "tech_stack": ["React", "Stripe API", "Tailwind CSS"]
+    "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"]
   },
   {
     "id": 4,
