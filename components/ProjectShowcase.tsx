@@ -63,7 +63,7 @@ const ProjectShowcase: React.FC = () => {
 
         if (!isVisible) return { zIndex: 0, opacity: 0, scale: 0.5, pointerEvents: 'none' as const };
         
-        const translateXPercentage = isMobile ? 48 : 60;
+        const translateXPercentage = isMobile ? 55 : 60;
         const scaleFactor = isMobile ? 0.2 : 0.15;
 
         const translateX = displayOffset * translateXPercentage;
@@ -84,16 +84,16 @@ const ProjectShowcase: React.FC = () => {
     };
 
     return (
-        <section>
-            <div className="relative w-full h-[480px] md:h-[520px] flex items-center justify-center">
+        <section className="py-12 sm:py-20 px-4">
+            <div className="relative w-full h-[450px] md:h-[520px] flex items-center justify-center">
                 <div className="relative h-full w-full max-w-5xl">
                     {projectsData.map((project, i) => (
                         <motion.div
                             key={project.id}
                             className="absolute top-0 left-0 right-0 mx-auto"
                             style={{
-                                width: isMobile ? '17rem' : '24rem',
-                                height: isMobile ? '28rem' : '30rem',
+                                width: isMobile ? '15rem' : '24rem',
+                                height: isMobile ? '26rem' : '30rem',
                             }}
                             initial={false}
                             animate={getCardStyle(i)}
@@ -110,14 +110,14 @@ const ProjectShowcase: React.FC = () => {
                 
                 <button
                     onClick={handlePrev}
-                    className="absolute left-0 sm:left-4 top-1/2 -translate-y-1/2 z-[999] p-2 rounded-full bg-slate-100/50 hover:bg-slate-100 dark:bg-zinc-800/50 dark:hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 z-[999] p-2 rounded-full bg-slate-100/50 hover:bg-slate-100 dark:bg-zinc-800/50 dark:hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     aria-label="Previous Project"
                 >
                     <ChevronLeftIcon className="h-8 w-8 text-slate-700 dark:text-zinc-300" />
                 </button>
                 <button
                     onClick={handleNext}
-                    className="absolute right-0 sm:right-4 top-1/2 -translate-y-1/2 z-[999] p-2 rounded-full bg-slate-100/50 hover:bg-slate-100 dark:bg-zinc-800/50 dark:hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 z-[999] p-2 rounded-full bg-slate-100/50 hover:bg-slate-100 dark:bg-zinc-800/50 dark:hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     aria-label="Next Project"
                 >
                     <ChevronRightIcon className="h-8 w-8 text-slate-700 dark:text-zinc-300" />
