@@ -63,7 +63,7 @@ const ProjectShowcase: React.FC = () => {
 
         if (!isVisible) return { zIndex: 0, opacity: 0, scale: 0.5, pointerEvents: 'none' as const };
         
-        const translateXPercentage = isMobile ? 55 : 60;
+        const translateXPercentage = isMobile ? 38 : 60;
         const scaleFactor = isMobile ? 0.2 : 0.15;
 
         const translateX = displayOffset * translateXPercentage;
@@ -84,7 +84,7 @@ const ProjectShowcase: React.FC = () => {
     };
 
     return (
-        <section className="py-12 sm:py-20 px-4">
+        <section className="py-8 sm:py-20">
             <div className="relative w-full h-[450px] md:h-[520px] flex items-center justify-center">
                 <div className="relative h-full w-full max-w-5xl">
                     {projectsData.map((project, i) => (
