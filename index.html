@@ -7,9 +7,23 @@
     <title>My Modern Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      // Enable class-based dark mode
+      // Enable class-based dark mode and extend theme for marquee animation
       tailwind.config = {
         darkMode: 'class',
+        theme: {
+          extend: {
+            animation: {
+              marquee: 'marquee 30s linear infinite',
+              'marquee-slow': 'marquee 120s linear infinite',
+            },
+            keyframes: {
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-100%)' },
+              },
+            },
+          },
+        },
       }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
