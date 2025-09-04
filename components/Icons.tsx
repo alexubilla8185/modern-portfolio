@@ -34,3 +34,9 @@ export const MoonIcon: React.FC<IconProps> = (props) => (
         <path fillRule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 004.472-.948.75.75 0 01.82.162l.805.706a.75.75 0 01-.188 1.151A12.001 12.001 0 0112 21a12.001 12.001 0 01-9.472-18.372l.706-.805a.75.75 0 01.188-.188z" clipRule="evenodd"/>
     </svg>
 );
+
+export const CloseIcon: React.FC<IconProps> = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clipRule="evenodd" />
+  </svg>
+);

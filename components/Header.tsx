@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick, theme, toggl
           </div>
           <div className="flex items-center space-x-4">
             <nav>
-              <ul className="flex items-center space-x-2 md:space-x-4">
+              <ul className="flex items-center space-x-1 md:space-x-2">
                 <NavItem section="summary" label="About" activeSection={activeSection} onClick={onNavClick} />
                 <NavItem section="projects" label="Projects" activeSection={activeSection} onClick={onNavClick} />
                 <NavItem section="resume" label="Resume" activeSection={activeSection} onClick={onNavClick} />
