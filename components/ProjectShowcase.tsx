@@ -31,7 +31,15 @@ const ProjectShowcase: React.FC = () => {
     }, []);
 
     const handleCardClick = (cardIndex: number) => {
-        setIndex(cardIndex);
+        const offset = cardIndex - index;
+        const total = projectsData.length;
+        let displayOffset = offset;
+        if (offset > total / 2) displayOffset = offset - total;
+        else if (offset < -total / 2) displayOffset = offset + total;
+        
+        if (displayOffset !== 0) {
+            setIndex(cardIndex);
+        }
     };
 
     useEffect(() => {
@@ -55,7 +63,7 @@ const ProjectShowcase: React.FC = () => {
 
         if (!isVisible) return { zIndex: 0, opacity: 0, scale: 0.5, pointerEvents: 'none' as const };
         
-        const translateXPercentage = isMobile ? 55 : 60;
+        const translateXPercentage = isMobile ? 48 : 60;
         const scaleFactor = isMobile ? 0.2 : 0.15;
 
         const translateX = displayOffset * translateXPercentage;
@@ -77,15 +85,15 @@ const ProjectShowcase: React.FC = () => {
 
     return (
         <section>
-            <div className="relative w-full h-[500px] md:h-[520px] flex items-center justify-center">
+            <div className="relative w-full h-[480px] md:h-[520px] flex items-center justify-center">
                 <div className="relative h-full w-full max-w-5xl">
                     {projectsData.map((project, i) => (
                         <motion.div
                             key={project.id}
                             className="absolute top-0 left-0 right-0 mx-auto"
                             style={{
-                                width: isMobile ? '19rem' : '24rem',
-                                height: '30rem',
+                                width: isMobile ? '17rem' : '24rem',
+                                height: isMobile ? '28rem' : '30rem',
                             }}
                             initial={false}
                             animate={getCardStyle(i)}

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Project } from '@/types';
-import { GitHubIcon, ExternalLinkIcon } from '@/components/Icons';
+import { GitHubIcon, WebsiteIcon } from '@/components/Icons';
 
 interface ProjectCardProps {
   project: Project;
@@ -39,7 +39,7 @@ const renderMarkdown = (text: string) => {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
   return (
-    <div className="w-full h-full bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-slate-200 dark:border-zinc-700 mx-4 flex-shrink-0">
+    <div className="w-full h-full bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-slate-200 dark:border-zinc-700 flex-shrink-0">
       {/* Card Header */}
       <div className={`relative h-1/3 bg-gradient-to-br ${gradient} flex items-center justify-center p-6 text-center`}>
         <div className="absolute inset-0 bg-black/20"></div>
@@ -66,12 +66,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
           <div className="mt-4 pt-4 border-t border-slate-200 dark:border-zinc-700 flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 font-semibold transition-colors" title="View Live Demo">
-                <ExternalLinkIcon className="h-5 w-5" />
+                <WebsiteIcon className="h-5 w-5" />
                 Live Demo
               </a>
               <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-zinc-200 font-semibold transition-colors" title="View Source Code">
                 <GitHubIcon className="h-5 w-5" />
-                Source Code
+                Source
               </a>
             </div>
             <p className="text-xs text-slate-400 dark:text-zinc-500 font-medium flex-shrink-0">{project.date}</p>
