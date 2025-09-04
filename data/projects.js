@@ -1,6 +1,3 @@
-
-
-
 const projects = [
   {
     "id": 1,
@@ -9,7 +6,7 @@ const projects = [
     "live_link": "https://my-modern-resume.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/my-modern-resume",
     "tech_stack": ["React", "TypeScript", "Tailwind CSS"],
-    "date": "July 2024"
+    "date": "July 2025"
   },
   {
     "id": 2,
@@ -18,7 +15,7 @@ const projects = [
     "live_link": "#",
     "github_link": "https://github.com/alexubilla8185/my-modern-resume/blob/main/components/ProjectShowcase.tsx",
     "tech_stack": ["React", "TypeScript", "Framer Motion", "Component"],
-    "date": "June 2024"
+    "date": "June 2025"
   },
   {
     "id": 3,
@@ -27,7 +24,7 @@ const projects = [
     "live_link": "https://demboyzbbq.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/demboyz-bbq",
     "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
-    "date": "May 2024"
+    "date": "May 2025"
   },
   {
     "id": 4,
@@ -36,7 +33,7 @@ const projects = [
     "live_link": "https://full-belly-sundays.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/full-belly-sundays",
     "tech_stack": ["React", "Firebase", "Maps API"],
-    "date": "April 2024"
+    "date": "April 2025"
   },
   {
     "id": 5,
@@ -45,7 +42,7 @@ const projects = [
     "live_link": "https://fancyfam.com/",
     "github_link": "https://github.com/alexubilla8185/fancy-fam",
     "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
-    "date": "March 2024"
+    "date": "March 2025"
   },
   {
     "id": 6,
@@ -54,7 +51,7 @@ const projects = [
     "live_link": "https://afterlife-alpha.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/after-life",
     "tech_stack": ["React", "Gemini API", "Firebase"],
-    "date": "February 2024"
+    "date": "February 2025"
   },
   {
     "id": 7,
@@ -63,7 +60,7 @@ const projects = [
     "live_link": "https://greenwavesoflo.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/green-waves",
     "tech_stack": ["React", "Maps API", "Community"],
-    "date": "January 2024"
+    "date": "January 2025"
   },
   {
     "id": 8,
@@ -72,7 +69,7 @@ const projects = [
     "live_link": "https://tekguyz.com/",
     "github_link": "https://github.com/alexubilla8185/tek-guyz-site",
     "tech_stack": ["React", "TypeScript", "Tailwind CSS"],
-    "date": "December 2023"
+    "date": "December 2025"
   },
   {
     "id": 9,
@@ -81,7 +78,7 @@ const projects = [
     "live_link": "https://real-stone.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/real-stone",
     "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
-    "date": "November 2023"
+    "date": "November 2025"
   },
   {
     "id": 10,
@@ -90,7 +87,7 @@ const projects = [
     "live_link": "https://meet4weed.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/meet-4-weed",
     "tech_stack": ["React", "Socket.IO", "Firebase"],
-    "date": "October 2023"
+    "date": "October 2025"
   },
   {
     "id": 11,
@@ -99,7 +96,7 @@ const projects = [
     "live_link": "https://darkchat-alpha.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/dark-chat",
     "tech_stack": ["WebRTC", "React", "P2P", "Security"],
-    "date": "September 2023"
+    "date": "September 2025"
   },
   {
     "id": 12,
@@ -108,7 +105,7 @@ const projects = [
     "live_link": "https://meet4weed-v1.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/meet-4-weed-v1",
     "tech_stack": ["React", "JavaScript", "CSS"],
-    "date": "August 2023"
+    "date": "August 2025"
   },
   {
     "id": 13,
@@ -117,7 +114,7 @@ const projects = [
     "live_link": "https://transcription-assistant.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/transcription-assistant",
     "tech_stack": ["React", "Gemini API", "Web Audio API"],
-    "date": "July 2023"
+    "date": "July 2025"
   },
   {
     "id": 14,
@@ -126,7 +123,7 @@ const projects = [
     "live_link": "https://reporter-assistant.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/reporter-assistant",
     "tech_stack": ["React", "Gemini API", "NLP"],
-    "date": "June 2023"
+    "date": "June 2025"
   },
   {
     "id": 15,
@@ -135,7 +132,7 @@ const projects = [
     "live_link": "https://palm-city-condo.netlify.app",
     "github_link": "https://github.com/alexubilla8185/palm-city-condo",
     "tech_stack": ["React", "Tailwind CSS", "Real Estate"],
-    "date": "May 2023"
+    "date": "May 2025"
   },
   {
     "id": 16,
@@ -144,7 +141,7 @@ const projects = [
     "live_link": "https://web-check-ai.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/web-check-ai",
     "tech_stack": ["React", "Gemini API", "Puppeteer"],
-    "date": "April 2023"
+    "date": "April 2025"
   },
   {
     "id": 17,
@@ -153,7 +150,7 @@ const projects = [
     "live_link": "https://spanish-jenga.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/spanish-jenga",
     "tech_stack": ["React", "Three.js", "Game Logic"],
-    "date": "March 2023"
+    "date": "March 2025"
   }
 ];
 
