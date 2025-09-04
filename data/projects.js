@@ -10,6 +10,14 @@ const projects = [
     "tech_stack": ["React", "TypeScript", "Tailwind CSS", "Component"]
   },
   {
+    "id": 13,
+    "title": "My Modern Resume",
+    "description": "A modern, minimalist portfolio, inspired by Google's M3 Expressive design. It features sections for projects, a resume, and an executive summary.",
+    "live_link": "https://my-modern-resume.netlify.app/",
+    "github_link": "https://github.com/alexubilla8185/my-modern-resume",
+    "tech_stack": ["React", "TypeScript", "Custom Components"]
+  },
+  {
     "id": 1,
     "title": "DemBoyzBBQ",
     "description": "A delicious online destination for BBQ lovers. Explore menus, catering options, and more.",
@@ -104,14 +112,6 @@ const projects = [
     "live_link": "https://reporter-assistant.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/reporter-assistant",
     "tech_stack": ["React", "AI", "Netlify"]
-  },
-  {
-    "id": 13,
-    "title": "My Modern Resume",
-    "description": "A modern, minimalist portfolio, inspired by Google's M3 Expressive design. It features sections for projects, a resume, and an executive summary.",
-    "live_link": "https://my-modern-resume.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/my-modern-resume",
-    "tech_stack": ["React", "TypeScript", "Tailwind CSS"]
   },
   {
     "id": 14,
