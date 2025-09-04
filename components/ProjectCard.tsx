@@ -21,7 +21,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const gradient = gradients[project.id % gradients.length];
   
   return (
-    <div className="bg-white dark:bg-zinc-900 rounded-lg shadow-md dark:shadow-lg dark:shadow-zinc-950/50 overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 ease-in-out flex flex-col">
+    <div className="bg-white dark:bg-zinc-900 rounded-lg shadow-md dark:shadow-lg dark:shadow-zinc-950/50 overflow-hidden flex flex-col h-full">
       
       {/* Card Header with Gradient */}
       <div className={`h-48 w-full bg-gradient-to-br ${gradient} flex items-center justify-center p-6 text-center relative`}>
