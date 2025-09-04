@@ -8,6 +8,6 @@ export interface Project {
   tech_stack: string[];
 }
 
-export type ActiveSection = 'summary' | 'projects' | 'resume';
+export type ActiveSection = 'summary' | 'projects' | 'resume' | 'contact';
 
 export type Theme = 'light' | 'dark';

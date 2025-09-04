@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import ExecutiveSummary from '@/components/ExecutiveSummary';
 import ProjectGrid from '@/components/ProjectGrid';
 import Resume from '@/components/Resume';
+import Contact from '@/components/Contact';
 import { ActiveSection, Theme } from '@/types';
 
 
@@ -35,6 +36,8 @@ const App: React.FC = () => {
         return <ProjectGrid />;
       case 'resume':
         return <Resume />;
+      case 'contact':
+        return <Contact />;
       case 'summary':
       default:
         return <ExecutiveSummary />;

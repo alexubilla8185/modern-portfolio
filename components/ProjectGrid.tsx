@@ -10,14 +10,18 @@ const ProjectGrid: React.FC = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch('data/projects.json');
+        const response = await fetch('/data/projects.json');
         if (!response.ok) {
-          throw new Error(`Failed to fetch projects: ${response.statusText}`);
+          throw new Error(`${response.status} ${response.statusText}`);
         }
         const data: Project[] = await response.json();
         setProjects(data);
       } catch (e) {
-        setError(e instanceof Error ? e.message : 'An unknown error occurred');
+        if (e instanceof Error) {
+            setError(`Failed to fetch projects: ${e.message}`);
+        } else {
+            setError('An unknown error occurred while fetching projects.');
+        }
       } finally {
         setIsLoading(false);
       }

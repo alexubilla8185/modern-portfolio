@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { ActiveSection, Theme } from '@/types';
-import { SunIcon, MoonIcon, ShareIcon } from '@/components/Icons';
+import { SunIcon, MoonIcon, ShareIcon, MenuIcon, CloseIcon } from '@/components/Icons';
 
 interface HeaderProps {
   activeSection: ActiveSection;
@@ -14,18 +14,19 @@ const NavItem: React.FC<{
   label: string;
   activeSection: ActiveSection;
   onClick: (section: ActiveSection) => void;
-}> = ({ section, label, activeSection, onClick }) => {
+  isMobile?: boolean;
+}> = ({ section, label, activeSection, onClick, isMobile = false }) => {
   const isActive = section === activeSection;
+  const baseClasses = 'transition-colors duration-300';
+  const activeClasses = 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300';
+  const inactiveClasses = 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100';
+
+  const mobileClasses = `w-full text-center block px-4 py-3 text-lg font-medium ${baseClasses} ${isActive ? activeClasses : inactiveClasses}`;
+  const desktopClasses = `px-3 py-2 rounded-md text-sm font-medium ${baseClasses} ${isActive ? activeClasses : inactiveClasses}`;
+
   return (
     <li>
-      <button
-        onClick={() => onClick(section)}
-        className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-          isActive
-            ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300'
-            : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100'
-        }`}
-      >
+      <button onClick={() => onClick(section)} className={isMobile ? mobileClasses : desktopClasses}>
         {label}
       </button>
     </li>
@@ -34,7 +35,24 @@ const NavItem: React.FC<{
 
 const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick, theme, toggleTheme }) => {
   const [showCopied, setShowCopied] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const canonicalUrl = 'https://my-modern-resume.netlify.app/';
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
+  const handleNavClick = (section: ActiveSection) => {
+    onNavClick(section);
+    setIsMenuOpen(false);
+  };
 
   const handleShare = async () => {
     const shareData = {
@@ -50,59 +68,90 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick, theme, toggl
         console.error('Share failed:', err);
       }
     } else {
-      // Fallback for desktop browsers
       try {
         await navigator.clipboard.writeText(canonicalUrl);
         setShowCopied(true);
-        setTimeout(() => setShowCopied(false), 2000); // Hide after 2 seconds
-      } catch (err) {
+        setTimeout(() => setShowCopied(false), 2000);
+      } catch (err)
+        {
         console.error('Failed to copy link:', err);
         alert('Failed to copy link.');
       }
     }
   };
-
+  
+  const navItems = [
+    { section: 'summary' as ActiveSection, label: 'About' },
+    { section: 'projects' as ActiveSection, label: 'Projects' },
+    { section: 'resume' as ActiveSection, label: 'Resume' },
+    { section: 'contact' as ActiveSection, label: 'Contact' },
+  ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-sm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0">
-            <h1 className="text-xl font-bold text-indigo-600 dark:text-indigo-400">Alejandro Ubilla</h1>
-          </div>
-          <div className="flex items-center space-x-2 sm:space-x-4">
-            <nav>
-              <ul className="flex items-center space-x-1 md:space-x-2">
-                <NavItem section="summary" label="About" activeSection={activeSection} onClick={onNavClick} />
-                <NavItem section="projects" label="Projects" activeSection={activeSection} onClick={onNavClick} />
-                <NavItem section="resume" label="Resume" activeSection={activeSection} onClick={onNavClick} />
-              </ul>
-            </nav>
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300"
-              aria-label="Toggle theme"
-            >
-              {theme === 'light' ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
-            </button>
-            <div className="relative">
+    <>
+      <header className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-sm">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex-shrink-0">
+              <h1 className="text-xl font-bold text-indigo-600 dark:text-indigo-400">Alejandro Ubilla</h1>
+            </div>
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              <nav className="hidden md:block">
+                <ul className="flex items-center space-x-1 md:space-x-2">
+                  {navItems.map(item => (
+                    <NavItem key={item.section} {...item} activeSection={activeSection} onClick={handleNavClick} />
+                  ))}
+                </ul>
+              </nav>
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300"
+                aria-label="Toggle theme"
+              >
+                {theme === 'light' ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
+              </button>
+              <div className="relative">
+                  <button
+                      onClick={handleShare}
+                      className="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300"
+                      aria-label="Share profile"
+                  >
+                      <ShareIcon className="h-5 w-5" />
+                  </button>
+                  {showCopied && (
+                      <div className="absolute top-full right-0 mt-2 bg-slate-800 text-white text-xs font-semibold px-2 py-1 rounded-md shadow-lg animate-fade-in">
+                          Link Copied!
+                      </div>
+                  )}
+              </div>
+              <div className="md:hidden">
                 <button
-                    onClick={handleShare}
-                    className="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300"
-                    aria-label="Share profile"
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  aria-controls="mobile-menu"
+                  aria-expanded={isMenuOpen}
                 >
-                    <ShareIcon className="h-5 w-5" />
+                  <span className="sr-only">Open main menu</span>
+                  {isMenuOpen ? <CloseIcon className="block h-6 w-6" /> : <MenuIcon className="block h-6 w-6" />}
                 </button>
-                {showCopied && (
-                    <div className="absolute top-full right-0 mt-2 bg-slate-800 text-white text-xs font-semibold px-2 py-1 rounded-md shadow-lg animate-fade-in">
-                        Link Copied!
-                    </div>
-                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {isMenuOpen && (
+        <div className="fixed inset-0 top-16 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg md:hidden animate-fade-in" id="mobile-menu">
+          <div className="pt-2 pb-3">
+            <ul>
+              {navItems.map(item => (
+                <NavItem key={item.section} {...item} activeSection={activeSection} onClick={handleNavClick} isMobile />
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
