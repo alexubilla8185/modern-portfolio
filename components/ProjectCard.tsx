@@ -67,7 +67,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
             <div className="flex items-center space-x-4">
               <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 font-semibold transition-colors" title="View App">
                 <ExternalLinkIcon className="h-5 w-5" />
-                View App
+                App
               </a>
               <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-zinc-200 font-semibold transition-colors" title="View Source Code">
                 <GitHubIcon className="h-5 w-5" />
