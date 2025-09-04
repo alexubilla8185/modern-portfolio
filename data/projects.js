@@ -1,141 +1,159 @@
 
 
+
 const projects = [
   {
-    "id": 17,
-    "title": "Interactive 3D Carousel",
-    "description": "A reusable React component for showcasing content in an engaging, 3D animated carousel. This portfolio uses it to display projects! Built with TypeScript and Framer Motion for fluid, physics-based animations. \n\nUsage:\n```jsx\n<ProjectShowcase projects={...} />\n```",
-    "live_link": "#",
-    "github_link": "https://github.com/alexubilla8185/my-modern-resume/blob/main/components/ProjectShowcase.tsx",
-    "tech_stack": ["React", "TypeScript", "Framer Motion", "Component"]
-  },
-  {
-    "id": 13,
+    "id": 1,
     "title": "My Modern Resume",
     "description": "A dynamic, single-page portfolio built from scratch to showcase my skills in modern web development, featuring an interactive project carousel, simulated AI assistant, and a clean, responsive UI.",
     "live_link": "https://my-modern-resume.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/my-modern-resume",
-    "tech_stack": ["React", "TypeScript", "Tailwind CSS"]
+    "tech_stack": ["React", "TypeScript", "Tailwind CSS"],
+    "date": "July 2024"
   },
   {
-    "id": 1,
+    "id": 2,
+    "title": "Interactive 3D Carousel",
+    "description": "A reusable React component for showcasing content in an engaging, 3D animated carousel. This portfolio uses it to display projects! Built with TypeScript and Framer Motion for fluid, physics-based animations. \n\nUsage:\n```jsx\n<ProjectShowcase projects={...} />\n```",
+    "live_link": "#",
+    "github_link": "https://github.com/alexubilla8185/my-modern-resume/blob/main/components/ProjectShowcase.tsx",
+    "tech_stack": ["React", "TypeScript", "Framer Motion", "Component"],
+    "date": "June 2024"
+  },
+  {
+    "id": 3,
     "title": "DemBoyzBBQ",
     "description": "Developed a responsive and appetizing website for a local BBQ restaurant, driving online engagement and providing customers with easy access to menus, catering info, and location details.",
     "live_link": "https://demboyzbbq.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/demboyz-bbq",
-    "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"]
+    "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
+    "date": "May 2024"
   },
   {
-    "id": 2,
+    "id": 4,
     "title": "Full Belly Sundays",
     "description": "Built a web application for a non-profit to streamline the process of connecting food donations with local communities in need, featuring an intuitive interface for volunteers and recipients.",
     "live_link": "https://full-belly-sundays.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/full-belly-sundays",
-    "tech_stack": ["React", "Firebase", "Maps API"]
+    "tech_stack": ["React", "Firebase", "Maps API"],
+    "date": "April 2024"
   },
   {
-    "id": 3,
+    "id": 5,
     "title": "FancyFam",
     "description": "A modern and interactive digital business card platform, designed to make a memorable first impression with a clean, elegant interface and seamless sharing capabilities.",
     "live_link": "https://fancyfam.com/",
     "github_link": "https://github.com/alexubilla8185/fancy-fam",
-    "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"]
+    "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
+    "date": "March 2024"
   },
   {
-    "id": 4,
+    "id": 6,
     "title": "AfterLife (Alpha)",
     "description": "Engineered an AI-powered digital memorial platform where users can create a personalized legacy. Implemented a feature allowing loved ones to interact with memories and AI-generated responses.",
     "live_link": "https://afterlife-alpha.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/after-life",
-    "tech_stack": ["React", "Gemini API", "Firebase"]
+    "tech_stack": ["React", "Gemini API", "Firebase"],
+    "date": "February 2024"
   },
   {
-    "id": 5,
+    "id": 7,
     "title": "GreenWaves of South Florida",
     "description": "Created a community hub for cannabis enthusiasts in South Florida, integrating Google Maps API to help users find local dispensaries and discover product information.",
     "live_link": "https://greenwavesoflo.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/green-waves",
-    "tech_stack": ["React", "Maps API", "Community"]
+    "tech_stack": ["React", "Maps API", "Community"],
+    "date": "January 2024"
   },
   {
-    "id": 6,
+    "id": 8,
     "title": "TEKGUYZ",
     "description": "Launched the official business website for a tech consultancy, establishing a professional online presence to attract clients and showcase services in DevOps, software development, and strategy.",
     "live_link": "https://tekguyz.com/",
     "github_link": "https://github.com/alexubilla8185/tek-guyz-site",
-    "tech_stack": ["React", "TypeScript", "Tailwind CSS"]
+    "tech_stack": ["React", "TypeScript", "Tailwind CSS"],
+    "date": "December 2023"
   },
   {
-    "id": 7,
+    "id": 9,
     "title": "Real Stone & Granite",
     "description": "Delivered a sleek, professional website for a local stone and granite business, building a digital showroom to showcase their products and attract new customers.",
     "live_link": "https://real-stone.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/real-stone",
-    "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"]
+    "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
+    "date": "November 2023"
   },
   {
-    "id": 8,
+    "id": 10,
     "title": "Meet4Weed",
     "description": "Developed a social networking proof-of-concept for the cannabis community, designed with real-time features to connect users and facilitate sharing in a user-friendly, modern environment.",
     "live_link": "https://meet4weed.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/meet-4-weed",
-    "tech_stack": ["React", "Socket.IO", "Firebase"]
+    "tech_stack": ["React", "Socket.IO", "Firebase"],
+    "date": "October 2023"
   },
   {
-    "id": 9,
+    "id": 11,
     "title": "DarkChat (Alpha)",
     "description": "Built a privacy-first video chat application using WebRTC for direct P2P connections, eliminating the need for a central server and ensuring all communication is encrypted and ephemeral.",
     "live_link": "https://darkchat-alpha.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/dark-chat",
-    "tech_stack": ["WebRTC", "React", "P2P", "Security"]
+    "tech_stack": ["WebRTC", "React", "P2P", "Security"],
+    "date": "September 2023"
   },
   {
-    "id": 10,
+    "id": 12,
     "title": "Meet4Weed (Alpha)",
     "description": "The original version of the cannabis social platform, demonstrating the project's evolution and foundational features from an earlier stage of development.",
     "live_link": "https://meet4weed-v1.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/meet-4-weed-v1",
-    "tech_stack": ["React", "JavaScript", "CSS"]
+    "tech_stack": ["React", "JavaScript", "CSS"],
+    "date": "August 2023"
   },
   {
-    "id": 11,
+    "id": 13,
     "title": "Transcription Assistant",
     "description": "Developed an AI-powered tool that leverages the Gemini API to provide fast and accurate audio-to-text transcription, streamlining workflows for professionals.",
     "live_link": "https://transcription-assistant.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/transcription-assistant",
-    "tech_stack": ["React", "Gemini API", "Web Audio API"]
+    "tech_stack": ["React", "Gemini API", "Web Audio API"],
+    "date": "July 2023"
   },
   {
-    "id": 12,
+    "id": 14,
     "title": "Reporter Assistant",
     "description": "Created a specialized AI tool for journalists to organize notes, transcribe interviews, and streamline their content workflow, boosting productivity and accuracy.",
     "live_link": "https://reporter-assistant.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/reporter-assistant",
-    "tech_stack": ["React", "Gemini API", "NLP"]
+    "tech_stack": ["React", "Gemini API", "NLP"],
+    "date": "June 2023"
   },
   {
-    "id": 14,
+    "id": 15,
     "title": "Palm City Condo Getaway",
     "description": "Designed and launched a promotional single-page website for a vacation rental property, featuring an image gallery and booking information to attract potential renters.",
     "live_link": "https://palm-city-condo.netlify.app",
     "github_link": "https://github.com/alexubilla8185/palm-city-condo",
-    "tech_stack": ["React", "Tailwind CSS", "Real Estate"]
+    "tech_stack": ["React", "Tailwind CSS", "Real Estate"],
+    "date": "May 2023"
   },
   {
-    "id": 15,
+    "id": 16,
     "title": "Web Check AI",
     "description": "Built an AI-driven diagnostic tool to analyze web pages. It leverages web scraping techniques to gather content and the Gemini API to provide insights and checks.",
     "live_link": "https://web-check-ai.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/web-check-ai",
-    "tech_stack": ["React", "Gemini API", "Puppeteer"]
+    "tech_stack": ["React", "Gemini API", "Puppeteer"],
+    "date": "April 2023"
   },
   {
-    "id": 16,
+    "id": 17,
     "title": "Digital 'Burn Hole' Game",
     "description": "Developed a 3D digital party game with physics-based interactions. Players take turns removing blocks from a tower until it collapses in this modern take on a classic.",
     "live_link": "https://spanish-jenga.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/spanish-jenga",
-    "tech_stack": ["React", "Three.js", "Game Logic"]
+    "tech_stack": ["React", "Three.js", "Game Logic"],
+    "date": "March 2023"
   }
 ];
 
