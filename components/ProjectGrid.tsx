@@ -1,52 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ProjectCard from '@/components/ProjectCard';
 import type { Project } from '@/types';
+import projectsData from '@/data/projects';
 
 const ProjectGrid: React.FC = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await fetch('data/projects.json');
-        if (!response.ok) {
-          throw new Error(`${response.status}`);
-        }
-        const data: Project[] = await response.json();
-        setProjects(data);
-      } catch (e) {
-        if (e instanceof Error) {
-            setError(`Failed to fetch projects: ${e.message}`);
-        } else {
-            setError('An unknown error occurred while fetching projects.');
-        }
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchProjects();
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="text-center">
-        <h2 className="text-2xl font-semibold text-slate-700 dark:text-slate-300">Loading Projects...</h2>
-      </div>
-    );
-  }
-
-  if (error) {
+  // The projects data is now imported directly.
+  // We can add a check to ensure the data is loaded correctly.
+  if (!projectsData || !Array.isArray(projectsData)) {
     return (
       <div className="text-center p-8 bg-red-50 dark:bg-red-900/20 rounded-lg">
         <h2 className="text-2xl font-semibold text-red-700 dark:text-red-400">Could not load projects</h2>
-        <p className="text-red-600 dark:text-red-500 mt-2">{error}</p>
+        <p className="text-red-600 dark:text-red-500 mt-2">There was an issue loading the project data.</p>
       </div>
     );
   }
 
+  // Since the data is imported, we no longer need loading or async error states.
   return (
     <section>
       <div className="text-center mb-12">
@@ -56,7 +25,7 @@ const ProjectGrid: React.FC = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
+        {projectsData.map((project: Project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
