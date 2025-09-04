@@ -4,63 +4,63 @@ const projects = [
   {
     "id": 17,
     "title": "Interactive 3D Carousel",
-    "description": "A reusable React component for showcasing content in an engaging, 3D animated carousel. You're using it right now! \n\nUsage:\n```jsx\n<ProjectShowcase projects={...} />\n```",
+    "description": "A reusable React component for showcasing content in an engaging, 3D animated carousel. This portfolio uses it to display projects! Built with TypeScript and Framer Motion for fluid, physics-based animations. \n\nUsage:\n```jsx\n<ProjectShowcase projects={...} />\n```",
     "live_link": "#",
     "github_link": "https://github.com/alexubilla8185/my-modern-resume/blob/main/components/ProjectShowcase.tsx",
-    "tech_stack": ["React", "TypeScript", "Tailwind CSS", "Component"]
+    "tech_stack": ["React", "TypeScript", "Framer Motion", "Component"]
   },
   {
     "id": 13,
     "title": "My Modern Resume",
-    "description": "A modern, minimalist portfolio, inspired by Google's M3 Expressive design. It features sections for projects, a resume, and an executive summary.",
+    "description": "A dynamic, single-page portfolio built from scratch to showcase my skills in modern web development, featuring an interactive project carousel, simulated AI assistant, and a clean, responsive UI.",
     "live_link": "https://my-modern-resume.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/my-modern-resume",
-    "tech_stack": ["React", "TypeScript", "Custom Components"]
+    "tech_stack": ["React", "TypeScript", "Tailwind CSS"]
   },
   {
     "id": 1,
     "title": "DemBoyzBBQ",
-    "description": "A delicious online destination for BBQ lovers. Explore menus, catering options, and more.",
+    "description": "Developed a responsive and appetizing website for a local BBQ restaurant, driving online engagement and providing customers with easy access to menus, catering info, and location details.",
     "live_link": "https://demboyzbbq.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/demboyz-bbq",
-    "tech_stack": ["React", "Restaurant", "Netlify"]
+    "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"]
   },
   {
     "id": 2,
     "title": "Full Belly Sundays",
-    "description": "Fighting hunger in Dade County by connecting food donations with those who need it most.",
+    "description": "Built a web application for a non-profit to streamline the process of connecting food donations with local communities in need, featuring an intuitive interface for volunteers and recipients.",
     "live_link": "https://full-belly-sundays.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/full-belly-sundays",
-    "tech_stack": ["React", "Non-profit", "Netlify"]
+    "tech_stack": ["React", "Firebase", "Maps API"]
   },
   {
     "id": 3,
     "title": "FancyFam",
-    "description": "Your modern digital card.",
+    "description": "Designed and developed a proof-of-concept e-commerce platform for luxury goods, focusing on a clean UI, intuitive navigation, and a seamless shopping experience integrated with the Stripe API.",
     "live_link": "https://fancyfam.com/",
     "github_link": "https://github.com/alexubilla8185/fancy-fam",
-    "tech_stack": ["React", "Social", "Tailwind CSS"]
+    "tech_stack": ["React", "Stripe API", "Tailwind CSS"]
   },
   {
     "id": 4,
     "title": "AfterLife (Alpha)",
-    "description": "An AI-powered digital memorial platform that creates a personalized legacy, allowing loved ones to interact with memories and pre-programmed responses.",
+    "description": "Engineered an AI-powered digital memorial platform where users can create a personalized legacy. Implemented a feature allowing loved ones to interact with memories and AI-generated responses.",
     "live_link": "https://afterlife-alpha.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/after-life",
-    "tech_stack": ["React", "AI", "Database"]
+    "tech_stack": ["React", "Gemini API", "Firebase"]
   },
   {
     "id": 5,
     "title": "GreenWaves of South Florida",
-    "description": "Your vibrant online haven for cannabis enthusiasts in South Florida. Find local dispensaries, learn about strains, and connect with the community.",
+    "description": "Created a community hub for cannabis enthusiasts in South Florida, integrating Google Maps API to help users find local dispensaries and discover product information.",
     "live_link": "https://greenwavesoflo.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/green-waves",
-    "tech_stack": ["React", "Community", "Maps API"]
+    "tech_stack": ["React", "Maps API", "Community"]
   },
   {
     "id": 6,
     "title": "TEKGUYZ",
-    "description": "Partner with TEKGUYZ for cutting-edge DevOps solutions, custom software development, and strategic technology consulting that drives measurable business results.",
+    "description": "Launched the official business website for a tech consultancy, establishing a professional online presence to attract clients and showcase services in DevOps, software development, and strategy.",
     "live_link": "https://tekguyz.com/",
     "github_link": "https://github.com/alexubilla8185/tek-guyz-site",
     "tech_stack": ["React", "TypeScript", "Tailwind CSS"]
@@ -68,23 +68,23 @@ const projects = [
   {
     "id": 7,
     "title": "Real Stone & Granite",
-    "description": "A sleek and professional business website for a stone and granite company, showcasing their products and services with a modern, clean design.",
+    "description": "Delivered a sleek, professional website for a local stone and granite business, building a digital showroom to showcase their products and attract new customers.",
     "live_link": "https://real-stone.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/real-stone",
-    "tech_stack": ["React", "Netlify", "Tailwind CSS"]
+    "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"]
   },
   {
     "id": 8,
     "title": "Meet4Weed",
-    "description": "A modern social networking platform for the cannabis community, designed to connect users and share experiences in a user-friendly environment.",
+    "description": "Developed a social networking proof-of-concept for the cannabis community, designed with real-time features to connect users and facilitate sharing in a user-friendly, modern environment.",
     "live_link": "https://meet4weed.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/meet-4-weed",
-    "tech_stack": ["React", "Social", "Netlify"]
+    "tech_stack": ["React", "Socket.IO", "Firebase"]
   },
   {
     "id": 9,
     "title": "DarkChat (Alpha)",
-    "description": "A secure, peer-to-peer video chat that runs directly in your browser. Share a link to have encrypted video calls, text chats, and file sharing sessions.",
+    "description": "Built a privacy-first video chat application using WebRTC for direct P2P connections, eliminating the need for a central server and ensuring all communication is encrypted and ephemeral.",
     "live_link": "https://darkchat-alpha.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/dark-chat",
     "tech_stack": ["WebRTC", "React", "P2P", "Security"]
@@ -92,50 +92,50 @@ const projects = [
   {
     "id": 10,
     "title": "Meet4Weed (Alpha)",
-    "description": "The original version of the cannabis social platform, demonstrating the project's evolution and foundational features.",
+    "description": "The original version of the cannabis social platform, demonstrating the project's evolution and foundational features from an earlier stage of development.",
     "live_link": "https://meet4weed-v1.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/meet-4-weed-v1",
-    "tech_stack": ["React", "Netlify", "JavaScript"]
+    "tech_stack": ["React", "JavaScript", "CSS"]
   },
   {
     "id": 11,
     "title": "Transcription Assistant",
-    "description": "An AI-powered tool designed to simplify the transcription process, offering fast and accurate text conversion from audio files.",
+    "description": "Developed an AI-powered tool that leverages the Gemini API to provide fast and accurate audio-to-text transcription, streamlining workflows for professionals.",
     "live_link": "https://transcription-assistant.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/transcription-assistant",
-    "tech_stack": ["React", "AI", "Gemini API"]
+    "tech_stack": ["React", "Gemini API", "Web Audio API"]
   },
   {
     "id": 12,
     "title": "Reporter Assistant",
-    "description": "A specialized AI tool for journalists and reporters, helping to organize notes, transcribe interviews, and streamline the content creation workflow.",
+    "description": "Created a specialized AI tool for journalists to organize notes, transcribe interviews, and streamline their content workflow, boosting productivity and accuracy.",
     "live_link": "https://reporter-assistant.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/reporter-assistant",
-    "tech_stack": ["React", "AI", "Netlify"]
+    "tech_stack": ["React", "Gemini API", "NLP"]
   },
   {
     "id": 14,
     "title": "Palm City Condo Getaway",
-    "description": "Discover your ideal Florida getaway in this beautiful ground-floor condo, nestled in the heart of Palm City.",
+    "description": "Designed and launched a promotional single-page website for a vacation rental property, featuring an image gallery and booking information to attract potential renters.",
     "live_link": "https://palm-city-condo.netlify.app",
     "github_link": "https://github.com/alexubilla8185/palm-city-condo",
-    "tech_stack": ["React", "Real Estate", "Netlify"]
+    "tech_stack": ["React", "Tailwind CSS", "Real Estate"]
   },
   {
     "id": 15,
     "title": "Web Check AI",
-    "description": "An AI-driven tool for analyzing and checking web content, leveraging AI for web diagnostics.",
+    "description": "Built an AI-driven diagnostic tool to analyze web pages. It leverages web scraping techniques to gather content and the Gemini API to provide insights and checks.",
     "live_link": "https://web-check-ai.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/web-check-ai",
-    "tech_stack": ["React", "AI", "Dev Tools"]
+    "tech_stack": ["React", "Gemini API", "Puppeteer"]
   },
   {
     "id": 16,
-    "title": "Spanish Jenga",
-    "description": "A digital drinking game where players take turns creating 'holes' on a surface. The player who makes the center object fall loses. A modern, cool take on the classic party game.",
+    "title": "Digital 'Burn Hole' Game",
+    "description": "Developed a 3D digital party game with physics-based interactions. Players take turns removing blocks from a tower until it collapses in this modern take on a classic.",
     "live_link": "https://spanish-jenga.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/spanish-jenga",
-    "tech_stack": ["React", "Game", "Netlify"]
+    "tech_stack": ["React", "Three.js", "Game Logic"]
   }
 ];
 

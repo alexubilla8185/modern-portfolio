@@ -56,7 +56,6 @@ const ExecutiveSummary: React.FC = () => {
             </button>
           </div>
           <div className="flex-grow w-full overflow-hidden">
-            <h2 className="text-4xl font-bold text-slate-900 dark:text-zinc-100 mb-4">Hi, I'm Alejandro Ubilla</h2>
             <div className="flex flex-col">
               <div className="mb-6">
                 <h3 className="text-lg font-semibold text-slate-700 dark:text-zinc-300 mb-3">Core Competencies:</h3>

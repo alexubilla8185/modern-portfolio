@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import type { ActiveSection } from '@/types';
 
 interface SectionNavigatorProps {
@@ -6,14 +6,14 @@ interface SectionNavigatorProps {
   onSectionChange: (section: ActiveSection) => void;
 }
 
-const SectionNavigator: React.FC<SectionNavigatorProps> = ({ activeSection, onSectionChange }) => {
+const SectionNavigator = forwardRef<HTMLDivElement, SectionNavigatorProps>(({ activeSection, onSectionChange }, ref) => {
     const sections: { id: ActiveSection; label: string }[] = [
         { id: 'projects', label: 'Projects' },
         { id: 'resume', label: 'Resume' },
     ];
 
     return (
-        <div className="flex justify-center my-8">
+        <div ref={ref} className="flex justify-center my-8" style={{ scrollMarginTop: '80px' }}>
             <div className="p-1 bg-slate-100 dark:bg-zinc-800 rounded-full shadow-inner flex space-x-1">
                 {sections.map(section => (
                     <button
@@ -31,6 +31,6 @@ const SectionNavigator: React.FC<SectionNavigatorProps> = ({ activeSection, onSe
             </div>
         </div>
     );
-};
+});
 
 export default SectionNavigator;

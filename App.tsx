@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, Suspense, useRef } from 'react';
 import Header from '@/components/Header';
 import ExecutiveSummary from '@/components/ExecutiveSummary';
 import ProjectShowcase from '@/components/ProjectShowcase';
@@ -23,6 +23,7 @@ const App: React.FC = () => {
     }
     return 'light';
   });
+  const navigatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -30,6 +31,22 @@ const App: React.FC = () => {
     root.classList.add(theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
+  
+  useEffect(() => {
+    // Scroll to the navigator when the view changes, but not on initial load
+    // This provides a better user experience on section change.
+    if (navigatorRef.current) {
+        // We get the top position of the navigator relative to the viewport
+        const topPos = navigatorRef.current.getBoundingClientRect().top + window.scrollY;
+        // We only scroll if the navigator is not already visible at the top
+        if (window.scrollY > topPos || navigatorRef.current.getBoundingClientRect().top < 0) {
+            window.scrollTo({
+                top: topPos,
+                behavior: 'smooth'
+            });
+        }
+    }
+  }, [activeView]);
 
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
@@ -44,6 +61,7 @@ const App: React.FC = () => {
       <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <ExecutiveSummary />
         <SectionNavigator 
+          ref={navigatorRef}
           activeSection={activeView} 
           onSectionChange={setActiveView} 
         />
