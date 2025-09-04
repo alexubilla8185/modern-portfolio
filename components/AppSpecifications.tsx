@@ -33,7 +33,8 @@ const AppSpecifications: React.FC = () => {
             <ul className="space-y-2">
                 <ListItem><strong>Fully Responsive Design:</strong> Adapts seamlessly to all screen sizes, from mobile to desktop.</ListItem>
                 <ListItem><strong>Light/Dark Theme:</strong> User-selectable theme with system preference detection and localStorage persistence.</ListItem>
-                <ListItem><strong>Static Project Data:</strong> Project data is imported directly as a TypeScript module, ensuring it's bundled with the app for fast, reliable loading.</ListItem>
+                <ListItem><strong>Simulated AI Assistant:</strong> A fully client-side chatbot that demonstrates UI/UX for conversational interfaces using pre-scripted responses to mimic a live AI.</ListItem>
+                <ListItem><strong>Static Project Data:</strong> Project data is imported directly as a JavaScript module, ensuring it's bundled with the app for fast, reliable loading.</ListItem>
                 <ListItem><strong>Interactive Easter Egg:</strong> This modal! Triggered by a triple-click on the profile picture.</ListItem>
                 <ListItem><strong>Dynamic Resume Download:</strong> Generates a Markdown file of the resume on-the-fly.</ListItem>
             </ul>
@@ -42,7 +43,7 @@ const AppSpecifications: React.FC = () => {
         <SpecSection title="Styling & Assets">
              <ul className="space-y-2">
                 <ListItem><strong>Google Fonts:</strong> Uses the 'Inter' font family for clean and readable typography.</ListItem>
-                <ListItem><strong>Heroicons (via SVG):</strong> For crisp, consistent iconography across the application.</ListItem>
+                <ListItem><strong>Custom SVG Icons:</strong> For crisp, consistent iconography across the application.</ListItem>
                  <ListItem><strong>Dynamic Gradients:</strong> Each project card features a unique, dynamically generated gradient background, providing a visually consistent and professional look.</ListItem>
             </ul>
         </SpecSection>

@@ -3,14 +3,15 @@ import Header from '@/components/Header';
 import ExecutiveSummary from '@/components/ExecutiveSummary';
 import ProjectShowcase from '@/components/ProjectShowcase';
 import Resume from '@/components/Resume';
-import Contact from '@/components/Contact';
 import Modal from '@/components/Modal';
 import ActionBar from '@/components/ActionBar';
+import Chatbot from '@/components/Chatbot'; // Import the new Chatbot component
 import { ActiveSection, Theme } from '@/types';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<ActiveSection>('summary');
   const [isContactModalOpen, setContactModalOpen] = useState(false);
+  const [isChatModalOpen, setChatModalOpen] = useState(false); // State for the chat modal
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = window.localStorage.getItem('theme') as Theme;
@@ -54,7 +55,10 @@ const App: React.FC = () => {
       <main key={activeSection} className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
         {renderSection()}
       </main>
-      <ActionBar onContactClick={() => setContactModalOpen(true)} />
+      <ActionBar 
+        onContactClick={() => setContactModalOpen(true)}
+        onChatClick={() => setChatModalOpen(true)} // Handler for chat modal
+      />
       <Modal
         isOpen={isContactModalOpen}
         onClose={() => setContactModalOpen(false)}
@@ -62,8 +66,18 @@ const App: React.FC = () => {
       >
         <Contact />
       </Modal>
+       <Modal
+        isOpen={isChatModalOpen}
+        onClose={() => setChatModalOpen(false)}
+        title="AI Assistant"
+      >
+        <Chatbot />
+      </Modal>
     </div>
   );
 };
+
+// Lazy load Contact component as it's in a modal
+const Contact = React.lazy(() => import('@/components/Contact'));
 
 export default App;

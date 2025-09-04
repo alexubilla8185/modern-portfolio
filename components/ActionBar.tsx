@@ -1,14 +1,26 @@
 import React from 'react';
-import { GitHubIcon, LinkedInIcon, MailIcon } from '@/components/Icons';
+import { GitHubIcon, LinkedInIcon, MailIcon, SparklesIcon } from '@/components/Icons';
 
 interface ActionBarProps {
   onContactClick: () => void;
+  onChatClick: () => void;
 }
 
-const ActionBar: React.FC<ActionBarProps> = ({ onContactClick }) => {
+const ActionBar: React.FC<ActionBarProps> = ({ onContactClick, onChatClick }) => {
   return (
     <footer className="fixed bottom-4 right-4 z-50 animate-fade-in">
       <div className="flex items-center gap-2 p-2 bg-slate-50/80 dark:bg-zinc-900/80 backdrop-blur-lg rounded-full shadow-lg border border-slate-200 dark:border-zinc-700">
+        <button 
+          onClick={onChatClick} 
+          className="p-2 rounded-full text-slate-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400 transition-colors duration-300"
+          aria-label="Open AI Assistant"
+          title="AI Assistant"
+        >
+          <SparklesIcon className="h-6 w-6" />
+        </button>
+
+         <div className="h-6 w-px bg-slate-300 dark:bg-zinc-600"></div>
+
         <a 
           href="https://github.com/alexubilla8185" 
           target="_blank" 

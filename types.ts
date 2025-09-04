@@ -10,3 +10,8 @@ export interface Project {
 export type ActiveSection = 'summary' | 'projects' | 'resume';
 
 export type Theme = 'light' | 'dark';
+
+export interface ChatMessage {
+  role: 'user' | 'model';
+  text: string;
+}
