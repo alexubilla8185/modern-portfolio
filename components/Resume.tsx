@@ -77,7 +77,7 @@ Agile Methodologies, Continuous Integration/Continuous Deployment (CI/CD), Deplo
   };
 
   return (
-    <section className="max-w-4xl mx-auto bg-white dark:bg-zinc-900 p-8 md:p-12 shadow-lg rounded-lg">
+    <section className="max-w-5xl mx-auto bg-white dark:bg-zinc-900 p-8 md:p-12 shadow-lg rounded-lg">
       <div className="flex flex-col sm:flex-row justify-between items-start mb-8">
         <div>
           <h2 className="text-4xl font-bold text-slate-900 dark:text-zinc-100">Alejandro Ubilla</h2>
