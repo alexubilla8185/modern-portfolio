@@ -67,14 +67,8 @@ const ProjectShowcase: React.FC = () => {
 
     return (
         <section>
-            <div className="text-center mb-8">
-                {/* The h2 title has been removed for a cleaner mobile view */}
-                <p className="mt-4 text-lg text-slate-600 dark:text-zinc-400 max-w-2xl mx-auto">
-                    A selection of projects I've been working on this year. Click the side cards or use the arrows to navigate.
-                </p>
-            </div>
-
-            <div className="relative w-full h-[550px] flex items-center justify-center">
+            {/* Descriptive text removed for a cleaner UI */}
+            <div className="relative w-full h-[520px] flex items-center justify-center">
                 <div className="relative h-full w-full max-w-5xl">
                     {projectsData.map((project, i) => (
                         <motion.div
