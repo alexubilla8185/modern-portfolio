@@ -13,10 +13,10 @@ const projects: Project[] = [
   {
     "id": 2,
     "title": "Interactive 3D Carousel",
-    "description": "A reusable React component that displays content in an engaging, 3D animated carousel. It uses Framer Motion to create fluid, physics-based animations, and this portfolio uses it to showcase projects.\n\nUsage:\n```jsx\n<ProjectShowcase projects={...} />\n```",
+    "description": "A reusable React component for showcasing content in an engaging, 3D animated carousel. This portfolio uses it to display projects! \n\nUsage:\n```jsx\n<ProjectShowcase projects={...} />\n```",
     "live_link": "#",
     "github_link": "https://github.com/alexubilla8185/my-modern-resume/blob/main/components/ProjectShowcase.tsx",
-    "tech_stack": ["React", "TypeScript", "Framer Motion", "Component"],
+    "tech_stack": ["React", "TypeScript", "Framer Motion"],
     "date": "June 2025"
   },
   {
@@ -142,12 +142,12 @@ const projects: Project[] = [
     "description": "Built an AI-driven diagnostic tool to analyze web pages. It leverages web scraping techniques to gather content and the Gemini API to provide insights and checks.",
     "live_link": "https://web-check-ai.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/web-check-ai",
-    "tech_stack": ["React", "Gemini API", "Puppeteer"],
+    "tech_stack": ["React", "Gemini API", "Dev Tools"],
     "date": "April 2025"
   },
   {
     "id": 17,
-    "title": "Digital 'Burn Hole' Game",
+    "title": "Spanish Jenga",
     "description": "Developed a 3D digital party game with physics-based interactions. Players take turns removing blocks from a tower until it collapses in this modern take on a classic.",
     "live_link": "https://spanish-jenga.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/spanish-jenga",

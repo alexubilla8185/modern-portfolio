@@ -11,10 +11,10 @@ const projects = [
   {
     "id": 2,
     "title": "Interactive 3D Carousel",
-    "description": "A reusable React component for showcasing content in an engaging, 3D animated carousel. This portfolio uses it to display projects! Built with TypeScript and Framer Motion for fluid, physics-based animations. \n\nUsage:\n```jsx\n<ProjectShowcase projects={...} />\n```",
+    "description": "A reusable React component for showcasing content in an engaging, 3D animated carousel. This portfolio uses it to display projects! \n\nUsage:\n```jsx\n<ProjectShowcase projects={...} />\n```",
     "live_link": "#",
     "github_link": "https://github.com/alexubilla8185/my-modern-resume/blob/main/components/ProjectShowcase.tsx",
-    "tech_stack": ["React", "TypeScript", "Framer Motion", "Component"],
+    "tech_stack": ["React", "TypeScript", "Framer Motion"],
     "date": "June 2025"
   },
   {
@@ -46,7 +46,7 @@ const projects = [
   },
   {
     "id": 6,
-    "title": "AfterLife (Alpha)",
+    "title": "AfterLife",
     "description": "Engineered an AI-powered digital memorial platform where users can create a personalized legacy. Implemented a feature allowing loved ones to interact with memories and AI-generated responses.",
     "live_link": "https://afterlife-alpha.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/after-life",
@@ -100,7 +100,7 @@ const projects = [
   },
   {
     "id": 12,
-    "title": "Meet4Weed (Alpha)",
+    "title": "Meet4Weed (v1)",
     "description": "The original version of the cannabis social platform, demonstrating the project's evolution and foundational features from an earlier stage of development.",
     "live_link": "https://meet4weed-v1.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/meet-4-weed-v1",
@@ -140,12 +140,12 @@ const projects = [
     "description": "Built an AI-driven diagnostic tool to analyze web pages. It leverages web scraping techniques to gather content and the Gemini API to provide insights and checks.",
     "live_link": "https://web-check-ai.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/web-check-ai",
-    "tech_stack": ["React", "Gemini API", "Puppeteer"],
+    "tech_stack": ["React", "Gemini API", "Dev Tools"],
     "date": "April 2025"
   },
   {
     "id": 17,
-    "title": "Digital 'Burn Hole' Game",
+    "title": "Spanish Jenga",
     "description": "Developed a 3D digital party game with physics-based interactions. Players take turns removing blocks from a tower until it collapses in this modern take on a classic.",
     "live_link": "https://spanish-jenga.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/spanish-jenga",
