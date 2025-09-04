@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Header from '@/components/Header';
 import ExecutiveSummary from '@/components/ExecutiveSummary';
 import ProjectShowcase from '@/components/ProjectShowcase';
 import Resume from '@/components/Resume';
 import Modal from '@/components/Modal';
 import ActionBar from '@/components/ActionBar';
-import Chatbot from '@/components/Chatbot'; // Import the new Chatbot component
-import { ActiveSection, Theme } from '@/types';
+import Chatbot from '@/components/Chatbot';
+import SectionNavigator from '@/components/SectionNavigator';
+import { Theme } from '@/types';
+
+type View = 'projects' | 'resume';
 
 const App: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<ActiveSection>('summary');
+  const [activeView, setActiveView] = useState<View>('projects');
   const [isContactModalOpen, setContactModalOpen] = useState(false);
-  const [isChatModalOpen, setChatModalOpen] = useState(false); // State for the chat modal
+  const [isChatModalOpen, setChatModalOpen] = useState(false);
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = window.localStorage.getItem('theme') as Theme;
@@ -32,39 +35,34 @@ const App: React.FC = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
 
-  const renderSection = () => {
-    switch (activeSection) {
-      case 'projects':
-        return <ProjectShowcase />;
-      case 'resume':
-        return <Resume />;
-      case 'summary':
-      default:
-        return <ExecutiveSummary />;
-    }
-  };
-
   return (
     <div className="min-h-screen flex flex-col">
       <Header 
-        activeSection={activeSection} 
-        onNavClick={setActiveSection} 
         theme={theme}
         toggleTheme={toggleTheme}
       />
-      <main key={activeSection} className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
-        {renderSection()}
+      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <ExecutiveSummary />
+        <SectionNavigator 
+          activeSection={activeView} 
+          onSectionChange={setActiveView} 
+        />
+        <div key={activeView} className="mt-8 animate-fade-in">
+          {activeView === 'projects' ? <ProjectShowcase /> : <Resume />}
+        </div>
       </main>
       <ActionBar 
         onContactClick={() => setContactModalOpen(true)}
-        onChatClick={() => setChatModalOpen(true)} // Handler for chat modal
+        onChatClick={() => setChatModalOpen(true)}
       />
       <Modal
         isOpen={isContactModalOpen}
         onClose={() => setContactModalOpen(false)}
         title="Get In Touch"
       >
-        <Contact />
+        <Suspense fallback={<div className="p-8 text-center">Loading form...</div>}>
+          <Contact />
+        </Suspense>
       </Modal>
        <Modal
         isOpen={isChatModalOpen}

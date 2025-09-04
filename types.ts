@@ -7,7 +7,7 @@ export interface Project {
   tech_stack: string[];
 }
 
-export type ActiveSection = 'summary' | 'projects' | 'resume';
+export type ActiveSection = 'projects' | 'resume';
 
 export type Theme = 'light' | 'dark';
 
