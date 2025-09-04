@@ -43,7 +43,7 @@ const AppSpecifications: React.FC = () => {
              <ul className="space-y-2">
                 <ListItem><strong>Google Fonts:</strong> Uses the 'Inter' font family for clean and readable typography.</ListItem>
                 <ListItem><strong>Heroicons (via SVG):</strong> For crisp, consistent iconography across the application.</ListItem>
-                 <ListItem><strong>Thum.io:</strong> For dynamically generating project thumbnail screenshots from live URLs.</ListItem>
+                 <ListItem><strong>Dynamic Gradients:</strong> Each project card features a unique, dynamically generated gradient background, providing a visually consistent and professional look.</ListItem>
             </ul>
         </SpecSection>
 
