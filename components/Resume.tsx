@@ -1,4 +1,6 @@
 import React from 'react';
+import { resumeData } from '@/data/resume';
+import type { Job as JobType } from '@/data/resume';
 
 const ResumeSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="mb-8">
@@ -7,62 +9,39 @@ const ResumeSection: React.FC<{ title: string; children: React.ReactNode }> = ({
   </div>
 );
 
-const Job: React.FC<{ title: string; company: string; duration: string; children: React.ReactNode }> = ({ title, company, duration, children }) => (
+const Job: React.FC<{ job: JobType }> = ({ job }) => (
   <div className="mb-6">
-    <h4 className="text-xl font-semibold text-slate-800 dark:text-zinc-200">{title}</h4>
-    <p className="text-md text-slate-600 dark:text-zinc-400 font-medium">{company} | {duration}</p>
+    <h4 className="text-xl font-semibold text-slate-800 dark:text-zinc-200">{job.title}</h4>
+    <p className="text-md text-slate-600 dark:text-zinc-400 font-medium">{job.company} | {job.duration}</p>
     <ul className="list-disc list-inside mt-2 text-slate-600 dark:text-zinc-400 space-y-1">
-      {children}
+      {job.responsibilities.map((item, index) => <li key={index}>{item}</li>)}
     </ul>
   </div>
 );
 
 const Resume: React.FC = () => {
+  const { name, contact, summary, experience, education, skills } = resumeData;
+
   const handleDownload = () => {
     const resumeContent = `
-# Alejandro Ubilla
-+1 772-634-9743 | alexubilla8185@gmail.com | Pompano Beach, FL 33064
+# ${name}
+${contact.phone} | ${contact.email} | ${contact.location}
 
 ## Summary
-Results-driven Technology Leader with 15+ years of experience defining strategic roadmaps, leading cross-functional teams, and spearheading initiatives to improve software quality, all to drive business growth and exceptional customer satisfaction.
+${summary}
 
 ## Work Experience
-
-### Founder & CEO, TEKGUYZ
-*August 2023 - Present*
-- Shaped company vision, strategic goals, and technology roadmaps
-- Built and launched application with React, TypeScript, Tailwind CSS, hosted on Netlify
-- Led digital presence initiatives from GoDaddy domain and Microsoft 365 integration to social media (Instagram, Facebook, LinkedIn)
-
-### Technical Project Manager, Q Link Wireless
-*September 2019 - March 2023*
-- Defined project scope and requirements, using MantisBT for issue tracking and Asana for project management
-- Maintained transparent stakeholder communication via Slack and daily Zoom stand-ups
-- Delivered multiple high-quality SDLC projects, including Hello Mobile and Lifeline phone service
-
-### Technical Writer, NandoTech, Inc.
-*August 2016 - June 2019*
-- Developed user manuals, installation guides, and release notes, boosting product adoption
-- Ensured content accuracy by collaborating with engineering and product teams, utilizing Google products
-- Managed multiple concurrent projects, consistently delivering on or before strict deadlines, utilizing Trello
-
-### Quality Assurance Team Lead, Advantage Software
-*January 2012 - June 2016*
-- Conducted thorough testing of desktop, mobile, and web applications, custom web servers, and installers to identify defects, bugs, and usability issues
-- Developed and executed test plans, test cases, and test scripts to ensure software functionality
-- Managed issue tracking, project management, and revision control for all QA initiatives using Assembla
-
-### Technical Support Analyst, Advantage Software
-*August 2009 - January 2012*
-- Provided technical support to customers via phone, email, LogMeIn Rescue, forums, and chat, effectively troubleshooting hardware and software issues
-- Documented customer interactions and solutions, ensuring clarity and future reference through technical writing
-
+${experience.map(job => `
+### ${job.title}, ${job.company}
+*${job.duration}*
+${job.responsibilities.map(res => `- ${res}`).join('\n')}
+`).join('\n')}
 ## Education
-### Indian River State College
-Associate Degree
+### ${education.institution}
+${education.degree}
 
 ## Skills
-Agile Methodologies, Continuous Integration/Continuous Deployment (CI/CD), Deployment, Product Management, Project Management, Quality Assurance, Testing, Requirements Gathering, Software Development Life Cycle (SDLC), Issue Tracking, User Interface/User Experience (UI/UX), Web & Mobile Development, Hardware Integration, Artificial Intelligence (AI), Digital Strategy, Business Process Improvement, Customer Relations, Technical Writing
+${skills.join(', ')}
     `;
 
     const blob = new Blob([resumeContent.trim()], { type: 'text/markdown' });
@@ -80,13 +59,13 @@ Agile Methodologies, Continuous Integration/Continuous Deployment (CI/CD), Deplo
     <section className="max-w-5xl mx-auto bg-white dark:bg-zinc-900 p-8 md:p-12 shadow-lg rounded-lg">
       <div className="flex flex-col sm:flex-row justify-between items-start mb-8">
         <div>
-          <h2 className="text-4xl font-bold text-slate-900 dark:text-zinc-100">Alejandro Ubilla</h2>
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-zinc-100">{name}</h2>
           <div className="mt-2 text-slate-500 dark:text-zinc-500 space-y-1 sm:space-y-0 sm:flex sm:flex-wrap sm:gap-x-4">
-             <p>+1 772-634-9743</p>
+             <p>{contact.phone}</p>
              <p className="hidden sm:inline">|</p>
-             <p>alexubilla8185@gmail.com</p>
+             <p>{contact.email}</p>
              <p className="hidden sm:inline">|</p>
-             <p>Pompano Beach, FL 33064</p>
+             <p>{contact.location}</p>
           </div>
         </div>
         <button
@@ -99,47 +78,24 @@ Agile Methodologies, Continuous Integration/Continuous Deployment (CI/CD), Deplo
 
       <ResumeSection title="Summary">
         <p className="text-slate-600 dark:text-zinc-400">
-          Results-driven Technology Leader with 15+ years of experience defining strategic roadmaps, leading cross-functional teams, and spearheading initiatives to improve software quality, all to drive business growth and exceptional customer satisfaction.
+          {summary}
         </p>
       </ResumeSection>
       
       <ResumeSection title="Work Experience">
-        <Job title="Founder & CEO" company="TEKGUYZ" duration="August 2023 - Present">
-          <li>Shaped company vision, strategic goals, and technology roadmaps</li>
-          <li>Built and launched application with React, TypeScript, Tailwind CSS, hosted on Netlify</li>
-          <li>Led digital presence initiatives from GoDaddy domain and Microsoft 365 integration to social media (Instagram, Facebook, LinkedIn)</li>
-        </Job>
-        <Job title="Technical Project Manager" company="Q Link Wireless" duration="September 2019 - March 2023">
-          <li>Defined project scope and requirements, using MantisBT for issue tracking and Asana for project management</li>
-          <li>Maintained transparent stakeholder communication via Slack and daily Zoom stand-ups</li>
-          <li>Delivered multiple high-quality SDLC projects, including Hello Mobile and Lifeline phone service</li>
-        </Job>
-         <Job title="Technical Writer" company="NandoTech, Inc." duration="August 2016 - June 2019">
-          <li>Developed user manuals, installation guides, and release notes, boosting product adoption</li>
-          <li>Ensured content accuracy by collaborating with engineering and product teams, utilizing Google products</li>
-          <li>Managed multiple concurrent projects, consistently delivering on or before strict deadlines, utilizing Trello</li>
-        </Job>
-         <Job title="Quality Assurance Team Lead" company="Advantage Software" duration="January 2012 - June 2016">
-          <li>Conducted thorough testing of desktop, mobile, and web applications, custom web servers, and installers to identify defects, bugs, and usability issues</li>
-          <li>Developed and executed test plans, test cases, and test scripts to ensure software functionality</li>
-          <li>Managed issue tracking, project management, and revision control for all QA initiatives using Assembla</li>
-        </Job>
-        <Job title="Technical Support Analyst" company="Advantage Software" duration="August 2009 - January 2012">
-            <li>Provided technical support to customers via phone, email, LogMeIn Rescue, forums, and chat, effectively troubleshooting hardware and software issues</li>
-            <li>Documented customer interactions and solutions, ensuring clarity and future reference through technical writing</li>
-        </Job>
+        {experience.map((job) => <Job key={job.company} job={job} />)}
       </ResumeSection>
 
       <ResumeSection title="Education">
          <div>
-          <h4 className="text-xl font-semibold text-slate-800 dark:text-zinc-200">Indian River State College</h4>
-          <p className="text-md text-slate-600 dark:text-zinc-400">Associate Degree</p>
+          <h4 className="text-xl font-semibold text-slate-800 dark:text-zinc-200">{education.institution}</h4>
+          <p className="text-md text-slate-600 dark:text-zinc-400">{education.degree}</p>
          </div>
       </ResumeSection>
 
       <ResumeSection title="Skills">
         <p className="text-slate-600 dark:text-zinc-400">
-          Agile Methodologies, Continuous Integration/Continuous Deployment (CI/CD), Deployment, Product Management, Project Management, Quality Assurance, Testing, Requirements Gathering, Software Development Life Cycle (SDLC), Issue Tracking, User Interface/User Experience (UI/UX), Web & Mobile Development, Hardware Integration, Artificial Intelligence (AI), Digital Strategy, Business Process Improvement, Customer Relations, Technical Writing
+          {skills.join(', ')}
         </p>
       </ResumeSection>
     </section>
