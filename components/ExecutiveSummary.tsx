@@ -45,10 +45,11 @@ const ExecutiveSummary: React.FC = () => {
         <div className="mt-12 text-center">
           <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6">Core Competencies</h3>
           <div className="flex flex-wrap justify-center gap-3">
-              <span className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300 text-sm font-medium px-4 py-2 rounded-full">Project Management</span>
               <span className="bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300 text-sm font-medium px-4 py-2 rounded-full">Product Management</span>
+              <span className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300 text-sm font-medium px-4 py-2 rounded-full">Project Management</span>
               <span className="bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-300 text-sm font-medium px-4 py-2 rounded-full">Digital Strategy</span>
               <span className="bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 text-sm font-medium px-4 py-2 rounded-full">Agile Methodologies</span>
+              <span className="bg-cyan-100 text-cyan-800 dark:bg-cyan-900/50 dark:text-cyan-300 text-sm font-medium px-4 py-2 rounded-full">Quality Assurance</span>
               <span className="bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-300 text-sm font-medium px-4 py-2 rounded-full">Web & Mobile Development</span>
               <span className="bg-violet-100 text-violet-800 dark:bg-violet-900/50 dark:text-violet-300 text-sm font-medium px-4 py-2 rounded-full">Artificial Intelligence (AI)</span>
               <span className="bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300 text-sm font-medium px-4 py-2 rounded-full">UI/UX</span>
