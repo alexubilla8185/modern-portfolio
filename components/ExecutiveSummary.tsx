@@ -37,24 +37,28 @@ const ExecutiveSummary: React.FC = () => {
           </div>
           <div className="flex-grow">
             <h2 className="text-4xl font-bold text-slate-900 dark:text-zinc-100 mb-4">Hi, I'm Alejandro Ubilla</h2>
-            <div className="mb-6">
-              <h3 className="text-lg font-semibold text-slate-700 dark:text-zinc-300 mb-3">Core Competencies:</h3>
-              <div className="flex flex-wrap gap-3">
-                  <span className="bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300 text-sm font-medium px-4 py-2 rounded-full">Product Management</span>
-                  <span className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300 text-sm font-medium px-4 py-2 rounded-full">Project Management</span>
-                  <span className="bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-300 text-sm font-medium px-4 py-2 rounded-full">Digital Strategy</span>
-                  <span className="bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 text-sm font-medium px-4 py-2 rounded-full">Agile</span>
-                  <span className="bg-cyan-100 text-cyan-800 dark:bg-cyan-900/50 dark:text-cyan-300 text-sm font-medium px-4 py-2 rounded-full">QA</span>
-                  <span className="bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-300 text-sm font-medium px-4 py-2 rounded-full">Web & Mobile Development</span>
-                  <span className="bg-violet-100 text-violet-800 dark:bg-violet-900/50 dark:text-violet-300 text-sm font-medium px-4 py-2 rounded-full">AI</span>
-                  <span className="bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300 text-sm font-medium px-4 py-2 rounded-full">UI/UX</span>
-                  <span className="bg-pink-100 text-pink-800 dark:bg-pink-900/50 dark:text-pink-300 text-sm font-medium px-4 py-2 rounded-full">CI/CD</span>
-                  <span className="bg-lime-100 text-lime-800 dark:bg-lime-900/50 dark:text-lime-300 text-sm font-medium px-4 py-2 rounded-full">SDLC</span>
+            <div className="flex flex-col">
+              {/* Competencies Section: Appears 2nd on mobile, 1st on desktop */}
+              <div className="mb-6 order-2 md:order-1">
+                <h3 className="text-lg font-semibold text-slate-700 dark:text-zinc-300 mb-3">Core Competencies:</h3>
+                <div className="flex flex-wrap gap-3">
+                    <span className="bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300 text-sm font-medium px-4 py-2 rounded-full">Product Management</span>
+                    <span className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300 text-sm font-medium px-4 py-2 rounded-full">Project Management</span>
+                    <span className="bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-300 text-sm font-medium px-4 py-2 rounded-full">Digital Strategy</span>
+                    <span className="bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 text-sm font-medium px-4 py-2 rounded-full">Agile</span>
+                    <span className="bg-cyan-100 text-cyan-800 dark:bg-cyan-900/50 dark:text-cyan-300 text-sm font-medium px-4 py-2 rounded-full">QA</span>
+                    <span className="bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-300 text-sm font-medium px-4 py-2 rounded-full">Web & Mobile Development</span>
+                    <span className="bg-violet-100 text-violet-800 dark:bg-violet-900/50 dark:text-violet-300 text-sm font-medium px-4 py-2 rounded-full">AI</span>
+                    <span className="bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300 text-sm font-medium px-4 py-2 rounded-full">UI/UX</span>
+                    <span className="bg-pink-100 text-pink-800 dark:bg-pink-900/50 dark:text-pink-300 text-sm font-medium px-4 py-2 rounded-full">CI/CD</span>
+                    <span className="bg-lime-100 text-lime-800 dark:bg-lime-900/50 dark:text-lime-300 text-sm font-medium px-4 py-2 rounded-full">SDLC</span>
+                </div>
               </div>
+              {/* Summary Paragraph: Appears 1st on mobile, 2nd on desktop */}
+              <p className="text-lg text-slate-600 dark:text-zinc-400 leading-relaxed order-1 md:order-2 mb-6">
+                Technology Leader with 15+ years of experience defining strategic roadmaps and leading high-performing teams. I bridge the gap between complex technology and human understanding, specializing in initiatives that improve product quality and leverage AI to drive business growth. My focus is on continuous improvement and delivering exceptional customer satisfaction.
+              </p>
             </div>
-            <p className="text-lg text-slate-600 dark:text-zinc-400 leading-relaxed">
-              Technology Leader with 15+ years of experience defining strategic roadmaps and leading high-performing teams. I bridge the gap between complex technology and human understanding, specializing in initiatives that improve product quality and leverage AI to drive business growth. My focus is on continuous improvement and delivering exceptional customer satisfaction.
-            </p>
           </div>
         </div>
       </section>
