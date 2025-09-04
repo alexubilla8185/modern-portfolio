@@ -39,7 +39,7 @@ const renderMarkdown = (text: string) => {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
   return (
-    <div className="w-96 h-[480px] bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-slate-200 dark:border-zinc-700 mx-4 flex-shrink-0">
+    <div className="w-full h-full bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-slate-200 dark:border-zinc-700 mx-4 flex-shrink-0">
       {/* Card Header */}
       <div className={`relative h-1/3 bg-gradient-to-br ${gradient} flex items-center justify-center p-6 text-center`}>
         <div className="absolute inset-0 bg-black/20"></div>

@@ -13,6 +13,14 @@ const gradients = [
 
 const ProjectShowcase: React.FC = () => {
     const [index, setIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
+        checkIsMobile();
+        window.addEventListener('resize', checkIsMobile);
+        return () => window.removeEventListener('resize', checkIsMobile);
+    }, []);
 
     const handleNext = useCallback(() => {
         setIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
@@ -39,17 +47,19 @@ const ProjectShowcase: React.FC = () => {
         const offset = cardIndex - index;
         const total = projectsData.length;
 
-        // Handle wrapping for a seamless loop
         let displayOffset = offset;
         if (offset > total / 2) displayOffset = offset - total;
         else if (offset < -total / 2) displayOffset = offset + total;
         
-        const isVisible = Math.abs(displayOffset) <= 2; // Show 5 cards: center, 2 left, 2 right
+        const isVisible = Math.abs(displayOffset) <= 2;
 
         if (!isVisible) return { zIndex: 0, opacity: 0, scale: 0.5, pointerEvents: 'none' as const };
         
-        const translateX = displayOffset * 60; // %
-        const scale = 1 - Math.abs(displayOffset) * 0.15;
+        const translateXPercentage = isMobile ? 55 : 60;
+        const scaleFactor = isMobile ? 0.2 : 0.15;
+
+        const translateX = displayOffset * translateXPercentage;
+        const scale = 1 - Math.abs(displayOffset) * scaleFactor;
         const rotateY = displayOffset * -15;
         const zIndex = total - Math.abs(displayOffset);
         const filter = displayOffset !== 0 ? 'blur(3px) brightness(0.7)' : 'blur(0px) brightness(1)';
@@ -67,15 +77,14 @@ const ProjectShowcase: React.FC = () => {
 
     return (
         <section>
-            {/* Descriptive text removed for a cleaner UI */}
-            <div className="relative w-full h-[520px] flex items-center justify-center">
+            <div className="relative w-full h-[500px] md:h-[520px] flex items-center justify-center">
                 <div className="relative h-full w-full max-w-5xl">
                     {projectsData.map((project, i) => (
                         <motion.div
                             key={project.id}
                             className="absolute top-0 left-0 right-0 mx-auto"
                             style={{
-                                width: '24rem', 
+                                width: isMobile ? '19rem' : '24rem',
                                 height: '30rem',
                             }}
                             initial={false}
