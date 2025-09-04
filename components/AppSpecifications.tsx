@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SpecSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
-  <div className="mb-6">
+  <div className="break-inside-avoid">
     <h3 className="text-lg font-semibold text-indigo-600 dark:text-indigo-400 mb-2">{title}</h3>
     <div className="text-slate-600 dark:text-zinc-400 space-y-1">{children}</div>
   </div>
@@ -16,7 +16,7 @@ const ListItem: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 
 const AppSpecifications: React.FC = () => {
   return (
-    <div className="text-sm">
+    <div className="text-sm grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
         <SpecSection title="Architecture">
             <ul className="space-y-2">
                 <ListItem><strong>Modern SPA without Bundler:</strong> Built as a Single Page Application using an `importmap` for native ES module resolution, avoiding complex build steps for a lightweight setup.</ListItem>
@@ -35,8 +35,9 @@ const AppSpecifications: React.FC = () => {
 
         <SpecSection title="Animation & Interactivity">
             <ul className="space-y-2">
-                <ListItem><strong>Framer Motion:</strong> Powers the interactive 3D project carousel, using spring physics for fluid, tactile animations.</ListItem>
+                <ListItem><strong>Framer Motion:</strong> Powers the interactive 3D project carousel and toast notifications, using spring physics for fluid, tactile animations.</ListItem>
                 <ListItem><strong>Custom CSS Animations:</strong> A performance-optimized CSS `marquee` animation creates the seamless, auto-scrolling effect for the Core Competencies.</ListItem>
+                <ListItem><strong>Idle User Nudge:</strong> An inactivity timer on the resume page triggers a scroll-to-top and a toast notification, playfully guiding users to discover the app specs easter egg.</ListItem>
                 <ListItem><strong>Stateful UI:</strong> The app features a persistent light/dark theme, interactive modals, and a simulated AI chatbot, all managed with React state and hooks.</ListItem>
             </ul>
         </SpecSection>

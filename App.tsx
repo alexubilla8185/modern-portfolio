@@ -8,6 +8,7 @@ import ActionBar from '@/components/ActionBar';
 import Chatbot from '@/components/Chatbot';
 import SectionNavigator from '@/components/SectionNavigator';
 import Toast from '@/components/Toast';
+import AppSpecifications from '@/components/AppSpecifications';
 import { Theme } from '@/types';
 
 type View = 'projects' | 'resume';
@@ -16,6 +17,7 @@ const App: React.FC = () => {
   const [activeView, setActiveView] = useState<View>('projects');
   const [isContactModalOpen, setContactModalOpen] = useState(false);
   const [isChatModalOpen, setChatModalOpen] = useState(false);
+  const [isSpecsModalOpen, setSpecsModalOpen] = useState(false);
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = window.localStorage.getItem('theme') as Theme;
@@ -103,7 +105,7 @@ const App: React.FC = () => {
         toggleTheme={toggleTheme}
       />
       <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <ExecutiveSummary />
+        <ExecutiveSummary onShowSpecs={() => setSpecsModalOpen(true)} />
         <SectionNavigator 
           ref={navigatorRef}
           activeSection={activeView} 
@@ -132,6 +134,13 @@ const App: React.FC = () => {
         title="AI Assistant"
       >
         <Chatbot />
+      </Modal>
+      <Modal
+        isOpen={isSpecsModalOpen}
+        onClose={() => setSpecsModalOpen(false)}
+        title="App Specifications"
+      >
+        <AppSpecifications />
       </Modal>
     </div>
   );
