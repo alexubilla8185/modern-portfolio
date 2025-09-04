@@ -18,10 +18,11 @@ const App: React.FC = () => {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = window.localStorage.getItem('theme') as Theme;
-      if (savedTheme) return savedTheme;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      // If a theme is saved in localStorage, use it. Otherwise, default to 'dark'.
+      return savedTheme || 'dark';
     }
-    return 'light';
+    // Default for server-side rendering or environments without window object.
+    return 'dark';
   });
   const navigatorRef = useRef<HTMLDivElement>(null);
   const isInitialMount = useRef(true); // To prevent scroll on first load
