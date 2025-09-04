@@ -106,6 +106,7 @@ const Chatbot: React.FC = () => {
                         placeholder="Ask about my projects..."
                         disabled={isLoading}
                         className="flex-grow block w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-600 rounded-full shadow-sm placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        aria-label="Chat input"
                     />
                     <button
                         type="submit"

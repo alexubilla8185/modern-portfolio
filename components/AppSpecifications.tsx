@@ -48,7 +48,7 @@ const AppSpecifications: React.FC = () => {
                 <ListItem><strong>Interactive 3D Carousel:</strong> Users can navigate projects by clicking side cards, using arrow buttons, or with keyboard controls.</ListItem>
                 <ListItem><strong>Simulated AI Assistant:</strong> A client-side chatbot demonstrates UI/UX for conversational interfaces with pre-scripted, streaming responses.</ListItem>
                 <ListItem><strong>Static Project Data:</strong> Project data is imported directly as a JavaScript module for fast, reliable loading without network requests.</ListItem>
-                <ListItem><strong>Dynamic Resume Download:</strong> Generates a Markdown file of the resume on-the-fly for easy sharing.</ListItem>
+                <ListItem><strong>Dynamic PDF Generation:</strong> The resume can be downloaded as a PDF, generated on-the-fly in the browser to ensure it's always up-to-date with the latest information.</ListItem>
             </ul>
         </SpecSection>
 

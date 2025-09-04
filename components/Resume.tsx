@@ -1,6 +1,8 @@
 import React from 'react';
+import { jsPDF } from 'jspdf';
 import { resumeData } from '@/data/resume';
 import type { Job as JobType } from '@/data/resume';
+import { DownloadIcon } from '@/components/Icons';
 
 const ResumeSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="mb-8">
@@ -19,40 +21,138 @@ const Job: React.FC<{ job: JobType }> = ({ job }) => (
   </div>
 );
 
+const skillColors = [
+    'bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-300',
+    'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300',
+    'bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300',
+    'bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-300',
+    'bg-violet-100 text-violet-800 dark:bg-violet-900/50 dark:text-violet-300',
+    'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/50 dark:text-cyan-300',
+    'bg-pink-100 text-pink-800 dark:bg-pink-900/50 dark:text-pink-300',
+    'bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300',
+    'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300',
+];
+
 const Resume: React.FC = () => {
   const { name, contact, summary, experience, education, skills } = resumeData;
 
   const handleDownload = () => {
-    const resumeContent = `
-# ${name}
-${contact.phone} | ${contact.email} | ${contact.location}
+    const doc = new jsPDF('p', 'pt', 'a4');
+    const margin = 40;
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const contentWidth = pageWidth - margin * 2;
+    let y = margin;
+    
+    const FONT_SIZE_NORMAL = 10;
+    const FONT_SIZE_HEADER = 12;
+    const FONT_SIZE_TITLE = 11;
+    const FONT_SIZE_NAME = 24;
+    const LINE_HEIGHT_NORMAL = 1.2 * FONT_SIZE_NORMAL;
+    const LINE_HEIGHT_TITLE = 1.2 * FONT_SIZE_TITLE;
 
-## Summary
-${summary}
+    const checkPageBreak = (neededHeight: number) => {
+        if (y + neededHeight > pageHeight - margin) {
+            doc.addPage();
+            y = margin;
+        }
+    };
 
-## Work Experience
-${experience.map(job => `
-### ${job.title}, ${job.company}
-*${job.duration}*
-${job.responsibilities.map(res => `- ${res}`).join('\n')}
-`).join('\n')}
-## Education
-### ${education.institution}
-${education.degree}
+    // --- Header ---
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(FONT_SIZE_NAME);
+    doc.setTextColor('#1A202C'); // Dark gray, almost black
+    doc.text(name, margin, y);
+    y += FONT_SIZE_NAME * 1.2;
 
-## Skills
-${skills.join(', ')}
-    `;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(FONT_SIZE_NORMAL);
+    doc.setTextColor('#4A5568'); // Medium gray
+    const contactLine = `${contact.phone} | ${contact.email} | ${contact.location}`;
+    doc.text(contactLine, margin, y);
+    y += LINE_HEIGHT_NORMAL * 2;
+    
+    // --- Section Renderer ---
+    const renderSection = (title: string, content: () => void) => {
+        checkPageBreak(FONT_SIZE_HEADER + 5 + 15); // Title, line, gap
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(FONT_SIZE_HEADER);
+        doc.setTextColor('#2D3748');
+        doc.text(title.toUpperCase(), margin, y);
+        y += 5;
+        doc.setDrawColor('#CBD5E0'); // Lighter gray for line
+        doc.line(margin, y, pageWidth - margin, y);
+        y += 15;
+        content();
+    };
 
-    const blob = new Blob([resumeContent.trim()], { type: 'text/markdown' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'Alejandro_Ubilla_Resume.md';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // --- Summary ---
+    renderSection('Summary', () => {
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(FONT_SIZE_NORMAL);
+        doc.setTextColor('#4A5568');
+        const summaryLines = doc.splitTextToSize(summary, contentWidth);
+        checkPageBreak(summaryLines.length * LINE_HEIGHT_NORMAL);
+        doc.text(summaryLines, margin, y);
+        y += summaryLines.length * LINE_HEIGHT_NORMAL + 20;
+    });
+
+    // --- Work Experience ---
+    renderSection('Work Experience', () => {
+        experience.forEach(job => {
+            const neededHeight = LINE_HEIGHT_TITLE + LINE_HEIGHT_NORMAL + (job.responsibilities.length * LINE_HEIGHT_NORMAL * 2) + 15;
+            checkPageBreak(neededHeight);
+
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(FONT_SIZE_TITLE);
+            doc.setTextColor('#1A202C');
+            doc.text(job.title, margin, y);
+            y += LINE_HEIGHT_TITLE;
+
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(FONT_SIZE_NORMAL);
+            doc.setTextColor('#4A5568');
+            doc.text(`${job.company} | ${job.duration}`, margin, y);
+            y += LINE_HEIGHT_NORMAL * 1.5;
+            
+            job.responsibilities.forEach(res => {
+                const resLines = doc.splitTextToSize(res, contentWidth - 10);
+                checkPageBreak(resLines.length * LINE_HEIGHT_NORMAL);
+                doc.text('•', margin + 5, y);
+                doc.text(resLines, margin + 15, y);
+                y += resLines.length * LINE_HEIGHT_NORMAL;
+            });
+            y += 15;
+        });
+    });
+
+    // --- Education ---
+    renderSection('Education', () => {
+        checkPageBreak(LINE_HEIGHT_TITLE + LINE_HEIGHT_NORMAL + 25);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(FONT_SIZE_TITLE);
+        doc.setTextColor('#1A202C');
+        doc.text(education.institution, margin, y);
+        y += LINE_HEIGHT_TITLE;
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(FONT_SIZE_NORMAL);
+        doc.setTextColor('#4A5568');
+        doc.text(education.degree, margin, y);
+        y += 25;
+    });
+    
+    // --- Skills ---
+    renderSection('Skills', () => {
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(FONT_SIZE_NORMAL);
+        doc.setTextColor('#4A5568');
+        const skillsText = skills.join(', ');
+        const skillsLines = doc.splitTextToSize(skillsText, contentWidth);
+        checkPageBreak(skillsLines.length * LINE_HEIGHT_NORMAL);
+        doc.text(skillsLines, margin, y);
+    });
+
+    doc.save('Alejandro_Ubilla_Resume.pdf');
   };
 
   return (
@@ -70,9 +170,10 @@ ${skills.join(', ')}
         </div>
         <button
           onClick={handleDownload}
-          className="bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 transition-colors duration-300 shadow-sm mt-4 sm:mt-0"
+          className="bg-indigo-600 text-white font-bold py-2 px-3 rounded-lg hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 transition-colors duration-300 shadow-sm mt-4 sm:mt-0 flex items-center gap-2"
         >
-          Download
+          <DownloadIcon className="h-5 w-5" />
+          PDF
         </button>
       </div>
 
@@ -94,9 +195,16 @@ ${skills.join(', ')}
       </ResumeSection>
 
       <ResumeSection title="Skills">
-        <p className="text-slate-600 dark:text-zinc-400">
-          {skills.join(', ')}
-        </p>
+        <div className="flex flex-wrap gap-2">
+          {skills.map((skill, index) => (
+            <span
+              key={skill}
+              className={`text-sm font-medium px-3 py-1 rounded-full ${skillColors[index % skillColors.length]}`}
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
       </ResumeSection>
     </section>
   );

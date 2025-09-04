@@ -42,6 +42,13 @@ const ProjectShowcase: React.FC = () => {
         }
     };
 
+    const handleKeyDownOnCard = (event: React.KeyboardEvent<HTMLDivElement>, cardIndex: number) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          handleCardClick(cardIndex);
+      }
+    };
+
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'ArrowRight') handleNext();
@@ -87,27 +94,34 @@ const ProjectShowcase: React.FC = () => {
         <section className="py-8 sm:py-20">
             <div className="relative w-full h-[450px] md:h-[520px] flex items-center justify-center">
                 <div className="relative h-full w-full max-w-5xl">
-                    {projectsData.map((project, i) => (
-                        // FIX: Added @ts-ignore to work around a TypeScript type error. The motion component's animation props ('initial', 'animate', etc.) are not being correctly recognized, likely due to a type definition conflict with this project's React version.
-                        // @ts-ignore
-                        <motion.div
-                            key={project.id}
-                            className="absolute top-0 left-0 right-0 mx-auto"
-                            style={{
-                                width: isMobile ? '15rem' : '24rem',
-                                height: isMobile ? '26rem' : '30rem',
-                            }}
-                            initial={false}
-                            animate={getCardStyle(i)}
-                            transition={{ type: 'spring', stiffness: 200, damping: 25 }}
-                            onClick={() => handleCardClick(i)}
-                        >
-                            <ProjectCard
-                                project={project}
-                                gradient={gradients[project.id % gradients.length]}
-                            />
-                        </motion.div>
-                    ))}
+                    {projectsData.map((project, i) => {
+                        const style = getCardStyle(i);
+                        return (
+                            // FIX: Added @ts-ignore to work around a TypeScript type error. The motion component's animation props ('initial', 'animate', etc.) are not being correctly recognized, likely due to a type definition conflict with this project's React version.
+                            // @ts-ignore
+                            <motion.div
+                                key={project.id}
+                                className="absolute top-0 left-0 right-0 mx-auto"
+                                style={{
+                                    width: isMobile ? '15rem' : '24rem',
+                                    height: isMobile ? '26rem' : '30rem',
+                                }}
+                                initial={false}
+                                animate={style}
+                                transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+                                onClick={() => handleCardClick(i)}
+                                onKeyDown={(e) => handleKeyDownOnCard(e, i)}
+                                role="button"
+                                tabIndex={style.pointerEvents === 'auto' ? 0 : -1}
+                                aria-label={`View details for ${project.title}`}
+                            >
+                                <ProjectCard
+                                    project={project}
+                                    gradient={gradients[project.id % gradients.length]}
+                                />
+                            </motion.div>
+                        )
+                    })}
                 </div>
                 
                 <button

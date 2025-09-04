@@ -28,7 +28,7 @@ export const resumeData: ResumeData = {
     email: 'alexubilla8185@gmail.com',
     location: 'Pompano Beach, FL 33064',
   },
-  summary: 'Results-driven Technology Leader with 15+ years of experience defining strategic roadmaps, leading cross-functional teams, and spearheading initiatives to improve software quality, all to drive business growth and exceptional customer satisfaction.',
+  summary: 'Technology Leader with over 15 years of experience driving business growth through strategic roadmaps and high-performing teams. I specialize in leveraging AI solutions to improve product quality and deliver exceptional customer satisfaction.',
   experience: [
     {
       title: 'Founder & CEO',

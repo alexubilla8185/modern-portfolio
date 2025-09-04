@@ -13,7 +13,7 @@ const projects: Project[] = [
   {
     "id": 2,
     "title": "Interactive 3D Carousel",
-    "description": "A reusable React component for showcasing content in an engaging, 3D animated carousel. This portfolio uses it to display projects! \n\nUsage:\n```jsx\n<ProjectShowcase projects={...} />\n```",
+    "description": "A reusable React component for showcasing content in an engaging, 3D animated carousel. This portfolio uses it to display projects!",
     "live_link": "#",
     "github_link": "https://github.com/alexubilla8185/my-modern-resume/blob/main/components/ProjectShowcase.tsx",
     "tech_stack": ["React", "TypeScript", "Framer Motion"],
@@ -57,7 +57,7 @@ const projects: Project[] = [
   },
   {
     "id": 7,
-    "title": "GreenWaves of South Florida",
+    "title": "GreenWave",
     "description": "Created a community hub for cannabis enthusiasts in South Florida, integrating Google Maps API to help users find local dispensaries and discover product information.",
     "live_link": "https://greenwavesoflo.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/green-waves",
@@ -138,7 +138,7 @@ const projects: Project[] = [
   },
   {
     "id": 16,
-    "title": "Web Check AI",
+    "title": "Web Check AI (In Progress)",
     "description": "Built an AI-driven diagnostic tool to analyze web pages. It leverages web scraping techniques to gather content and the Gemini API to provide insights and checks.",
     "live_link": "https://web-check-ai.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/web-check-ai",
