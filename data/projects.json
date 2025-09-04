@@ -3,10 +3,10 @@
   {
     "id": 17,
     "title": "Interactive 3D Carousel",
-    "description": "A reusable React component for showcasing content in an engaging, 3D animated carousel. This portfolio uses it to display projects! Built with TypeScript and Framer Motion for fluid, physics-based animations. \n\nUsage:\n```jsx\n<ProjectShowcase projects={...} />\n```",
+    "description": "A reusable React component that displays content in an engaging, 3D animated carousel. It uses Framer Motion to create fluid, physics-based animations, and this portfolio uses it to showcase projects.\n\nUsage:\n```jsx\n<ProjectShowcase projects={...} />\n```",
     "live_link": "#",
     "github_link": "https://github.com/alexubilla8185/my-modern-resume/blob/main/components/ProjectShowcase.tsx",
-    "tech_stack": ["React", "TypeScript", "Framer Motion", "Component"]
+    "tech_stack": ["React", "TypeScript", "Framer Motion"]
   },
   {
     "id": 13,

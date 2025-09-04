@@ -24,6 +24,7 @@ const App: React.FC = () => {
     return 'light';
   });
   const navigatorRef = useRef<HTMLDivElement>(null);
+  const isInitialMount = useRef(true); // To prevent scroll on first load
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -33,18 +34,18 @@ const App: React.FC = () => {
   }, [theme]);
   
   useEffect(() => {
-    // Scroll to the navigator when the view changes, but not on initial load
-    // This provides a better user experience on section change.
+    // On subsequent view changes (not the initial render), scroll the navigator into view.
+    if (isInitialMount.current) {
+        isInitialMount.current = false;
+        return;
+    }
+    
     if (navigatorRef.current) {
-        // We get the top position of the navigator relative to the viewport
-        const topPos = navigatorRef.current.getBoundingClientRect().top + window.scrollY;
-        // We only scroll if the navigator is not already visible at the top
-        if (window.scrollY > topPos || navigatorRef.current.getBoundingClientRect().top < 0) {
-            window.scrollTo({
-                top: topPos,
-                behavior: 'smooth'
-            });
-        }
+        // scrollIntoView respects the `scroll-margin-top` property set on the element.
+        navigatorRef.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
     }
   }, [activeView]);
 
