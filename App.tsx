@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import ExecutiveSummary from '@/components/ExecutiveSummary';
 import ProjectShowcase from '@/components/ProjectShowcase';
 import Resume from '@/components/Resume';
 import Contact from '@/components/Contact';
+import Modal from '@/components/Modal';
+import ActionBar from '@/components/ActionBar';
 import { ActiveSection, Theme } from '@/types';
-
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<ActiveSection>('summary');
+  const [isContactModalOpen, setContactModalOpen] = useState(false);
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = window.localStorage.getItem('theme') as Theme;
@@ -36,8 +37,6 @@ const App: React.FC = () => {
         return <ProjectShowcase />;
       case 'resume':
         return <Resume />;
-      case 'contact':
-        return <Contact />;
       case 'summary':
       default:
         return <ExecutiveSummary />;
@@ -55,7 +54,14 @@ const App: React.FC = () => {
       <main key={activeSection} className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
         {renderSection()}
       </main>
-      <Footer />
+      <ActionBar onContactClick={() => setContactModalOpen(true)} />
+      <Modal
+        isOpen={isContactModalOpen}
+        onClose={() => setContactModalOpen(false)}
+        title="Get In Touch"
+      >
+        <Contact />
+      </Modal>
     </div>
   );
 };

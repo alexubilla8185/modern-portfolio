@@ -84,7 +84,6 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick, theme, toggl
     { section: 'summary' as ActiveSection, label: 'About' },
     { section: 'projects' as ActiveSection, label: 'Projects' },
     { section: 'resume' as ActiveSection, label: 'Resume' },
-    { section: 'contact' as ActiveSection, label: 'Contact' },
   ];
 
   return (

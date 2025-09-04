@@ -2,22 +2,53 @@ import React, { useState } from 'react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [errors, setErrors] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    if (value) {
+      setErrors(prev => ({...prev, [name]: ''})); // Clear error when user starts typing
+    }
+  };
+
+  const validateForm = (): boolean => {
+    let formIsValid = true;
+    const newErrors = { name: '', email: '', message: '' };
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Full Name is required.';
+      formIsValid = false;
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email Address is required.';
+      formIsValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email address is invalid.';
+      formIsValid = false;
+    }
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required.';
+      formIsValid = false;
+    }
+
+    setErrors(newErrors);
+    return formIsValid;
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!validateForm()) {
+      return;
+    }
+    
     setStatus('submitting');
     
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     // In a real app, you would send the data to a backend service here.
-    // For this demo, we'll just simulate success.
     console.log('Form data submitted:', formData);
 
     // Simulate a random success/error for demonstration
@@ -32,15 +63,14 @@ const Contact: React.FC = () => {
   };
   
   return (
-    <section className="max-w-2xl mx-auto">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-slate-900 dark:text-zinc-100">Get In Touch</h2>
-        <p className="mt-4 text-lg text-slate-600 dark:text-zinc-400">
-          Have a question or want to work together? Fill out the form below, and I'll get back to you as soon as possible.
+    <div>
+      <div className="text-center mb-8">
+        <p className="text-lg text-slate-600 dark:text-zinc-400">
+          Have a question or want to work together? Fill out the form below.
         </p>
       </div>
 
-      <div className="bg-white dark:bg-zinc-900 p-8 shadow-lg rounded-lg">
+      <div className="bg-slate-50 dark:bg-zinc-900">
         <form onSubmit={handleSubmit} noValidate>
           <div className="space-y-6">
             <div>
@@ -56,7 +86,10 @@ const Contact: React.FC = () => {
                 value={formData.name}
                 onChange={handleChange}
                 className="block w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-md shadow-sm placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                aria-invalid={!!errors.name}
+                aria-describedby="name-error"
               />
+              {errors.name && <p id="name-error" className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.name}</p>}
             </div>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-zinc-300 mb-1">
@@ -71,7 +104,10 @@ const Contact: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 className="block w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-md shadow-sm placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                aria-invalid={!!errors.email}
+                aria-describedby="email-error"
               />
+              {errors.email && <p id="email-error" className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>}
             </div>
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-zinc-300 mb-1">
@@ -85,7 +121,10 @@ const Contact: React.FC = () => {
                 value={formData.message}
                 onChange={handleChange}
                 className="block w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-md shadow-sm placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                aria-invalid={!!errors.message}
+                aria-describedby="message-error"
               ></textarea>
+              {errors.message && <p id="message-error" className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.message}</p>}
             </div>
           </div>
           <div className="mt-8 text-right">
@@ -110,7 +149,7 @@ const Contact: React.FC = () => {
           </div>
         )}
       </div>
-    </section>
+    </div>
   );
 };
 
