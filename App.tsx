@@ -7,6 +7,7 @@ import Modal from '@/components/Modal';
 import ActionBar from '@/components/ActionBar';
 import Chatbot from '@/components/Chatbot';
 import SectionNavigator from '@/components/SectionNavigator';
+import Toast from '@/components/Toast';
 import { Theme } from '@/types';
 
 type View = 'projects' | 'resume';
@@ -18,14 +19,14 @@ const App: React.FC = () => {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = window.localStorage.getItem('theme') as Theme;
-      // If a theme is saved in localStorage, use it. Otherwise, default to 'dark'.
       return savedTheme || 'dark';
     }
-    // Default for server-side rendering or environments without window object.
     return 'dark';
   });
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
   const navigatorRef = useRef<HTMLDivElement>(null);
-  const isInitialMount = useRef(true); // To prevent scroll on first load
+  const isInitialMount = useRef(true);
+  const idleTriggeredRef = useRef(false);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -35,19 +36,59 @@ const App: React.FC = () => {
   }, [theme]);
   
   useEffect(() => {
-    // On subsequent view changes (not the initial render), scroll the navigator into view.
     if (isInitialMount.current) {
         isInitialMount.current = false;
         return;
     }
-    
     if (navigatorRef.current) {
-        // scrollIntoView respects the `scroll-margin-top` property set on the element.
         navigatorRef.current.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
         });
     }
+  }, [activeView]);
+
+  useEffect(() => {
+    let activityTimer: number;
+
+    const resetTimer = () => {
+        clearTimeout(activityTimer);
+        activityTimer = window.setTimeout(handleIdle, 15000);
+    };
+
+    const handleActivity = () => {
+        resetTimer();
+    };
+
+    const handleIdle = () => {
+        if (activeView === 'resume' && !idleTriggeredRef.current) {
+            idleTriggeredRef.current = true;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setToastMessage("Psst... tap my picture 3 times to see the app's tech specs!");
+            
+            // Cleanup listeners after triggering
+            window.removeEventListener('mousemove', handleActivity);
+            window.removeEventListener('keydown', handleActivity);
+            window.removeEventListener('scroll', handleActivity);
+            window.removeEventListener('click', handleActivity);
+        }
+    };
+
+    if (activeView === 'resume' && !idleTriggeredRef.current) {
+        window.addEventListener('mousemove', handleActivity);
+        window.addEventListener('keydown', handleActivity);
+        window.addEventListener('scroll', handleActivity);
+        window.addEventListener('click', handleActivity);
+        resetTimer();
+    }
+
+    return () => {
+        clearTimeout(activityTimer);
+        window.removeEventListener('mousemove', handleActivity);
+        window.removeEventListener('keydown', handleActivity);
+        window.removeEventListener('scroll', handleActivity);
+        window.removeEventListener('click', handleActivity);
+    };
   }, [activeView]);
 
   const toggleTheme = () => {
@@ -56,6 +97,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Toast message={toastMessage} onClose={() => setToastMessage(null)} />
       <Header 
         theme={theme}
         toggleTheme={toggleTheme}
