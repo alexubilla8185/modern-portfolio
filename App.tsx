@@ -96,29 +96,33 @@ const App: React.FC = () => {
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
+  
+  const isAnyModalOpen = isContactModalOpen || isChatModalOpen || isSpecsModalOpen;
 
   return (
     <div className="min-h-screen flex flex-col">
       <Toast message={toastMessage} onClose={() => setToastMessage(null)} />
-      <Header 
-        theme={theme}
-        toggleTheme={toggleTheme}
-      />
-      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <ExecutiveSummary onShowSpecs={() => setSpecsModalOpen(true)} />
-        <SectionNavigator 
-          ref={navigatorRef}
-          activeSection={activeView} 
-          onSectionChange={setActiveView} 
+      <div className={`transition duration-300 ${isAnyModalOpen ? 'blur-sm pointer-events-none' : ''}`}>
+        <Header 
+          theme={theme}
+          toggleTheme={toggleTheme}
         />
-        <div key={activeView} className="mt-8 animate-fade-in">
-          {activeView === 'projects' ? <ProjectShowcase /> : <Resume />}
-        </div>
-      </main>
-      <ActionBar 
-        onContactClick={() => setContactModalOpen(true)}
-        onChatClick={() => setChatModalOpen(true)}
-      />
+        <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <ExecutiveSummary onShowSpecs={() => setSpecsModalOpen(true)} />
+          <SectionNavigator 
+            ref={navigatorRef}
+            activeSection={activeView} 
+            onSectionChange={setActiveView} 
+          />
+          <div key={activeView} className="mt-8 animate-fade-in">
+            {activeView === 'projects' ? <ProjectShowcase /> : <Resume />}
+          </div>
+        </main>
+        <ActionBar 
+          onContactClick={() => setContactModalOpen(true)}
+          onChatClick={() => setChatModalOpen(true)}
+        />
+      </div>
       <Modal
         isOpen={isContactModalOpen}
         onClose={() => setContactModalOpen(false)}
