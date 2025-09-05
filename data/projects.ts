@@ -22,7 +22,7 @@ const projects: Project[] = [
     "title": "Interactive 3D Carousel",
     "description": "A reusable React component for showcasing content in an engaging, 3D animated carousel. This portfolio uses it to display projects!",
     "live_link": "#",
-    "github_link": "https://github.com/alexubilla8185/my-modern-resume/blob/main/components/ProjectShowcase.tsx",
+    "github_link": "https://github.com/alexubilla8185/modern-portfolio/blob/main/components/ProjectShowcase.tsx",
     "tech_stack": ["React", "TypeScript", "Framer Motion"],
     "date": "June 2025",
     "nerd_facts": [
@@ -38,7 +38,7 @@ const projects: Project[] = [
     "title": "DemBoyzBBQ",
     "description": "Developed a responsive and appetizing website for a local BBQ restaurant, driving online engagement and providing customers with easy access to menus, catering info, and location details.",
     "live_link": "https://demboyzbbq.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/demboyz-bbq",
+    "github_link": "https://github.com/alexubilla8185/dem-boyz-bbq",
     "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
     "date": "May 2025",
     "nerd_facts": [
