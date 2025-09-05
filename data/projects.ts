@@ -169,36 +169,6 @@ const projects: Project[] = [
     ]
   },
   {
-    "id": 13,
-    "title": "Transcription Assistant",
-    "description": "Developed an AI-powered tool that leverages the Gemini API to provide fast and accurate audio-to-text transcription, streamlining workflows for professionals.",
-    "live_link": "https://transcription-assistant.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/transcription-assistant",
-    "tech_stack": ["React", "Gemini API", "Web Audio API"],
-    "date": "July 2025",
-    "nerd_facts": [
-      "Integrates the Web Audio API to capture microphone input in the browser.",
-      "Streams audio data to the Gemini API for real-time transcription.",
-      "The UI provides immediate feedback as the text is being transcribed.",
-      "Handles audio data chunking to comply with API limitations."
-    ]
-  },
-  {
-    "id": 14,
-    "title": "Reporter Assistant",
-    "description": "Created a specialized AI tool for journalists to organize notes, transcribe interviews, and streamline their content workflow, boosting productivity and accuracy.",
-    "live_link": "https://reporter-assistant.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/reporter-assistant",
-    "tech_stack": ["React", "Gemini API", "NLP"],
-    "date": "June 2025",
-    "nerd_facts": [
-      "Tailored Gemini API prompts for journalistic use-cases like summarizing notes.",
-      "Focuses on a workflow-oriented user experience for productivity.",
-      "Natural Language Processing (NLP) is at the core of its features.",
-      "Provides a distraction-free writing and editing environment."
-    ]
-  },
-  {
     "id": 15,
     "title": "Palm City Condo Getaway",
     "description": "Designed and launched a promotional single-page website for a vacation rental property, featuring an image gallery and booking information to attract potential renters.",
