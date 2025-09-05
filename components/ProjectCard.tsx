@@ -116,7 +116,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
                     Source
                   </a>
                 </div>
-                <p className="text-xs text-zinc-500 dark:text-zinc-500 font-medium flex-shrink-0">{project.date}</p>
               </div>
             </div>
           </div>

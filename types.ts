@@ -5,7 +5,6 @@ export interface Project {
   live_link: string;
   github_link: string;
   tech_stack: string[];
-  date: string;
   nerd_facts?: string[];
 }
 
