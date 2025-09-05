@@ -8,7 +8,12 @@ const projects: Project[] = [
     "live_link": "https://my-modern-resume.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/my-modern-resume",
     "tech_stack": ["React", "TypeScript", "Tailwind CSS"],
-    "date": "July 2025"
+    "date": "July 2025",
+    "nerd_facts": [
+      "Built without a bundler using importmaps for native ES module resolution.",
+      "Features a 3D carousel with spring physics via Framer Motion.",
+      "Dynamically generates a PDF resume on-the-fly in the browser."
+    ]
   },
   {
     "id": 2,
@@ -17,7 +22,12 @@ const projects: Project[] = [
     "live_link": "#",
     "github_link": "https://github.com/alexubilla8185/my-modern-resume/blob/main/components/ProjectShowcase.tsx",
     "tech_stack": ["React", "TypeScript", "Framer Motion"],
-    "date": "June 2025"
+    "date": "June 2025",
+    "nerd_facts": [
+      "Uses CSS 'perspective' for the core 3D spatial effect.",
+      "Calculates card positions and transformations in JavaScript for precise control.",
+      "Fully accessible via keyboard navigation (left/right arrow keys)."
+    ]
   },
   {
     "id": 3,
@@ -26,7 +36,12 @@ const projects: Project[] = [
     "live_link": "https://demboyzbbq.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/demboyz-bbq",
     "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
-    "date": "May 2025"
+    "date": "May 2025",
+    "nerd_facts": [
+      "Fully responsive design adapts from mobile menus to large desktop displays.",
+      "Optimized for fast load times to prevent losing hungry customers.",
+      "Clean UI focuses user attention on the food and contact info."
+    ]
   },
   {
     "id": 4,
@@ -35,7 +50,12 @@ const projects: Project[] = [
     "live_link": "https://full-belly-sundays.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/full-belly-sundays",
     "tech_stack": ["React", "Firebase", "Maps API"],
-    "date": "April 2025"
+    "date": "April 2025",
+    "nerd_facts": [
+      "Integrates with Firebase for real-time data synchronization.",
+      "Uses Google Maps API to visualize donation and distribution points.",
+      "Secure authentication for volunteers and administrators."
+    ]
   },
   {
     "id": 5,
@@ -44,7 +64,12 @@ const projects: Project[] = [
     "live_link": "https://fancyfam.com/",
     "github_link": "https://github.com/alexubilla8185/fancy-fam",
     "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
-    "date": "March 2025"
+    "date": "March 2025",
+    "nerd_facts": [
+      "Focus on elegant animations and micro-interactions for a premium feel.",
+      "Designed for effortless sharing on mobile devices.",
+      "Lightweight and fast, ensuring a great first impression."
+    ]
   },
   {
     "id": 6,
@@ -53,7 +78,12 @@ const projects: Project[] = [
     "live_link": "https://afterlife-alpha.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/after-life",
     "tech_stack": ["React", "Gemini API", "Firebase"],
-    "date": "February 2025"
+    "date": "February 2025",
+    "nerd_facts": [
+      "Leverages the Gemini API for generative AI responses.",
+      "Uses Firebase for secure storage of user data and memories.",
+      "Real-time database features allow for instant updates across clients."
+    ]
   },
   {
     "id": 7,
@@ -62,7 +92,12 @@ const projects: Project[] = [
     "live_link": "https://greenwavesoflo.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/green-waves",
     "tech_stack": ["React", "Maps API", "Community"],
-    "date": "January 2025"
+    "date": "January 2025",
+    "nerd_facts": [
+      "Uses Google Maps API for location-based search and discovery.",
+      "Built with a community-first approach to UI/UX.",
+      "Scalable architecture to handle a growing user base."
+    ]
   },
   {
     "id": 8,
@@ -71,7 +106,12 @@ const projects: Project[] = [
     "live_link": "https://tekguyz.com/",
     "github_link": "https://github.com/alexubilla8185/tek-guyz-site",
     "tech_stack": ["React", "TypeScript", "Tailwind CSS"],
-    "date": "December 2025"
+    "date": "December 2025",
+    "nerd_facts": [
+      "Static site generation for maximum performance and security.",
+      "SEO-optimized to attract new clients through organic search.",
+      "Clean, professional design reflects the company's brand."
+    ]
   },
   {
     "id": 9,
@@ -80,7 +120,12 @@ const projects: Project[] = [
     "live_link": "https://real-stone.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/real-stone",
     "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
-    "date": "November 2025"
+    "date": "November 2025",
+    "nerd_facts": [
+      "Features a high-resolution image gallery to showcase products.",
+      "Mobile-first design ensures a great experience for contractors on-site.",
+      "Contact forms are integrated for easy lead generation."
+    ]
   },
   {
     "id": 10,
@@ -89,25 +134,40 @@ const projects: Project[] = [
     "live_link": "https://meet4weed.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/meet-4-weed",
     "tech_stack": ["React", "Socket.IO", "Firebase"],
-    "date": "October 2025"
+    "date": "October 2025",
+    "nerd_facts": [
+      "Utilizes Socket.IO for real-time chat and notifications.",
+      "Firebase backend for user authentication and data storage.",
+      "Proof-of-concept for a scalable social networking platform."
+    ]
   },
   {
     "id": 11,
-    "title": "DarkChat (Alpha)",
+    "title": "DarkChat",
     "description": "Built a privacy-first video chat application using WebRTC for direct P2P connections, eliminating the need for a central server and ensuring all communication is encrypted and ephemeral.",
     "live_link": "https://darkchat-alpha.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/dark-chat",
     "tech_stack": ["WebRTC", "React", "P2P", "Security"],
-    "date": "September 2025"
+    "date": "September 2025",
+    "nerd_facts": [
+      "Employs WebRTC for direct peer-to-peer video streaming, no server middleman.",
+      "End-to-end encryption is inherent to the WebRTC architecture.",
+      "Minimalist UI to focus on the core functionality of secure communication."
+    ]
   },
   {
     "id": 12,
-    "title": "Meet4Weed (v1)",
+    "title": "Meet4Weed Beta",
     "description": "The original version of the cannabis social platform, demonstrating the project's evolution and foundational features from an earlier stage of development.",
     "live_link": "https://meet4weed-v1.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/meet-4-weed-v1",
     "tech_stack": ["React", "JavaScript", "CSS"],
-    "date": "August 2025"
+    "date": "August 2025",
+    "nerd_facts": [
+      "Demonstrates an iterative development process from a simple MVP.",
+      "Built with foundational web technologies (plain JS and CSS).",
+      "Shows the evolution of a project from an idea to a more complex app."
+    ]
   },
   {
     "id": 13,
@@ -116,7 +176,12 @@ const projects: Project[] = [
     "live_link": "https://transcription-assistant.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/transcription-assistant",
     "tech_stack": ["React", "Gemini API", "Web Audio API"],
-    "date": "July 2025"
+    "date": "July 2025",
+    "nerd_facts": [
+      "Integrates the Web Audio API to capture microphone input in the browser.",
+      "Streams audio data to the Gemini API for real-time transcription.",
+      "The UI provides immediate feedback as the text is being transcribed."
+    ]
   },
   {
     "id": 14,
@@ -125,7 +190,12 @@ const projects: Project[] = [
     "live_link": "https://reporter-assistant.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/reporter-assistant",
     "tech_stack": ["React", "Gemini API", "NLP"],
-    "date": "June 2025"
+    "date": "June 2025",
+    "nerd_facts": [
+      "Tailored Gemini API prompts for journalistic use-cases like summarizing notes.",
+      "Focuses on a workflow-oriented user experience for productivity.",
+      "Natural Language Processing (NLP) is at the core of its features."
+    ]
   },
   {
     "id": 15,
@@ -134,7 +204,12 @@ const projects: Project[] = [
     "live_link": "https://palm-city-condo.netlify.app",
     "github_link": "https://github.com/alexubilla8185/palm-city-condo",
     "tech_stack": ["React", "Tailwind CSS", "Real Estate"],
-    "date": "May 2025"
+    "date": "May 2025",
+    "nerd_facts": [
+      "Single-page application design for a fast, seamless user experience.",
+      "Image-heavy design optimized for quick loading and visual appeal.",
+      "Clear calls-to-action to drive booking inquiries from potential renters."
+    ]
   },
   {
     "id": 17,
@@ -143,7 +218,12 @@ const projects: Project[] = [
     "live_link": "https://spanish-jenga.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/spanish-jenga",
     "tech_stack": ["React", "Three.js", "Game Logic"],
-    "date": "March 2025"
+    "date": "March 2025",
+    "nerd_facts": [
+      "Uses Three.js for 3D rendering and a physics library for simulation.",
+      "Complex game logic handles block removal and tower stability checks.",
+      "Interactive and fun, showcasing skills beyond typical CRUD web apps."
+    ]
   }
 ];
 

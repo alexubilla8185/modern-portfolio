@@ -6,6 +6,7 @@ export interface Project {
   github_link: string;
   tech_stack: string[];
   date: string;
+  nerd_facts?: string[];
 }
 
 export type ActiveSection = 'projects' | 'resume' | 'contact';
