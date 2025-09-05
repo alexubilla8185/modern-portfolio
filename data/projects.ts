@@ -12,7 +12,9 @@ const projects: Project[] = [
     "nerd_facts": [
       "Built without a bundler using importmaps for native ES module resolution.",
       "Features a 3D carousel with spring physics via Framer Motion.",
-      "Dynamically generates a PDF resume on-the-fly in the browser."
+      "Dynamically generates a PDF resume on-the-fly in the browser.",
+      "Fully accessible, with ARIA attributes and keyboard navigation throughout.",
+      "Persistent light/dark theme using localStorage and CSS classes on the HTML root."
     ]
   },
   {
@@ -26,7 +28,9 @@ const projects: Project[] = [
     "nerd_facts": [
       "Uses CSS 'perspective' for the core 3D spatial effect.",
       "Calculates card positions and transformations in JavaScript for precise control.",
-      "Fully accessible via keyboard navigation (left/right arrow keys)."
+      "Fully accessible via keyboard navigation (left/right arrow keys).",
+      "Responsive design adjusts card sizes and positioning for mobile screens.",
+      "Uses spring physics from Framer Motion for a natural, fluid feel."
     ]
   },
   {
@@ -40,7 +44,8 @@ const projects: Project[] = [
     "nerd_facts": [
       "Fully responsive design adapts from mobile menus to large desktop displays.",
       "Optimized for fast load times to prevent losing hungry customers.",
-      "Clean UI focuses user attention on the food and contact info."
+      "Clean UI focuses user attention on the food and contact info.",
+      "Built as a static site for peak performance, security, and low hosting costs."
     ]
   },
   {
@@ -54,7 +59,8 @@ const projects: Project[] = [
     "nerd_facts": [
       "Integrates with Firebase for real-time data synchronization.",
       "Uses Google Maps API to visualize donation and distribution points.",
-      "Secure authentication for volunteers and administrators."
+      "Secure authentication for volunteers and administrators.",
+      "Firestore security rules ensure data integrity and user privacy."
     ]
   },
   {
@@ -68,7 +74,8 @@ const projects: Project[] = [
     "nerd_facts": [
       "Focus on elegant animations and micro-interactions for a premium feel.",
       "Designed for effortless sharing on mobile devices.",
-      "Lightweight and fast, ensuring a great first impression."
+      "Lightweight and fast, ensuring a great first impression.",
+      "Built with a mobile-first philosophy for optimal on-the-go use."
     ]
   },
   {
@@ -82,7 +89,8 @@ const projects: Project[] = [
     "nerd_facts": [
       "Leverages the Gemini API for generative AI responses.",
       "Uses Firebase for secure storage of user data and memories.",
-      "Real-time database features allow for instant updates across clients."
+      "Real-time database features allow for instant updates across clients.",
+      "Carefully crafted system prompts guide AI responses with sensitivity and respect."
     ]
   },
   {
@@ -96,7 +104,8 @@ const projects: Project[] = [
     "nerd_facts": [
       "Uses Google Maps API for location-based search and discovery.",
       "Built with a community-first approach to UI/UX.",
-      "Scalable architecture to handle a growing user base."
+      "Scalable architecture to handle a growing user base.",
+      "Efficiently renders numerous map markers without performance degradation."
     ]
   },
   {
@@ -110,7 +119,8 @@ const projects: Project[] = [
     "nerd_facts": [
       "Static site generation for maximum performance and security.",
       "SEO-optimized to attract new clients through organic search.",
-      "Clean, professional design reflects the company's brand."
+      "Clean, professional design reflects the company's brand.",
+      "Minimalist aesthetic focuses on the company's value proposition."
     ]
   },
   {
@@ -124,7 +134,8 @@ const projects: Project[] = [
     "nerd_facts": [
       "Features a high-resolution image gallery to showcase products.",
       "Mobile-first design ensures a great experience for contractors on-site.",
-      "Contact forms are integrated for easy lead generation."
+      "Contact forms are integrated for easy lead generation.",
+      "Lazy loading for gallery images improves initial page speed."
     ]
   },
   {
@@ -138,7 +149,8 @@ const projects: Project[] = [
     "nerd_facts": [
       "Utilizes Socket.IO for real-time chat and notifications.",
       "Firebase backend for user authentication and data storage.",
-      "Proof-of-concept for a scalable social networking platform."
+      "Proof-of-concept for a scalable social networking platform.",
+      "Manages real-time connection state for 'online' user presence indicators."
     ]
   },
   {
@@ -152,7 +164,8 @@ const projects: Project[] = [
     "nerd_facts": [
       "Employs WebRTC for direct peer-to-peer video streaming, no server middleman.",
       "End-to-end encryption is inherent to the WebRTC architecture.",
-      "Minimalist UI to focus on the core functionality of secure communication."
+      "Minimalist UI to focus on the core functionality of secure communication.",
+      "Signaling server connection handled via WebSocket for initial peer handshake."
     ]
   },
   {
@@ -166,7 +179,8 @@ const projects: Project[] = [
     "nerd_facts": [
       "Demonstrates an iterative development process from a simple MVP.",
       "Built with foundational web technologies (plain JS and CSS).",
-      "Shows the evolution of a project from an idea to a more complex app."
+      "Shows the evolution of a project from an idea to a more complex app.",
+      "Serves as a baseline to measure performance improvements in the newer version."
     ]
   },
   {
@@ -180,7 +194,8 @@ const projects: Project[] = [
     "nerd_facts": [
       "Integrates the Web Audio API to capture microphone input in the browser.",
       "Streams audio data to the Gemini API for real-time transcription.",
-      "The UI provides immediate feedback as the text is being transcribed."
+      "The UI provides immediate feedback as the text is being transcribed.",
+      "Handles audio data chunking to comply with API limitations."
     ]
   },
   {
@@ -194,7 +209,8 @@ const projects: Project[] = [
     "nerd_facts": [
       "Tailored Gemini API prompts for journalistic use-cases like summarizing notes.",
       "Focuses on a workflow-oriented user experience for productivity.",
-      "Natural Language Processing (NLP) is at the core of its features."
+      "Natural Language Processing (NLP) is at the core of its features.",
+      "Provides a distraction-free writing and editing environment."
     ]
   },
   {
@@ -208,7 +224,8 @@ const projects: Project[] = [
     "nerd_facts": [
       "Single-page application design for a fast, seamless user experience.",
       "Image-heavy design optimized for quick loading and visual appeal.",
-      "Clear calls-to-action to drive booking inquiries from potential renters."
+      "Clear calls-to-action to drive booking inquiries from potential renters.",
+      "SEO-friendly markup to improve search engine ranking."
     ]
   },
   {
@@ -222,7 +239,8 @@ const projects: Project[] = [
     "nerd_facts": [
       "Uses Three.js for 3D rendering and a physics library for simulation.",
       "Complex game logic handles block removal and tower stability checks.",
-      "Interactive and fun, showcasing skills beyond typical CRUD web apps."
+      "Interactive and fun, showcasing skills beyond typical CRUD web apps.",
+      "Raycasting is used to detect which block the player is interacting with."
     ]
   }
 ];

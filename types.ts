@@ -13,7 +13,7 @@ export type ActiveSection = 'projects' | 'resume' | 'contact';
 
 export type Theme = 'light' | 'dark';
 
-// FIX: Add ChatMessage type definition used in Chatbot.tsx
+// FIX: Add ChatMessage interface for use in Chatbot component.
 export interface ChatMessage {
   role: 'user' | 'model';
   text: string;
