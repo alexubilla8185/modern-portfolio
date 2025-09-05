@@ -4,19 +4,14 @@ import ExecutiveSummary from '@/components/ExecutiveSummary';
 import ProjectShowcase from '@/components/ProjectShowcase';
 import Resume from '@/components/Resume';
 import Modal from '@/components/Modal';
-import ActionBar from '@/components/ActionBar';
-import Chatbot from '@/components/Chatbot';
+import ContactPage from '@/components/ContactPage';
 import SectionNavigator from '@/components/SectionNavigator';
 import Toast from '@/components/Toast';
 import AppSpecifications from '@/components/AppSpecifications';
-import { Theme } from '@/types';
-
-type View = 'projects' | 'resume';
+import { Theme, ActiveSection } from '@/types';
 
 const App: React.FC = () => {
-  const [activeView, setActiveView] = useState<View>('projects');
-  const [isContactModalOpen, setContactModalOpen] = useState(false);
-  const [isChatModalOpen, setChatModalOpen] = useState(false);
+  const [activeView, setActiveView] = useState<ActiveSection>('projects');
   const [isSpecsModalOpen, setSpecsModalOpen] = useState(false);
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
@@ -97,7 +92,7 @@ const App: React.FC = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
   
-  const isAnyModalOpen = isContactModalOpen || isChatModalOpen || isSpecsModalOpen;
+  const isAnyModalOpen = isSpecsModalOpen;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -115,30 +110,12 @@ const App: React.FC = () => {
             onSectionChange={setActiveView} 
           />
           <div key={activeView} className="mt-8 animate-fade-in">
-            {activeView === 'projects' ? <ProjectShowcase /> : <Resume />}
+            {activeView === 'projects' && <ProjectShowcase />}
+            {activeView === 'resume' && <Resume />}
+            {activeView === 'contact' && <ContactPage />}
           </div>
         </main>
-        <ActionBar 
-          onContactClick={() => setContactModalOpen(true)}
-          onChatClick={() => setChatModalOpen(true)}
-        />
       </div>
-      <Modal
-        isOpen={isContactModalOpen}
-        onClose={() => setContactModalOpen(false)}
-        title="Get In Touch"
-      >
-        <Suspense fallback={<div className="p-8 text-center">Loading form...</div>}>
-          <Contact />
-        </Suspense>
-      </Modal>
-       <Modal
-        isOpen={isChatModalOpen}
-        onClose={() => setChatModalOpen(false)}
-        title="AI Assistant"
-      >
-        <Chatbot />
-      </Modal>
       <Modal
         isOpen={isSpecsModalOpen}
         onClose={() => setSpecsModalOpen(false)}
@@ -149,8 +126,5 @@ const App: React.FC = () => {
     </div>
   );
 };
-
-// Lazy load Contact component as it's in a modal
-const Contact = React.lazy(() => import('@/components/Contact'));
 
 export default App;

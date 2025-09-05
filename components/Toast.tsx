@@ -32,10 +32,10 @@ const Toast: React.FC<ToastProps> = ({ message, onClose }) => {
                     role="alert"
                 >
                     <div className="flex items-center justify-between p-4 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-lg rounded-lg shadow-xl border border-slate-200 dark:border-zinc-700">
-                        <p className="text-sm font-medium text-slate-700 dark:text-zinc-200">{message}</p>
+                        <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200">{message}</p>
                         <button
                             onClick={onClose}
-                            className="ml-4 p-1 rounded-full text-slate-400 hover:bg-slate-200 dark:hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            className="ml-4 p-1 rounded-full text-zinc-500 hover:bg-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             aria-label="Dismiss notification"
                         >
                             <CloseIcon className="h-5 w-5" />

@@ -1,5 +1,5 @@
 {
-  "name": "My Modern Resume",
-  "description": "A modern, minimalist portfolio website built with React, TypeScript, and Tailwind CSS, inspired by Google's M3 Expressive design. It features sections for projects, a resume, and an executive summary.",
+  "name": "Portfolio",
+  "description": "A modern, minimalist portfolio website for Alejandro Ubilla, built with React, TypeScript, and Tailwind CSS. It features sections for projects, a resume, and contact information.",
   "requestFramePermissions": []
 }

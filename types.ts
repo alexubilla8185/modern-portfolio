@@ -8,10 +8,11 @@ export interface Project {
   date: string;
 }
 
-export type ActiveSection = 'projects' | 'resume';
+export type ActiveSection = 'projects' | 'resume' | 'contact';
 
 export type Theme = 'light' | 'dark';
 
+// FIX: Add ChatMessage type definition used in Chatbot.tsx
 export interface ChatMessage {
   role: 'user' | 'model';
   text: string;

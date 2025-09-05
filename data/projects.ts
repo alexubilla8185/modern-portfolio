@@ -3,8 +3,8 @@ import type { Project } from '@/types';
 const projects: Project[] = [
   {
     "id": 1,
-    "title": "My Modern Resume",
-    "description": "A dynamic, single-page portfolio built from scratch to showcase my skills in modern web development, featuring an interactive project carousel, simulated AI assistant, and a clean, responsive UI.",
+    "title": "Portfolio Website",
+    "description": "A dynamic, single-page portfolio built from scratch to showcase my skills in modern web development, featuring an interactive project carousel and a clean, responsive UI.",
     "live_link": "https://my-modern-resume.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/my-modern-resume",
     "tech_stack": ["React", "TypeScript", "Tailwind CSS"],

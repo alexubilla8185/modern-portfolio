@@ -19,8 +19,8 @@ const renderMarkdown = (text: string) => {
     if (line.startsWith('```')) {
       if (inCodeBlock) {
         elements.push(
-          <pre key={`code-${i}`} className="bg-slate-100 dark:bg-zinc-800 rounded-md p-3 my-2 text-xs overflow-x-auto">
-            <code className="font-mono text-indigo-600 dark:text-indigo-400">{codeContent.trim()}</code>
+          <pre key={`code-${i}`} className="bg-zinc-100 dark:bg-zinc-800 rounded-md p-3 my-2 text-xs overflow-x-auto">
+            <code className="font-mono text-blue-600 dark:text-blue-400">{codeContent.trim()}</code>
           </pre>
         );
         codeContent = '';
@@ -30,7 +30,7 @@ const renderMarkdown = (text: string) => {
       codeContent += line + '\n';
     } else {
        if (line.trim()) {
-         elements.push(<p key={`line-${i}`} className="text-slate-600 dark:text-zinc-400 text-sm mb-2 last:mb-0 leading-relaxed">{line}</p>);
+         elements.push(<p key={`line-${i}`} className="text-zinc-700 dark:text-zinc-400 text-sm mb-2 last:mb-0 leading-relaxed">{line}</p>);
        }
     }
   }
@@ -45,8 +45,8 @@ const techColors = [
     'text-violet-600 dark:text-violet-400',
     'text-cyan-600 dark:text-cyan-400',
     'text-pink-600 dark:text-pink-400',
-    'text-teal-600 dark:text-teal-400',
     'text-indigo-600 dark:text-indigo-400',
+    'text-blue-600 dark:text-blue-400',
 ];
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
@@ -78,16 +78,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
 
           <div className="mt-4 pt-4 border-t border-slate-200 dark:border-zinc-700 flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 font-semibold transition-colors" aria-label={`View live application for ${project.title}`}>
+              <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold transition-colors" aria-label={`View live application for ${project.title}`}>
                 <ExternalLinkIcon className="h-5 w-5" />
                 App
               </a>
-              <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-zinc-200 font-semibold transition-colors" aria-label={`View source code for ${project.title}`}>
+              <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 font-semibold transition-colors" aria-label={`View source code for ${project.title}`}>
                 <GitHubIcon className="h-5 w-5" />
                 Source
               </a>
             </div>
-            <p className="text-xs text-slate-400 dark:text-zinc-500 font-medium flex-shrink-0">{project.date}</p>
+            <p className="text-xs text-zinc-500 dark:text-zinc-500 font-medium flex-shrink-0">{project.date}</p>
           </div>
         </div>
       </div>

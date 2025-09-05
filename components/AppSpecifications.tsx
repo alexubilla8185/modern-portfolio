@@ -2,14 +2,14 @@ import React from 'react';
 
 const SpecSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="break-inside-avoid">
-    <h3 className="text-lg font-semibold text-indigo-600 dark:text-indigo-400 mb-2">{title}</h3>
-    <div className="text-slate-600 dark:text-zinc-400 space-y-1">{children}</div>
+    <h3 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">{title}</h3>
+    <div className="text-zinc-700 dark:text-zinc-400 space-y-1">{children}</div>
   </div>
 );
 
 const ListItem: React.FC<{ children: React.ReactNode }> = ({ children }) => (
     <li className="flex items-start">
-        <span className="mr-2 mt-1 text-indigo-500 flex-shrink-0">&#10148;</span>
+        <span className="mr-2 mt-1 text-blue-500 flex-shrink-0">&#10148;</span>
         <span className="min-w-0">{children}</span>
     </li>
 );
@@ -38,7 +38,7 @@ const AppSpecifications: React.FC = () => {
                 <ListItem><strong>Framer Motion:</strong> Powers the interactive 3D project carousel and toast notifications, using spring physics for fluid, tactile animations.</ListItem>
                 <ListItem><strong>Custom CSS Animations:</strong> A performance-optimized CSS `marquee` animation creates the seamless, auto-scrolling effect for the Core Competencies.</ListItem>
                 <ListItem><strong>Idle User Nudge:</strong> An inactivity timer on the resume page triggers a scroll-to-top and a toast notification, playfully guiding users to discover the app specs easter egg.</ListItem>
-                <ListItem><strong>Stateful UI:</strong> The app features a persistent light/dark theme, interactive modals, and a simulated AI chatbot, all managed with React state and hooks.</ListItem>
+                <ListItem><strong>Stateful UI:</strong> The app features a persistent light/dark theme, interactive modals, and a contact form, all managed with React state and hooks.</ListItem>
             </ul>
         </SpecSection>
 
@@ -46,7 +46,6 @@ const AppSpecifications: React.FC = () => {
             <ul className="space-y-2">
                 <ListItem><strong>Fully Responsive Design:</strong> Adapts seamlessly to all screen sizes, from mobile to desktop.</ListItem>
                 <ListItem><strong>Interactive 3D Carousel:</strong> Users can navigate projects by clicking side cards, using arrow buttons, or with keyboard controls.</ListItem>
-                <ListItem><strong>Simulated AI Assistant:</strong> A client-side chatbot demonstrates UI/UX for conversational interfaces with pre-scripted, streaming responses.</ListItem>
                 <ListItem><strong>Static Project Data:</strong> Project data is imported directly as a JavaScript module for fast, reliable loading without network requests.</ListItem>
                 <ListItem><strong>Dynamic PDF Generation:</strong> The resume can be downloaded as a PDF, generated on-the-fly in the browser to ensure it's always up-to-date with the latest information.</ListItem>
             </ul>

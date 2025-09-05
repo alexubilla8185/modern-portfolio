@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
   const handleShare = async () => {
     const shareData = {
-      title: 'Alejandro Ubilla - My Modern Resume',
+      title: 'Alejandro Ubilla - Portfolio',
       text: "Check out Alejandro Ubilla's portfolio!",
       url: canonicalUrl,
     };
@@ -45,12 +45,16 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <h1 className="text-xl font-bold text-indigo-600 dark:text-indigo-400">Alejandro Ubilla</h1>
+            <h1 className="text-xl font-bold text-blue-600 dark:text-blue-400">Alejandro Ubilla</h1>
           </div>
           <div className="flex items-center space-x-2 sm:space-x-4">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full text-slate-500 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300"
+              className={`p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300 ${
+                theme === 'light'
+                  ? 'text-blue-600' // Blue moon icon for light mode
+                  : 'text-yellow-400' // Yellow sun icon for dark mode
+              }`}
               aria-label="Toggle theme"
             >
               {theme === 'light' ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
@@ -58,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             <div className="relative">
                 <button
                     onClick={handleShare}
-                    className="p-2 rounded-full text-slate-500 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300"
+                    className="p-2 rounded-full text-blue-600 dark:text-blue-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300"
                     aria-label="Share profile"
                 >
                     <ShareIcon className="h-6 w-6" />

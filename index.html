@@ -2,23 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>My Modern Resume</title>
+    <title>Alejandro Ubilla - Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A modern, minimalist portfolio website built with React, TypeScript, and Tailwind CSS, inspired by Google's M3 Expressive design. It features sections for projects, a resume, and an executive summary." />
+    <meta name="description" content="A modern, minimalist portfolio website for Alejandro Ubilla, built with React, TypeScript, and Tailwind CSS. It features sections for projects, a resume, and contact information." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://my-modern-resume.netlify.app/" />
-    <meta property="og:title" content="Alejandro Ubilla - My Modern Resume" />
-    <meta property="og:description" content="A modern, minimalist portfolio website featuring an interactive project carousel, simulated AI assistant, and a clean, responsive UI." />
+    <meta property="og:title" content="Alejandro Ubilla - Portfolio" />
+    <meta property="og:description" content="A modern, minimalist portfolio website featuring an interactive project carousel and a clean, responsive UI." />
     <meta property="og:image" content="/og-image.svg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://my-modern-resume.netlify.app/" />
-    <meta property="twitter:title" content="Alejandro Ubilla - My Modern Resume" />
-    <meta property="twitter:description" content="A modern, minimalist portfolio website featuring an interactive project carousel, simulated AI assistant, and a clean, responsive UI." />
+    <meta property="twitter:title" content="Alejandro Ubilla - Portfolio" />
+    <meta property="twitter:description" content="A modern, minimalist portfolio website featuring an interactive project carousel and a clean, responsive UI." />
     <meta property="twitter:image" content="/og-image.svg" />
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -69,7 +69,13 @@
 }
 </script>
 </head>
-  <body class="bg-slate-50 text-slate-800 dark:bg-zinc-950 dark:text-zinc-200 transition-colors duration-300">
+  <body class="bg-white text-zinc-800 dark:bg-zinc-950 dark:text-zinc-200 transition-colors duration-300">
+    <!-- Netlify hidden form for submission handling -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

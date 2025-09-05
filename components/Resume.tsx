@@ -6,16 +6,16 @@ import { DownloadIcon } from '@/components/Icons';
 
 const ResumeSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="mb-8">
-    <h3 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-200 dark:border-indigo-800 pb-2 mb-4">{title}</h3>
+    <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 border-b-2 border-blue-200 dark:border-blue-800 pb-2 mb-4">{title}</h3>
     {children}
   </div>
 );
 
 const Job: React.FC<{ job: JobType }> = ({ job }) => (
   <div className="mb-6">
-    <h4 className="text-xl font-semibold text-slate-800 dark:text-zinc-200">{job.title}</h4>
-    <p className="text-md text-slate-600 dark:text-zinc-400 font-medium">{job.company} | {job.duration}</p>
-    <ul className="list-disc list-inside mt-2 text-slate-600 dark:text-zinc-400 space-y-1">
+    <h4 className="text-xl font-semibold text-zinc-900 dark:text-zinc-200">{job.title}</h4>
+    <p className="text-md text-zinc-700 dark:text-zinc-400 font-medium">{job.company} | {job.duration}</p>
+    <ul className="list-disc list-inside mt-2 text-zinc-700 dark:text-zinc-400 space-y-1">
       {job.responsibilities.map((item, index) => <li key={index}>{item}</li>)}
     </ul>
   </div>
@@ -29,8 +29,8 @@ const skillColors = [
     'bg-violet-100 text-violet-800 dark:bg-violet-900/50 dark:text-violet-300',
     'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/50 dark:text-cyan-300',
     'bg-pink-100 text-pink-800 dark:bg-pink-900/50 dark:text-pink-300',
-    'bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300',
     'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300',
+    'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300',
 ];
 
 const Resume: React.FC = () => {
@@ -159,8 +159,8 @@ const Resume: React.FC = () => {
     <section className="max-w-5xl mx-auto bg-white dark:bg-zinc-900 p-8 md:p-12 shadow-lg rounded-lg">
       <div className="flex flex-col sm:flex-row justify-between items-start mb-8">
         <div>
-          <h2 className="text-4xl font-bold text-slate-900 dark:text-zinc-100">{name}</h2>
-          <div className="mt-2 text-slate-500 dark:text-zinc-500 space-y-1 sm:space-y-0 sm:flex sm:flex-wrap sm:gap-x-4">
+          <h2 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">{name}</h2>
+          <div className="mt-2 text-zinc-600 dark:text-zinc-500 space-y-1 sm:space-y-0 sm:flex sm:flex-wrap sm:gap-x-4">
              <p>{contact.phone}</p>
              <p className="hidden sm:inline">|</p>
              <p>{contact.email}</p>
@@ -170,7 +170,7 @@ const Resume: React.FC = () => {
         </div>
         <button
           onClick={handleDownload}
-          className="bg-indigo-600 text-white font-bold py-2 px-3 rounded-lg hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 transition-colors duration-300 shadow-sm mt-4 sm:mt-0 flex items-center gap-2"
+          className="bg-blue-600 text-white font-bold py-2 px-3 rounded-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors duration-300 shadow-sm mt-4 sm:mt-0 flex items-center gap-2"
         >
           <DownloadIcon className="h-5 w-5" />
           PDF
@@ -178,7 +178,7 @@ const Resume: React.FC = () => {
       </div>
 
       <ResumeSection title="Summary">
-        <p className="text-slate-600 dark:text-zinc-400">
+        <p className="text-zinc-700 dark:text-zinc-400">
           {summary}
         </p>
       </ResumeSection>
@@ -189,8 +189,8 @@ const Resume: React.FC = () => {
 
       <ResumeSection title="Education">
          <div>
-          <h4 className="text-xl font-semibold text-slate-800 dark:text-zinc-200">{education.institution}</h4>
-          <p className="text-md text-slate-600 dark:text-zinc-400">{education.degree}</p>
+          <h4 className="text-xl font-semibold text-zinc-900 dark:text-zinc-200">{education.institution}</h4>
+          <p className="text-md text-zinc-700 dark:text-zinc-400">{education.degree}</p>
          </div>
       </ResumeSection>
 

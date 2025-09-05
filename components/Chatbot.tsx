@@ -79,18 +79,18 @@ const Chatbot: React.FC = () => {
             <div className="flex-grow overflow-y-auto p-4 space-y-4">
                 {messages.map((msg, index) => (
                     <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                        <div className={`max-w-xs md:max-w-md lg:max-w-lg px-4 py-2 rounded-2xl ${msg.role === 'user' ? 'bg-indigo-500 text-white' : 'bg-slate-200 dark:bg-zinc-700 text-slate-800 dark:text-zinc-200'}`}>
+                        <div className={`max-w-xs md:max-w-md lg:max-w-lg px-4 py-2 rounded-2xl ${msg.role === 'user' ? 'bg-blue-600 text-white' : 'bg-zinc-200 dark:bg-zinc-700 text-zinc-900 dark:text-zinc-200'}`}>
                            {msg.text || <span className="breathing-dot"></span>}
                         </div>
                     </div>
                 ))}
                  {isLoading && messages[messages.length -1].role === 'user' && (
                     <div className="flex justify-start pt-4">
-                         <div className="max-w-xs md:max-w-md lg:max-w-lg px-4 py-2 rounded-2xl bg-slate-200 dark:bg-zinc-700">
+                         <div className="max-w-xs md:max-w-md lg:max-w-lg px-4 py-2 rounded-2xl bg-zinc-200 dark:bg-zinc-700">
                             <div className="flex items-center justify-center space-x-1">
-                                <span className="h-2 w-2 bg-slate-400 rounded-full animate-pulse [animation-delay:-0.3s]"></span>
-                                <span className="h-2 w-2 bg-slate-400 rounded-full animate-pulse [animation-delay:-0.15s]"></span>
-                                <span className="h-2 w-2 bg-slate-400 rounded-full animate-pulse"></span>
+                                <span className="h-2 w-2 bg-zinc-400 rounded-full animate-pulse [animation-delay:-0.3s]"></span>
+                                <span className="h-2 w-2 bg-zinc-400 rounded-full animate-pulse [animation-delay:-0.15s]"></span>
+                                <span className="h-2 w-2 bg-zinc-400 rounded-full animate-pulse"></span>
                             </div>
                         </div>
                     </div>
@@ -105,13 +105,13 @@ const Chatbot: React.FC = () => {
                         onChange={(e) => setInput(e.target.value)}
                         placeholder="Ask about my projects..."
                         disabled={isLoading}
-                        className="flex-grow block w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-600 rounded-full shadow-sm placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="flex-grow block w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-600 rounded-full shadow-sm placeholder-zinc-500 dark:placeholder-zinc-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                         aria-label="Chat input"
                     />
                     <button
                         type="submit"
                         disabled={isLoading || !input.trim()}
-                        className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-indigo-400 disabled:cursor-not-allowed dark:focus:ring-offset-zinc-900"
+                        className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-blue-400 disabled:cursor-not-allowed dark:focus:ring-offset-zinc-900"
                         aria-label="Send message"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 rotate-90" viewBox="0 0 20 20" fill="currentColor">
