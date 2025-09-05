@@ -18,7 +18,7 @@ const projects: Project[] = [
   {
     "id": 2,
     "title": "Dark Trap",
-    "description": "A dark, techy, cyberpunk-themed peer-to-peer video chat application using WebRTC for secure and direct communication.",
+    "description": "Developed a dark, techy, cyberpunk-themed peer-to-peer video chat application using WebRTC for secure and direct communication.",
     "live_link": "https://darktrap.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/darktrap",
     "tech_stack": ["WebRTC", "React", "P2P"],
@@ -46,7 +46,7 @@ const projects: Project[] = [
   {
     "id": 4,
     "title": "FancyFam",
-    "description": "A modern and interactive digital business card platform, designed to make a memorable first impression with a clean, elegant interface and seamless sharing capabilities.",
+    "description": "Designed a modern and interactive digital business card platform to make a memorable first impression with a clean, elegant interface and seamless sharing capabilities.",
     "live_link": "https://fancyfam.com/",
     "github_link": "https://github.com/alexubilla8185/fancy-fam",
     "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
@@ -74,7 +74,7 @@ const projects: Project[] = [
   {
     "id": 6,
     "title": "AfterLife",
-    "description": "Engineered an AI-powered digital memorial platform where users can create a personalized legacy. Implemented a feature allowing loved ones to interact with memories and AI-generated responses.",
+    "description": "Engineered an AI-powered digital memorial platform where users can create a personalized legacy, allowing loved ones to interact with memories and AI-generated responses.",
     "live_link": "https://afterlife-alpha.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/after-life",
     "tech_stack": ["React", "Gemini API", "Firebase"],
@@ -88,7 +88,7 @@ const projects: Project[] = [
   {
     "id": 7,
     "title": "Portfolio Website",
-    "description": "A dynamic, single-page portfolio built from scratch to showcase my skills in modern web development, featuring an interactive project carousel and a clean, responsive UI.",
+    "description": "Built a dynamic, single-page portfolio from scratch to showcase skills in modern web development, featuring an interactive project carousel and a clean, responsive UI.",
     "live_link": "https://my-modern-resume.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/modern-portfolio",
     "tech_stack": ["React", "TypeScript", "Tailwind CSS"],
@@ -103,7 +103,7 @@ const projects: Project[] = [
   {
     "id": 8,
     "title": "Interactive 3D Carousel",
-    "description": "A reusable React component for showcasing content in an engaging, 3D animated carousel. This portfolio uses it to display projects!",
+    "description": "Created a reusable React component for showcasing content in an engaging, 3D animated carousel. This portfolio uses it to display projects!",
     "live_link": "#",
     "github_link": "https://github.com/alexubilla8185/modern-portfolio/blob/main/components/ProjectShowcase.tsx",
     "tech_stack": ["React", "TypeScript", "Framer Motion"],
