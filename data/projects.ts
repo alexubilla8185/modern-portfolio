@@ -169,21 +169,6 @@ const projects: Project[] = [
     ]
   },
   {
-    "id": 12,
-    "title": "Meet4Weed Beta",
-    "description": "The original version of the cannabis social platform, demonstrating the project's evolution and foundational features from an earlier stage of development.",
-    "live_link": "https://meet4weed-v1.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/meet-4-weed-v1",
-    "tech_stack": ["React", "JavaScript", "CSS"],
-    "date": "August 2025",
-    "nerd_facts": [
-      "Demonstrates an iterative development process from a simple MVP.",
-      "Built with foundational web technologies (plain JS and CSS).",
-      "Shows the evolution of a project from an idea to a more complex app.",
-      "Serves as a baseline to measure performance improvements in the newer version."
-    ]
-  },
-  {
     "id": 13,
     "title": "Transcription Assistant",
     "description": "Developed an AI-powered tool that leverages the Gemini API to provide fast and accurate audio-to-text transcription, streamlining workflows for professionals.",
