@@ -163,7 +163,6 @@ const projects: Project[] = [
     "date": "September 2025",
     "nerd_facts": [
       "Employs WebRTC for direct peer-to-peer video streaming, eliminating server middlemen.",
-      "Features a dark, cyberpunk-inspired UI for an immersive, techy feel.",
       "End-to-end encryption is inherent to the WebRTC architecture, ensuring privacy.",
       "Signaling for the initial peer handshake is managed via a lightweight WebSocket server.",
       "Focuses on a minimalist, yet stylized, interface for secure communication."
