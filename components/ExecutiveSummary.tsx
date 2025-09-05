@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 interface ExecutiveSummaryProps {
   onShowSpecs: () => void;
@@ -29,6 +29,95 @@ const CompetencyPills = () => (
 
 const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs }) => {
   const clickTimestamps = useRef<number[]>([]);
+  
+  const marqueeContainerRef = useRef<HTMLDivElement>(null);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+  // FIX: Initialize useRef with null to prevent "Expected 1 arguments, but got 0" error.
+  const animationFrameId = useRef<number | null>(null);
+  const isHoveringRef = useRef(false);
+
+  useEffect(() => {
+    const container = marqueeContainerRef.current;
+    if (!container) return;
+
+    const scrollContent = () => {
+      if (!isHoveringRef.current && !isDraggingRef.current) {
+        container.scrollLeft += 0.5; // Autoscroll speed
+        if (container.scrollLeft >= container.scrollWidth / 2) {
+          container.scrollLeft = 0;
+        }
+      }
+      animationFrameId.current = requestAnimationFrame(scrollContent);
+    };
+
+    animationFrameId.current = requestAnimationFrame(scrollContent);
+
+    return () => {
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
+    };
+  }, []);
+  
+  const startDragging = (clientX: number) => {
+    const container = marqueeContainerRef.current;
+    if (!container) return;
+    
+    isDraggingRef.current = true;
+    startXRef.current = clientX - container.offsetLeft;
+    scrollLeftRef.current = container.scrollLeft;
+    container.style.scrollBehavior = 'auto';
+    container.style.userSelect = 'none';
+  };
+
+  const onDragging = (clientX: number) => {
+    if (!isDraggingRef.current) return;
+    const container = marqueeContainerRef.current;
+    if (!container) return;
+    
+    const x = clientX - container.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5; // Drag speed multiplier
+    let newScrollLeft = scrollLeftRef.current - walk;
+    
+    const halfWidth = container.scrollWidth / 2;
+    
+    // Seamlessly loop the content during drag
+    if (newScrollLeft >= halfWidth) {
+        scrollLeftRef.current -= halfWidth;
+        newScrollLeft -= halfWidth;
+    } else if (newScrollLeft <= 0 && walk > 0) { // Check walk to prevent wrapping when starting drag at 0
+        scrollLeftRef.current += halfWidth;
+        newScrollLeft += halfWidth;
+    }
+
+    container.scrollLeft = newScrollLeft;
+  };
+  
+  const stopDragging = () => {
+    isDraggingRef.current = false;
+    const container = marqueeContainerRef.current;
+    if (container) {
+      container.style.scrollBehavior = 'smooth';
+      container.style.userSelect = 'auto';
+    }
+  };
+  
+  // Mouse Events
+  const handleMouseDown = (e: React.MouseEvent) => startDragging(e.pageX);
+  const handleMouseMove = (e: React.MouseEvent) => { if(isDraggingRef.current) { e.preventDefault(); onDragging(e.pageX); } };
+  const handleMouseUp = () => stopDragging();
+  // FIX: Combined logic for stopping dragging and setting hover state into a single handler to resolve duplicate prop error.
+  const handleMouseLeave = () => {
+    stopDragging();
+    isHoveringRef.current = false;
+  };
+  
+  // Touch Events
+  const handleTouchStart = (e: React.TouchEvent) => startDragging(e.touches[0].clientX);
+  const handleTouchMove = (e: React.TouchEvent) => { if(isDraggingRef.current) { onDragging(e.touches[0].clientX); } };
+  const handleTouchEnd = () => stopDragging();
 
   const handleImageClick = () => {
     const now = Date.now();
@@ -59,8 +148,19 @@ const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs }) => {
           <div className="flex flex-col">
             <div className="mb-6 text-center">
               <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-300 mb-3">At a Glance:</h3>
-              <div className="relative group flex overflow-hidden">
-                  <div className="flex animate-marquee group-hover:[animation-play-state:paused] motion-reduce:animate-none">
+              <div 
+                ref={marqueeContainerRef}
+                className="relative flex overflow-hidden cursor-grab active:cursor-grabbing"
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseLeave}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                onMouseEnter={() => (isHoveringRef.current = true)}
+              >
+                  <div className="flex">
                       <CompetencyPills />
                       <CompetencyPills aria-hidden="true" />
                   </div>
