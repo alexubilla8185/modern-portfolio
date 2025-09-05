@@ -164,8 +164,6 @@ const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs }) => {
                       <CompetencyPills />
                       <CompetencyPills aria-hidden="true" />
                   </div>
-                  <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white dark:from-zinc-950 pointer-events-none"></div>
-                  <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white dark:from-zinc-950 pointer-events-none"></div>
               </div>
             </div>
             <p className="text-lg text-zinc-700 dark:text-zinc-400 leading-relaxed">
