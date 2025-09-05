@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Project } from '@/types';
-import { GitHubIcon, ExternalLinkIcon, TechIcon } from '@/components/Icons';
+import { GitHubIcon, ExternalLinkIcon } from '@/components/Icons';
 
 interface ProjectCardProps {
   project: Project;
@@ -37,6 +37,18 @@ const renderMarkdown = (text: string) => {
   return elements;
 };
 
+const techColors = [
+    'text-sky-600 dark:text-sky-400',
+    'text-green-600 dark:text-green-400',
+    'text-amber-600 dark:text-amber-400',
+    'text-rose-600 dark:text-rose-400',
+    'text-violet-600 dark:text-violet-400',
+    'text-cyan-600 dark:text-cyan-400',
+    'text-pink-600 dark:text-pink-400',
+    'text-teal-600 dark:text-teal-400',
+    'text-indigo-600 dark:text-indigo-400',
+];
+
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
   return (
     <div className="w-full h-full bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-slate-200 dark:border-zinc-700 flex-shrink-0">
@@ -56,14 +68,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
         </div>
 
         <div className="flex-shrink-0 mt-4">
-          <div className="flex flex-wrap gap-3 items-center">
-            {project.tech_stack.map((tech) => (
-              <div key={tech} className="relative group">
-                 <TechIcon tech={tech} className="h-6 w-6 text-slate-500 dark:text-zinc-400" />
-                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 bg-zinc-800 text-white text-xs font-semibold rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                    {tech}
-                 </div>
-              </div>
+          <div className="flex flex-wrap gap-x-4 gap-y-2 items-center">
+            {project.tech_stack.map((tech, index) => (
+              <span key={tech} className={`text-sm font-semibold ${techColors[index % techColors.length]}`}>
+                {tech}
+              </span>
             ))}
           </div>
 

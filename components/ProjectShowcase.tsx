@@ -70,8 +70,8 @@ const ProjectShowcase: React.FC = () => {
 
         if (!isVisible) return { zIndex: 0, opacity: 0, scale: 0.5, pointerEvents: 'none' as const, translateX: 0, rotateY: 0, filter: 'blur(3px)' };
         
-        const translateXPercentage = isMobile ? 40 : 60;
-        const scaleFactor = isMobile ? 0.3 : 0.15;
+        const translateXPercentage = isMobile ? 35 : 60;
+        const scaleFactor = isMobile ? 0.2 : 0.15;
 
         return {
             translateX: displayOffset * translateXPercentage,
@@ -87,7 +87,7 @@ const ProjectShowcase: React.FC = () => {
 
     return (
         <section className="py-8 sm:py-20 overflow-hidden">
-            <div className="relative w-full h-[450px] md:h-[520px] flex items-center justify-center" style={{ perspective: '1000px' }}>
+            <div className="relative w-full h-[500px] md:h-[520px] flex items-center justify-center" style={{ perspective: '1000px' }}>
                 <div className="relative h-full w-full max-w-5xl">
                     {projectsData.map((project, i) => {
                         const style = getCardStyle(i);
@@ -99,8 +99,8 @@ const ProjectShowcase: React.FC = () => {
                                 key={project.id}
                                 className="absolute top-0 left-0 right-0 mx-auto"
                                 style={{
-                                    width: isMobile ? '15rem' : '24rem',
-                                    height: isMobile ? '21rem' : '30rem',
+                                    width: isMobile ? '20rem' : '24rem',
+                                    height: isMobile ? '28rem' : '30rem',
                                     transformStyle: 'preserve-3d',
                                 }}
                                 initial={false}
