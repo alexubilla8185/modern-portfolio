@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Project } from '@/types';
-import { GitHubIcon, ExternalLinkIcon } from '@/components/Icons';
+import { GitHubIcon, ExternalLinkIcon, TechIcon } from '@/components/Icons';
 
 interface ProjectCardProps {
   project: Project;
@@ -50,16 +50,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
 
       {/* Card Body */}
       <div className="p-6 flex-grow flex flex-col min-h-0">
-        <div className="flex-grow overflow-y-auto pr-2 -mr-2">
+        <div className="relative flex-grow overflow-y-auto pr-2 -mr-2">
           {renderMarkdown(project.description)}
+          <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white dark:from-zinc-900 pointer-events-none"></div>
         </div>
 
         <div className="flex-shrink-0 mt-4">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-3 items-center">
             {project.tech_stack.map((tech) => (
-              <span key={tech} className="bg-slate-100 text-slate-700 dark:bg-zinc-800 dark:text-zinc-300 text-xs font-semibold px-2.5 py-1 rounded-full">
-                {tech}
-              </span>
+              <div key={tech} className="relative group">
+                 <TechIcon tech={tech} className="h-6 w-6 text-slate-500 dark:text-zinc-400" />
+                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 bg-zinc-800 text-white text-xs font-semibold rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                    {tech}
+                 </div>
+              </div>
             ))}
           </div>
 

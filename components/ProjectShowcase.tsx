@@ -68,34 +68,30 @@ const ProjectShowcase: React.FC = () => {
         
         const isVisible = Math.abs(displayOffset) <= 2;
 
-        if (!isVisible) return { zIndex: 0, opacity: 0, scale: 0.5, pointerEvents: 'none' as const };
+        if (!isVisible) return { zIndex: 0, opacity: 0, scale: 0.5, pointerEvents: 'none' as const, translateX: 0, rotateY: 0, filter: 'blur(3px)' };
         
-        const translateXPercentage = isMobile ? 38 : 60;
-        const scaleFactor = isMobile ? 0.2 : 0.15;
-
-        const translateX = displayOffset * translateXPercentage;
-        const scale = 1 - Math.abs(displayOffset) * scaleFactor;
-        const rotateY = displayOffset * -15;
-        const zIndex = total - Math.abs(displayOffset);
-        const filter = displayOffset !== 0 ? 'blur(3px) brightness(0.7)' : 'blur(0px) brightness(1)';
-        const cursor = displayOffset !== 0 ? 'pointer' : 'default';
+        const translateXPercentage = isMobile ? 40 : 60;
+        const scaleFactor = isMobile ? 0.3 : 0.15;
 
         return {
-            transform: `perspective(1000px) translateX(${translateX}%) scale(${scale}) rotateY(${rotateY}deg)`,
-            zIndex,
-            filter,
-            cursor,
+            translateX: displayOffset * translateXPercentage,
+            scale: 1 - Math.abs(displayOffset) * scaleFactor,
+            rotateY: displayOffset * -15,
+            zIndex: total - Math.abs(displayOffset),
+            filter: displayOffset !== 0 ? 'blur(3px) brightness(0.7)' : 'blur(0px) brightness(1)',
+            cursor: displayOffset !== 0 ? 'pointer' : 'default',
             opacity: 1,
             pointerEvents: 'auto' as const,
         };
     };
 
     return (
-        <section className="py-8 sm:py-20">
-            <div className="relative w-full h-[450px] md:h-[520px] flex items-center justify-center">
+        <section className="py-8 sm:py-20 overflow-hidden">
+            <div className="relative w-full h-[450px] md:h-[520px] flex items-center justify-center" style={{ perspective: '1000px' }}>
                 <div className="relative h-full w-full max-w-5xl">
                     {projectsData.map((project, i) => {
                         const style = getCardStyle(i);
+                        const isInteractive = style.cursor === 'pointer';
                         return (
                             // FIX: Added @ts-ignore to work around a TypeScript type error. The motion component's animation props ('initial', 'animate', etc.) are not being correctly recognized, likely due to a type definition conflict with this project's React version.
                             // @ts-ignore
@@ -104,10 +100,20 @@ const ProjectShowcase: React.FC = () => {
                                 className="absolute top-0 left-0 right-0 mx-auto"
                                 style={{
                                     width: isMobile ? '15rem' : '24rem',
-                                    height: isMobile ? '26rem' : '30rem',
+                                    height: isMobile ? '21rem' : '30rem',
+                                    transformStyle: 'preserve-3d',
                                 }}
                                 initial={false}
-                                animate={style}
+                                animate={{
+                                    x: `${style.translateX}%`,
+                                    scale: style.scale,
+                                    rotateY: style.rotateY,
+                                    zIndex: style.zIndex,
+                                    filter: style.filter,
+                                    opacity: style.opacity,
+                                    pointerEvents: style.pointerEvents
+                                }}
+                                whileHover={isInteractive ? { y: -15, scale: style.scale * 1.05 } : {}}
                                 transition={{ type: 'spring', stiffness: 200, damping: 25 }}
                                 onClick={() => handleCardClick(i)}
                                 onKeyDown={(e) => handleKeyDownOnCard(e, i)}
@@ -126,14 +132,14 @@ const ProjectShowcase: React.FC = () => {
                 
                 <button
                     onClick={handlePrev}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 z-[999] p-2 rounded-full bg-slate-100/50 hover:bg-slate-100 dark:bg-zinc-800/50 dark:hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="absolute left-2 md:left-0 top-1/2 -translate-y-1/2 z-[999] p-2 rounded-full bg-slate-100/50 hover:bg-slate-100 dark:bg-zinc-800/50 dark:hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     aria-label="Previous Project"
                 >
                     <ChevronLeftIcon className="h-8 w-8 text-slate-700 dark:text-zinc-300" />
                 </button>
                 <button
                     onClick={handleNext}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 z-[999] p-2 rounded-full bg-slate-100/50 hover:bg-slate-100 dark:bg-zinc-800/50 dark:hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 z-[999] p-2 rounded-full bg-slate-100/50 hover:bg-slate-100 dark:bg-zinc-800/50 dark:hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     aria-label="Next Project"
                 >
                     <ChevronRightIcon className="h-8 w-8 text-slate-700 dark:text-zinc-300" />

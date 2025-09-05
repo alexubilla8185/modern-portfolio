@@ -9,14 +9,14 @@ const SpecSection: React.FC<{ title: string; children: React.ReactNode }> = ({ t
 
 const ListItem: React.FC<{ children: React.ReactNode }> = ({ children }) => (
     <li className="flex items-start">
-        <span className="mr-2 mt-1 text-indigo-500">&#10148;</span>
-        <span>{children}</span>
+        <span className="mr-2 mt-1 text-indigo-500 flex-shrink-0">&#10148;</span>
+        <span className="min-w-0">{children}</span>
     </li>
 );
 
 const AppSpecifications: React.FC = () => {
   return (
-    <div className="text-sm grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+    <div className="text-sm grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 break-words">
         <SpecSection title="Architecture">
             <ul className="space-y-2">
                 <ListItem><strong>Modern SPA without Bundler:</strong> Built as a Single Page Application using an `importmap` for native ES module resolution, avoiding complex build steps for a lightweight setup.</ListItem>

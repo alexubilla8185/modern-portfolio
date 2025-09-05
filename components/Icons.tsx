@@ -96,3 +96,34 @@ export const DownloadIcon: React.FC<IconProps> = (props) => (
     <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
   </svg>
 );
+
+// Tech Icons
+const ReactIcon: React.FC<IconProps> = (props) => <svg viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M12.03 2.91c-1.46-.2-2.93-.1-4.39.3-.59.16-1.03.73-1.03 1.35v15.08c0 .62.44 1.19 1.04 1.35 1.46.4 2.92.5 4.38.3 4.14-.59 7.08-4.5 7.08-8.64s-2.94-8.05-7.08-8.64zM12 18.5c-3.1 0-5.6-2.5-5.6-5.6s2.5-5.6 5.6-5.6 5.6 2.5 5.6 5.6-2.5 5.6-5.6 5.6zM12 9.4c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7S14.7 13.6 14.7 12s-1.2-2.6-2.7-2.6z" /></svg>;
+const TypeScriptIcon: React.FC<IconProps> = (props) => <svg viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M1.5 1.5v21h21v-21h-21zM11.64 15.11c-.5.4-1.2.6-2.08.6-1.15 0-2.08-.45-2.73-1.3-.65-.9-.95-2.05-.95-3.45 0-1.35.3-2.5.95-3.4.65-.85 1.6-1.3 2.78-1.3.88 0 1.58.2 2.08.6.5.4.75.95.75 1.65h-2.5c0-.25-.1-.45-.25-.6-.15-.15-.4-.25-.7-.25-.55 0-1.05.25-1.4.7-.35.45-.5 1.1-.5 1.95s.15 1.5.5 1.95c.35.45.85.7 1.4.7.3 0 .55-.1.7-.25.15-.15.25-.35.25-.6h2.5c0 .7-.25 1.25-.75 1.65zM20.57 15.3v-1.15h-3.92v-1.1h3.3v-1.15h-3.3v-1.1h3.92V9.65H15.1v6.9h5.47v-1.25z" /></svg>;
+const TailwindIcon: React.FC<IconProps> = (props) => <svg viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c-1.2,4.8,0.6,7.2,3.6,7.2c2.4,0,3.6-1.2,3.6-3.6c0-1.2-0.6-2.4-1.8-2.4 c-0.6,0-1.2,0.6-1.2,1.2c0,0.6,0.6,1.2,1.2,1.2c1.2,0,1.8-1.2,1.8-2.4c0-2.4-1.2-3.6-3.6-3.6c-2.4,0-3,1.2-2.4,3.6 c0.6,2.4,2.4,2.4,3,2.4c0.6,0,1.2-0.6,1.2-1.2c0-0.6-0.6-1.2-1.2-1.2c-1.2,0-1.8,1.2-1.8,2.4c0,2.4,1.2,3.6,3.6,3.6 c3,0,4.8-2.4,3.6-7.2c-0.6-2.4-2.4-4.8-6-4.8ZM6.001,12c-3.2,0-5.2,1.6-6,4.8c-1.2,4.8,0.6,7.2,3.6,7.2c2.4,0,3.6-1.2,3.6-3.6 c0-1.2-0.6-2.4-1.8-2.4c-0.6,0-1.2,0.6-1.2,1.2c0,0.6,0.6,1.2,1.2,1.2c1.2,0,1.8-1.2,1.8-2.4c0-2.4-1.2-3.6-3.6-3.6 c-2.4,0-3,1.2-2.4,3.6c0.6,2.4,2.4,2.4,3,2.4c0.6,0,1.2-0.6,1.2-1.2c0-0.6-0.6-1.2-1.2-1.2c-1.2,0-1.8,1.2-1.8,2.4 c0,2.4,1.2,3.6,3.6,3.6c3,0,4.8-2.4,3.6-7.2C9.001,13.6,7.801,12,6.001,12Z" /></svg>;
+const FramerMotionIcon: React.FC<IconProps> = (props) => <svg viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M12 12H0l6-6-6-6h12l6 6-6 6Zm-6 6h12l6-6-6-6H6l-6 6 6 6Z" /></svg>;
+const FirebaseIcon: React.FC<IconProps> = (props) => <svg viewBox="0 0 24 24" fill="currentColor" {...props}><path d="m3.153 18.016 8.6-15.467a.4.4 0 0 1 .74-.016l3.43 5.488-5.71 10.3zM15.48 10.95l-3.32-5.73-8.8 15.35c-.45.78.4 1.25.92.76zM18.8 14.3l-1.9-3.2-4.9 8.5c-.3.65.5.95.8.4z" /></svg>;
+const GeminiIcon: React.FC<IconProps> = (props) => <svg viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm-3.15 15.11a.75.75 0 01-1.06 1.06l-2.84-2.83a.75.75 0 010-1.06l2.84-2.83a.75.75 0 011.06 1.06L9.91 12l2.94 2.94V15.1zm.65-8.22a.75.75 0 011.06-1.06l2.84 2.83a.75.75 0 010 1.06l-2.84 2.83a.75.75 0 01-1.06-1.06L11.59 12l-2.09-2.09v-.02zm6.2-1.04a.75.75 0 010 1.06L13.76 12l1.94 1.94a.75.75 0 01-1.06 1.06l-2.84-2.83a.75.75 0 010-1.06l2.84-2.83a.75.75 0 011.06 0z" /></svg>;
+const CodeIcon: React.FC<IconProps> = (props) => <svg viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" /></svg>;
+
+const techIconMap: { [key: string]: React.FC<IconProps> } = {
+  react: ReactIcon,
+  typescript: TypeScriptIcon,
+  'tailwind css': TailwindIcon,
+  'framer motion': FramerMotionIcon,
+  firebase: FirebaseIcon,
+  'gemini api': GeminiIcon,
+  webrtc: CodeIcon,
+  'three.js': CodeIcon,
+  'socket.io': CodeIcon,
+  'maps api': CodeIcon,
+  nlp: CodeIcon,
+  security: CodeIcon,
+  'p2p': CodeIcon,
+  // Add other specific icons here
+};
+
+export const TechIcon: React.FC<{ tech: string; className?: string }> = ({ tech, className }) => {
+  const IconComponent = techIconMap[tech.toLowerCase()] || CodeIcon;
+  return <IconComponent className={className} />;
+};
