@@ -120,7 +120,7 @@ const projects: Project[] = [
     "title": "GreenWave",
     "description": "Created a community hub for cannabis enthusiasts in South Florida, integrating Google Maps API to help users find local dispensaries and discover product information.",
     "live_link": "https://greenwavesoflo.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/green-waves",
+    "github_link": "https://github.com/alexubilla8185/greenwavesoflo",
     "tech_stack": ["React", "Maps API", "Community"],
     "nerd_facts": [
       "Uses Google Maps API for location-based search and discovery.",
