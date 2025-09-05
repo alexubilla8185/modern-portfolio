@@ -9,7 +9,7 @@ interface ActionBarProps {
 const ActionBar: React.FC<ActionBarProps> = ({ onContactClick, onChatClick }) => {
   return (
     <footer className="fixed bottom-4 right-4 z-50 animate-fade-in">
-      <div className="flex items-center gap-2 p-2 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-lg rounded-full shadow-lg border border-slate-200 dark:border-zinc-700">
+      <div className="flex items-center gap-2 p-2 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-lg rounded-full shadow-lg border border-zinc-200 dark:border-zinc-700">
         <button 
           onClick={onChatClick} 
           className="p-2 rounded-full text-zinc-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors duration-300"

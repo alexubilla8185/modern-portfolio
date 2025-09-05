@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   
   return (
     <header 
-      className="sticky top-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-lg shadow-sm"
+      className="sticky top-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800"
       style={{ transform: 'translateZ(0)' }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

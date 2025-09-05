@@ -69,7 +69,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
       >
         {/* Front of Card */}
         <div
-          className="absolute w-full h-full bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-slate-200 dark:border-zinc-700"
+          className="absolute w-full h-full bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-zinc-200 dark:border-zinc-700"
           style={{ backfaceVisibility: 'hidden' }}
         >
           {/* Card Header */}
@@ -105,7 +105,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
                 ))}
               </div>
 
-              <div className="mt-4 pt-4 border-t border-slate-200 dark:border-zinc-700 flex items-center justify-between">
+              <div className="mt-4 pt-4 border-t border-zinc-200 dark:border-zinc-700 flex items-center justify-between">
                 <div className="flex items-center space-x-4">
                   <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold transition-colors" aria-label={`View live application for ${project.title}`}>
                     <ExternalLinkIcon className="h-5 w-5" />
@@ -124,7 +124,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
 
         {/* Back of Card */}
         <div
-          className="absolute w-full h-full bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-slate-200 dark:border-zinc-700"
+          className="absolute w-full h-full bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-zinc-200 dark:border-zinc-700"
           style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
         >
           <div className={`relative flex-shrink-0 bg-gradient-to-br ${gradient} p-4 flex items-center justify-between`}>

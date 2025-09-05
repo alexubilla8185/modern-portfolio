@@ -31,7 +31,7 @@ const Toast: React.FC<ToastProps> = ({ message, onClose }) => {
                     className="fixed top-4 left-4 right-4 sm:left-1/2 sm:-translate-x-1/2 sm:right-auto sm:w-full sm:max-w-md z-[100]"
                     role="alert"
                 >
-                    <div className="flex items-center justify-between p-4 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-lg rounded-lg shadow-xl border border-slate-200 dark:border-zinc-700">
+                    <div className="flex items-center justify-between p-4 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-lg rounded-lg shadow-xl border border-zinc-200 dark:border-zinc-700">
                         <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200">{message}</p>
                         <button
                             onClick={onClose}

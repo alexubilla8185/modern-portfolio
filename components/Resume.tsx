@@ -6,7 +6,7 @@ import { DownloadIcon } from '@/components/Icons';
 
 const ResumeSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="mb-8">
-    <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 border-b-2 border-blue-200 dark:border-blue-800 pb-2 mb-4">{title}</h3>
+    <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 border-b-2 border-zinc-200 dark:border-zinc-700 pb-2 mb-4">{title}</h3>
     {children}
   </div>
 );

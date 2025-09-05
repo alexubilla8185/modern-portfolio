@@ -97,7 +97,7 @@ const Chatbot: React.FC = () => {
                 )}
                 <div ref={messagesEndRef} />
             </div>
-            <div className="p-4 border-t border-slate-200 dark:border-zinc-700">
+            <div className="p-4 border-t border-zinc-200 dark:border-zinc-700">
                 <form onSubmit={handleSendMessage} className="flex items-center space-x-2">
                     <input
                         type="text"

@@ -43,7 +43,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
         className="relative w-full max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-4xl max-h-[90vh] bg-white dark:bg-zinc-900 rounded-lg shadow-xl mx-4 flex flex-col animate-fade-in"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex-shrink-0 flex items-start justify-between p-4 border-b border-slate-200 dark:border-zinc-700">
+        <div className="flex-shrink-0 flex items-start justify-between p-4 border-b border-zinc-200 dark:border-zinc-700">
           <h2 id="modal-title" className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
             {title}
           </h2>

@@ -49,7 +49,7 @@ const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs }) => {
         <div className="flex-shrink-0">
           <button onClick={handleImageClick} className="rounded-full focus:outline-none focus:ring-4 focus:ring-blue-500/50" aria-label="Show app specifications easter egg">
             <img
-              className="h-40 w-40 rounded-full object-cover shadow-lg border-4 border-white dark:border-zinc-700 cursor-pointer"
+              className="h-40 w-40 rounded-full object-cover shadow-lg border-4 border-zinc-200 dark:border-blue-500 cursor-pointer"
               src="https://media.licdn.com/dms/image/v2/D4E03AQFaoxjPhuKnAg/profile-displayphoto-scale_400_400/B4EZjxg19iIIAk-/0/1756398577327?e=1759968000&v=beta&t=4RV-UYTtAY5Q9t5Mk45IAwJ-Dhulcs6-0-_oZmVtXMk"
               alt="Profile portrait of Alejandro Ubilla"
             />
