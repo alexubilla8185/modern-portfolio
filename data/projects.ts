@@ -212,21 +212,6 @@ const projects: Project[] = [
       "Clear calls-to-action to drive booking inquiries from potential renters.",
       "SEO-friendly markup to improve search engine ranking."
     ]
-  },
-  {
-    "id": 17,
-    "title": "Spanish Jenga",
-    "description": "Developed a 3D digital party game with physics-based interactions. Players take turns removing blocks from a tower until it collapses in this modern take on a classic.",
-    "live_link": "https://spanish-jenga.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/spanish-jenga",
-    "tech_stack": ["React", "Three.js", "Game Logic"],
-    "date": "March 2025",
-    "nerd_facts": [
-      "Uses Three.js for 3D rendering and a physics library for simulation.",
-      "Complex game logic handles block removal and tower stability checks.",
-      "Interactive and fun, showcasing skills beyond typical CRUD web apps.",
-      "Raycasting is used to detect which block the player is interacting with."
-    ]
   }
 ];
 
