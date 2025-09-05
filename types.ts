@@ -13,7 +13,7 @@ export type ActiveSection = 'projects' | 'resume' | 'contact';
 
 export type Theme = 'light' | 'dark';
 
-// FIX: Add ChatMessage interface for use in Chatbot component.
+// FIX: Define and export the ChatMessage interface.
 export interface ChatMessage {
   role: 'user' | 'model';
   text: string;

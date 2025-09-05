@@ -155,17 +155,18 @@ const projects: Project[] = [
   },
   {
     "id": 11,
-    "title": "DarkChat",
-    "description": "Built a privacy-first video chat application using WebRTC for direct P2P connections, eliminating the need for a central server and ensuring all communication is encrypted and ephemeral.",
-    "live_link": "https://darkchat-alpha.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/dark-chat",
-    "tech_stack": ["WebRTC", "React", "P2P", "Security"],
+    "title": "Dark Trap",
+    "description": "A dark, techy, cyberpunk-themed peer-to-peer video chat application using WebRTC for secure and direct communication.",
+    "live_link": "https://darktrap.netlify.app/",
+    "github_link": "https://github.com/alexubilla8185/darktrap",
+    "tech_stack": ["WebRTC", "React", "P2P"],
     "date": "September 2025",
     "nerd_facts": [
-      "Employs WebRTC for direct peer-to-peer video streaming, no server middleman.",
-      "End-to-end encryption is inherent to the WebRTC architecture.",
-      "Minimalist UI to focus on the core functionality of secure communication.",
-      "Signaling server connection handled via WebSocket for initial peer handshake."
+      "Employs WebRTC for direct peer-to-peer video streaming, eliminating server middlemen.",
+      "Features a dark, cyberpunk-inspired UI for an immersive, techy feel.",
+      "End-to-end encryption is inherent to the WebRTC architecture, ensuring privacy.",
+      "Signaling for the initial peer handshake is managed via a lightweight WebSocket server.",
+      "Focuses on a minimalist, yet stylized, interface for secure communication."
     ]
   },
   {

@@ -4,11 +4,12 @@ import ExecutiveSummary from '@/components/ExecutiveSummary';
 import ProjectShowcase from '@/components/ProjectShowcase';
 import Resume from '@/components/Resume';
 import Modal from '@/components/Modal';
-import ContactPage from '@/components/ContactPage';
 import SectionNavigator from '@/components/SectionNavigator';
 import Toast from '@/components/Toast';
 import AppSpecifications from '@/components/AppSpecifications';
 import { Theme, ActiveSection } from '@/types';
+
+const ContactPage = React.lazy(() => import('@/components/ContactPage'));
 
 const App: React.FC = () => {
   const [activeView, setActiveView] = useState<ActiveSection>('projects');
@@ -91,18 +92,16 @@ const App: React.FC = () => {
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
-  
-  const isAnyModalOpen = isSpecsModalOpen;
 
   return (
     <div className="min-h-screen flex flex-col">
       <Toast message={toastMessage} onClose={() => setToastMessage(null)} />
-      <div className={`transition duration-300 ${isAnyModalOpen ? 'blur-sm pointer-events-none' : ''}`}>
+      <div className={`transition duration-300 ${isSpecsModalOpen ? 'blur-sm pointer-events-none' : ''}`}>
         <Header 
           theme={theme}
           toggleTheme={toggleTheme}
         />
-        <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <main className="flex-grow container mx-auto px-2 sm:px-6 lg:px-8 py-12">
           <ExecutiveSummary onShowSpecs={() => setSpecsModalOpen(true)} />
           <SectionNavigator 
             ref={navigatorRef}
@@ -112,7 +111,15 @@ const App: React.FC = () => {
           <div key={activeView} className="mt-8 animate-fade-in">
             {activeView === 'projects' && <ProjectShowcase />}
             {activeView === 'resume' && <Resume />}
-            {activeView === 'contact' && <ContactPage />}
+            {activeView === 'contact' && (
+              <Suspense fallback={
+                <div className="text-center p-8">
+                  <p className="text-zinc-500 dark:text-zinc-400">Loading Contact Form...</p>
+                </div>
+              }>
+                <ContactPage />
+              </Suspense>
+            )}
           </div>
         </main>
       </div>

@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
       className="sticky top-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800"
       style={{ transform: 'translateZ(0)' }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <h1 className="text-xl font-bold text-blue-600 dark:text-blue-400">Alejandro Ubilla</h1>
