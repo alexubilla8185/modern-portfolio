@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import type { Project } from '@/types';
-import { GitHubIcon, ExternalLinkIcon, InfoIcon, CloseIcon, SparklesIcon } from '@/components/Icons';
+import { GitHubIcon, ExternalLinkIcon, FlipIcon, CloseIcon, SparklesIcon } from '@/components/Icons';
 
 interface ProjectCardProps {
   project: Project;
@@ -82,9 +82,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
               <button
                 onClick={handleFlip}
                 className="absolute top-3 right-3 p-2 rounded-full text-white/80 hover:text-white hover:bg-black/30 transition-all z-20"
-                aria-label="Show project tech details"
+                aria-label="Flip card for tech details"
               >
-                <InfoIcon className="h-5 w-5" />
+                <FlipIcon className="h-5 w-5" />
               </button>
             )}
           </div>

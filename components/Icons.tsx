@@ -99,13 +99,15 @@ export const DownloadIcon: React.FC<IconProps> = (props) => (
   </svg>
 );
 
-export const InfoIcon: React.FC<IconProps> = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <circle cx="12" cy="12" r="10"></circle>
-    <line x1="12" y1="16" x2="12" y2="12"></line>
-    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+export const FlipIcon: React.FC<IconProps> = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" {...props}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12c0-5.12-4.13-9.25-9.25-9.25S1 6.88 1 12s4.13 9.25 9.25 9.25" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M16 5.13a9.22 9.22 0 0 1 0 13.74" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M23 12h-4" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="m19 16 4-4-4-4" />
   </svg>
 );
+
 
 // Tech Icons
 const ReactIcon: React.FC<IconProps> = (props) => <svg viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M12.03 2.91c-1.46-.2-2.93-.1-4.39.3-.59.16-1.03.73-1.03 1.35v15.08c0 .62.44 1.19 1.04 1.35 1.46.4 2.92.5 4.38.3 4.14-.59 7.08-4.5 7.08-8.64s-2.94-8.05-7.08-8.64zM12 18.5c-3.1 0-5.6-2.5-5.6-5.6s2.5-5.6 5.6-5.6 5.6 2.5 5.6 5.6-2.5 5.6-5.6 5.6zM12 9.4c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7S14.7 13.6 14.7 12s-1.2-2.6-2.7-2.6z" /></svg>;
