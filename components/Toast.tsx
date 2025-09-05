@@ -28,7 +28,7 @@ const Toast: React.FC<ToastProps> = ({ message, onClose }) => {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -100, opacity: 0 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                    className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-full max-w-md p-2"
+                    className="fixed top-4 left-4 right-4 sm:left-1/2 sm:-translate-x-1/2 sm:right-auto sm:w-full sm:max-w-md z-[100]"
                     role="alert"
                 >
                     <div className="flex items-center justify-between p-4 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-lg rounded-lg shadow-xl border border-slate-200 dark:border-zinc-700">

@@ -50,7 +50,7 @@ const App: React.FC = () => {
 
     const resetTimer = () => {
         clearTimeout(activityTimer);
-        activityTimer = window.setTimeout(handleIdle, 15000);
+        activityTimer = window.setTimeout(handleIdle, 10000);
     };
 
     const handleActivity = () => {
