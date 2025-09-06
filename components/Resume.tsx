@@ -195,11 +195,11 @@ const Resume: React.FC = () => {
       </ResumeSection>
 
       <ResumeSection title="Skills">
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1 sm:gap-2">
           {skills.map((skill, index) => (
             <span
               key={skill}
-              className={`text-sm font-medium px-3 py-1 rounded-full ${skillColors[index % skillColors.length]}`}
+              className={`text-xs sm:text-sm font-medium px-2.5 py-1 sm:px-3 rounded-full ${skillColors[index % skillColors.length]}`}
             >
               {skill}
             </span>
