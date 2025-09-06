@@ -44,7 +44,7 @@ const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs }) => {
 
     const scrollContent = () => {
       if (!isHoveringRef.current && !isDraggingRef.current) {
-        container.scrollLeft += 0.5; // Autoscroll speed
+        container.scrollLeft += 1; // Autoscroll speed
         if (container.scrollLeft >= container.scrollWidth / 2) {
           container.scrollLeft = 0;
         }

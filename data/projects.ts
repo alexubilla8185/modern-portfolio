@@ -170,6 +170,48 @@ const projects: Project[] = [
       "Clear calls-to-action to drive booking inquiries from potential renters.",
       "SEO-friendly markup to improve search engine ranking."
     ]
+  },
+  {
+    "id": 13,
+    "title": "Meet4Weed (Dev)",
+    "description": "Developed a social networking proof-of-concept for the cannabis community, designed with real-time features to connect users and facilitate sharing in a user-friendly, modern environment.",
+    "live_link": "https://meet4weed-dev.netlify.app/",
+    "github_link": "https://github.com/alexubilla8185/meet-4-weed",
+    "tech_stack": ["React", "Socket.IO", "Firebase"],
+    "nerd_facts": [
+      "Utilizes Socket.IO for real-time chat and notifications.",
+      "Firebase backend for user authentication and data storage.",
+      "Proof-of-concept for a scalable social networking platform.",
+      "Manages real-time connection state for 'online' user presence indicators."
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Higher, Please?",
+    "description": "Created a modern web app that asks a series of funny and challenging questions, puzzles, or quizzes to determine your level of 'highness', then gives you a score and tips.",
+    "live_link": "https://higher-please.netlify.app/",
+    "github_link": "https://github.com/alexubilla8185/higher-please",
+    "tech_stack": ["React", "Tailwind CSS", "Gamification"],
+    "nerd_facts": [
+      "Interactive quiz format with dynamic scoring and conditional logic.",
+      "Humorous and engaging content designed for a specific niche audience.",
+      "Lightweight single-page application for a fast, game-like experience.",
+      "Focus on a clean, simple UI to keep the user engaged with the quiz."
+    ]
+  },
+  {
+    "id": 15,
+    "title": "MyPlace",
+    "description": "Engineered a AI-powered productivity web app, leveraging the Google Gemini API for features like note summarization and voice transcription, and offering full offline support.",
+    "live_link": "https://my-place-a.netlify.app/",
+    "github_link": "https://github.com/alexubilla8185/my-place-a",
+    "tech_stack": ["React", "Gemini API", "PWA", "Offline First"],
+    "nerd_facts": [
+      "Leverages the Google Gemini API for advanced AI features like text summarization.",
+      "Built as a Progressive Web App (PWA) with service workers for full offline functionality.",
+      "Includes voice-to-text transcription for hands-free note-taking.",
+      "Uses IndexedDB for robust client-side storage, ensuring data is available offline."
+    ]
   }
 ];
 
