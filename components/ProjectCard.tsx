@@ -73,7 +73,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
           style={{ backfaceVisibility: 'hidden' }}
         >
           {/* Card Header */}
-          <div className={`relative h-1/3 bg-gradient-to-br ${gradient} flex items-center justify-center p-6 text-center`}>
+          <div className={`relative h-1/4 bg-gradient-to-br ${gradient} flex items-center justify-center p-4 text-center`}>
             <div className="absolute inset-0 bg-black/20"></div>
             <h3 className="text-2xl md:text-3xl font-bold text-white relative z-10" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
               {project.title}

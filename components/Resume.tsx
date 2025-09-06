@@ -172,73 +172,52 @@ const Resume: React.FC = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start mb-8">
         <div>
           <h2 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">{name}</h2>
-          <div className="mt-2 text-zinc-600 dark:text-zinc-500 space-y-1 sm:space-y-0 sm:flex sm:flex-wrap sm:gap-x-4">
-             <a href={`tel:${contact.phone}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">{contact.phone}</a>
-             <p className="hidden sm:inline">|</p>
-             <a href={`mailto:${contact.email}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">{contact.email}</a>
-             <p className="hidden sm:inline">|</p>
-             <p>{contact.location}</p>
-          </div>
+          <p className="text-xl text-zinc-700 dark:text-zinc-400">Technology Leader</p>
         </div>
         <button
           onClick={handleDownload}
           disabled={isGeneratingPdf}
-          className="bg-blue-600 text-white font-bold py-2 px-3 rounded-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors duration-300 shadow-sm mt-4 sm:mt-0 flex items-center gap-2 disabled:bg-blue-400 dark:disabled:bg-blue-600 disabled:cursor-wait"
+          className="mt-4 sm:mt-0 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-zinc-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
         >
           {isGeneratingPdf ? <SpinnerIcon className="h-5 w-5" /> : <DownloadIcon className="h-5 w-5" />}
-          PDF
+          {isGeneratingPdf ? 'Generating...' : 'Download PDF'}
         </button>
       </div>
 
+      <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2 mb-8">
+        <a href={`mailto:${contact.email}`} className="inline-flex items-center gap-2 text-zinc-700 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <MailIcon className="h-5 w-5" /> {contact.email}
+        </a>
+        <span className="hidden sm:inline text-zinc-400 dark:text-zinc-600" aria-hidden="true">|</span>
+        <a href="https://www.linkedin.com/in/alejandro-ubilla/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-zinc-700 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <LinkedInIcon className="h-5 w-5" /> LinkedIn
+        </a>
+        <span className="hidden sm:inline text-zinc-400 dark:text-zinc-600" aria-hidden="true">|</span>
+        <a href="https://github.com/alexubilla8185" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-zinc-700 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <GitHubIcon className="h-5 w-5" /> GitHub
+        </a>
+      </div>
+
       <ResumeSection title="Summary">
-        <p className="text-zinc-700 dark:text-zinc-400">
-          {summary}
-        </p>
+        <p className="text-zinc-700 dark:text-zinc-400 leading-relaxed">{summary}</p>
       </ResumeSection>
-      
+
       <ResumeSection title="Work Experience">
-        {experience.map((job) => <Job key={job.company} job={job} />)}
+        {experience.map((job, index) => <Job key={index} job={job} />)}
       </ResumeSection>
 
       <ResumeSection title="Education">
-         <div>
-          <h4 className="text-xl font-semibold text-zinc-900 dark:text-zinc-200">{education.institution}</h4>
-          <p className="text-md text-zinc-700 dark:text-zinc-400">{education.degree}</p>
-         </div>
+        <h4 className="text-xl font-semibold text-zinc-900 dark:text-zinc-200">{education.institution}</h4>
+        <p className="text-md text-zinc-700 dark:text-zinc-400">{education.degree}</p>
       </ResumeSection>
 
       <ResumeSection title="Skills">
-        <div className="flex flex-wrap gap-1 sm:gap-2">
+        <div className="flex flex-wrap gap-2">
           {skills.map((skill, index) => (
-            <span
-              key={skill}
-              className={`text-xs sm:text-sm font-medium px-2.5 py-1 sm:px-3 rounded-full ${skillColors[index % skillColors.length]}`}
-            >
+            <span key={skill} className={`text-sm font-medium px-3 py-1 rounded-full ${skillColors[index % skillColors.length]}`}>
               {skill}
             </span>
           ))}
-        </div>
-      </ResumeSection>
-      
-      <div className="border-t-2 border-zinc-200 dark:border-zinc-700 my-8"></div>
-
-      <ResumeSection title="Let's Connect">
-        <p className="text-zinc-700 dark:text-zinc-400 mb-6">
-          I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious team. Feel free to reach out.
-        </p>
-        <div className="flex flex-wrap gap-4">
-          <a href={`mailto:${contact.email}`} className="inline-flex items-center gap-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
-            <MailIcon className="h-5 w-5" />
-            Email
-          </a>
-          <a href="https://github.com/alexubilla8185" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
-            <GitHubIcon className="h-5 w-5" />
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/alejandro-ubilla-a85b42131/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
-            <LinkedInIcon className="h-5 w-5" />
-            LinkedIn
-          </a>
         </div>
       </ResumeSection>
     </section>
