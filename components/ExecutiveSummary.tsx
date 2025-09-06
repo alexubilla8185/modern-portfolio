@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 
 interface ExecutiveSummaryProps {
   onShowSpecs: () => void;
-  onShowToast: (message: string | null) => void;
+  onShowToast: (message: string) => void;
 }
 
 const competencies = [
@@ -143,7 +143,6 @@ const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs, onShow
     } else if (clickCount === 2) {
       onShowToast("Tap one more time!");
     } else if (clickCount >= 3) {
-      onShowToast(null); // Explicitly dismiss the toast
       onShowSpecs();
       clickTimestamps.current = []; // Reset after success
     }
