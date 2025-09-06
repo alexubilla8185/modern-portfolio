@@ -134,7 +134,7 @@ const projects: Project[] = [
     "title": "Meet4Weed",
     "description": "Developed a social networking proof-of-concept for the cannabis community, designed with real-time features to connect users and facilitate sharing in a user-friendly, modern environment.",
     "live_link": "https://meet4weed.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/meet-4-weed",
+    "github_link": "https://github.com/alexubilla8185/meet4weed",
     "tech_stack": ["React", "Socket.IO", "Firebase"],
     "nerd_facts": [
       "Utilizes Socket.IO for real-time chat and notifications.",
@@ -187,7 +187,7 @@ const projects: Project[] = [
   },
   {
     "id": 14,
-    "title": "Higher, Please?",
+    "title": "Higher Please",
     "description": "Created a modern web app that asks a series of funny and challenging questions, puzzles, or quizzes to determine your level of 'highness', then gives you a score and tips.",
     "live_link": "https://higher-please.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/higher-please",
@@ -201,7 +201,7 @@ const projects: Project[] = [
   },
   {
     "id": 15,
-    "title": "MyPlace",
+    "title": "My Place",
     "description": "Engineered a AI-powered productivity web app, leveraging the Google Gemini API for features like note summarization and voice transcription, and offering full offline support.",
     "live_link": "https://my-place-a.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/my-place-a",
