@@ -11,6 +11,23 @@ const gradients = [
     'from-red-500 to-orange-500', 'from-blue-500 to-cyan-600'
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
+
 const ProjectShowcase: React.FC = () => {
     const [index, setIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
@@ -88,7 +105,12 @@ const ProjectShowcase: React.FC = () => {
     return (
         <section className="py-8 sm:py-20 overflow-hidden">
             <div className="relative w-full h-[500px] md:h-[520px] flex items-center justify-center" style={{ perspective: '1000px' }}>
-                <div className="relative h-full w-full max-w-5xl">
+                <motion.div
+                    className="relative h-full w-full max-w-5xl"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                >
                     {projectsData.map((project, i) => {
                         const style = getCardStyle(i);
                         const isInteractive = style.cursor === 'pointer';
@@ -97,13 +119,13 @@ const ProjectShowcase: React.FC = () => {
                             // @ts-ignore
                             <motion.div
                                 key={project.id}
+                                variants={cardVariants}
                                 className="absolute top-0 left-0 right-0 mx-auto"
                                 style={{
                                     width: isMobile ? '20rem' : '24rem',
                                     height: isMobile ? '28rem' : '30rem',
                                     transformStyle: 'preserve-3d',
                                 }}
-                                initial={false}
                                 animate={{
                                     x: `${style.translateX}%`,
                                     scale: style.scale,
@@ -128,7 +150,7 @@ const ProjectShowcase: React.FC = () => {
                             </motion.div>
                         )
                     })}
-                </div>
+                </motion.div>
                 
                 <button
                     onClick={handlePrev}
