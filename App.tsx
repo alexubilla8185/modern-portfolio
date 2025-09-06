@@ -56,7 +56,7 @@ const App: React.FC = () => {
           toggleTheme={toggleTheme}
         />
         <main className="flex-grow container mx-auto px-2 sm:px-6 lg:px-8 py-12">
-          <ExecutiveSummary onShowSpecs={() => setSpecsModalOpen(true)} onShowToast={setToastMessage} />
+          <ExecutiveSummary onShowSpecs={() => { setSpecsModalOpen(true); setToastMessage(null); }} onShowToast={setToastMessage} />
           <SectionNavigator 
             ref={navigatorRef}
             activeSection={activeView} 
