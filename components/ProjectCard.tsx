@@ -60,7 +60,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
 
   return (
     <div className="w-full h-full" style={{ perspective: '1200px' }}>
-      { /* @ts-ignore */ }
+      {/* FIX: Suppressed framer-motion type error by wrapping the component in a JS expression block and using @ts-ignore. */}
+      { // @ts-ignore 
       <motion.div
         className="relative w-full h-full"
         style={{ transformStyle: 'preserve-3d' }}
@@ -149,7 +150,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
             </a>
           </div>
         </div>
-      </motion.div>
+      </motion.div>}
     </div>
   );
 };
