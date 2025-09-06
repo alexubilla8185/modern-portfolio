@@ -76,7 +76,7 @@ const projects: Project[] = [
     "title": "AfterLife",
     "description": "Engineered an AI-powered digital memorial platform where users can create a personalized legacy, allowing loved ones to interact with memories and AI-generated responses.",
     "live_link": "https://afterlife-alpha.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/after-life",
+    "github_link": "https://github.com/alexubilla8185/afterlife",
     "tech_stack": ["React", "Gemini API", "Firebase"],
     "nerd_facts": [
       "Leverages the Gemini API for generative AI responses.",
