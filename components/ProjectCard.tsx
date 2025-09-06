@@ -106,14 +106,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
               </div>
 
               <div className="mt-4 pt-4 border-t border-zinc-200 dark:border-zinc-700 flex items-center justify-between">
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center">
                   <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold transition-colors" aria-label={`View live application for ${project.title}`}>
                     <ExternalLinkIcon className="h-5 w-5" />
-                    App
-                  </a>
-                  <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 font-semibold transition-colors" aria-label={`View source code for ${project.title}`}>
-                    <GitHubIcon className="h-5 w-5" />
-                    Source
+                    Open App
                   </a>
                 </div>
               </div>
@@ -145,6 +141,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
                 </li>
               ))}
             </ul>
+          </div>
+          <div className="flex-shrink-0 mt-auto p-6 pt-4 border-t border-zinc-200 dark:border-zinc-700">
+            <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 font-semibold transition-colors" aria-label={`View source code for ${project.title}`}>
+              <GitHubIcon className="h-5 w-5" />
+              Source Code
+            </a>
           </div>
         </div>
       </motion.div>
