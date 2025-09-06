@@ -53,7 +53,7 @@ const techColors = [
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const handleFlip = (e: React.MouseEvent) => {
+  const handleFlip = (e: React.MouseEvent | React.KeyboardEvent) => {
     e.stopPropagation(); // Prevents the carousel from changing index
     setIsFlipped(!isFlipped);
   };
@@ -79,15 +79,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
             <h3 className="text-2xl md:text-3xl font-bold text-white relative z-10" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
               {project.title}
             </h3>
-            {project.nerd_facts && (
-              <button
-                onClick={handleFlip}
-                className="absolute top-3 right-3 p-2 rounded-full text-white/80 hover:text-white hover:bg-black/30 transition-all z-20"
-                aria-label="Flip card for tech details"
-              >
-                <FlipIcon className="h-5 w-5" />
-              </button>
-            )}
           </div>
 
           {/* Card Body */}
@@ -106,14 +97,42 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
                 ))}
               </div>
 
-              <div className="mt-4 pt-4 border-t border-zinc-200 dark:border-zinc-700 flex items-center justify-between">
-                <div className="flex items-center">
-                  <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold transition-colors" aria-label={`View live application for ${project.title}`}>
-                    <ExternalLinkIcon className="h-5 w-5" />
-                    Open App
-                  </a>
+              {project.nerd_facts ? (
+                <div
+                    onClick={handleFlip}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleFlip(e as any); } }}
+                    aria-label="Flip card for tech details"
+                    className="mt-4 pt-4 border-t border-zinc-200 dark:border-zinc-700 flex items-center justify-between cursor-pointer -mx-6 -mb-6 px-6 pb-6 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-b-2xl"
+                >
+                    <a 
+                        href={project.live_link} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold transition-colors" 
+                        aria-label={`View live application for ${project.title}`}
+                        onClick={(e) => e.stopPropagation()}
+                        onKeyDown={(e) => e.stopPropagation()}
+                    >
+                        <ExternalLinkIcon className="h-5 w-5" />
+                        Open App
+                    </a>
+                    <div className="flex items-center text-zinc-500 dark:text-zinc-400 pointer-events-none">
+                        <span className="text-xs font-semibold mr-2 hidden sm:inline">Tech Highlights</span>
+                        <FlipIcon className="h-5 w-5" />
+                    </div>
                 </div>
-              </div>
+              ) : (
+                  <div className="mt-4 pt-4 border-t border-zinc-200 dark:border-zinc-700 flex items-center justify-between">
+                      <div className="flex items-center">
+                          <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold transition-colors" aria-label={`View live application for ${project.title}`}>
+                              <ExternalLinkIcon className="h-5 w-5" />
+                              Open App
+                          </a>
+                      </div>
+                  </div>
+              )}
             </div>
           </div>
         </div>
