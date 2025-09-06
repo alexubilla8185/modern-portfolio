@@ -37,7 +37,7 @@ export const resumeData: ResumeData = {
       responsibilities: [
         'Shaped company vision, strategic goals, and technology roadmaps',
         'Built and launched application with React, TypeScript, Tailwind CSS, hosted on Netlify',
-        'Led digital presence initiatives from GoDaddy domain and Microsoft 365 integration to social media (Instagram, Facebook, LinkedIn)',
+        'Led digital presence initiatives from GoDaddy domain and Microsoft 365 integration to social media',
       ],
     },
     {
