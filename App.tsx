@@ -22,7 +22,6 @@ const App: React.FC = () => {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const navigatorRef = useRef<HTMLDivElement>(null);
   const isInitialMount = useRef(true);
-  const idleTriggeredRef = useRef(false);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -44,49 +43,6 @@ const App: React.FC = () => {
     }
   }, [activeView]);
 
-  useEffect(() => {
-    let activityTimer: number;
-
-    const resetTimer = () => {
-        clearTimeout(activityTimer);
-        activityTimer = window.setTimeout(handleIdle, 10000);
-    };
-
-    const handleActivity = () => {
-        resetTimer();
-    };
-
-    const handleIdle = () => {
-        if (activeView === 'resume' && !idleTriggeredRef.current) {
-            idleTriggeredRef.current = true;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            setToastMessage("Psst... tap my picture 3 times to see the app's tech specs!");
-            
-            // Cleanup listeners after triggering
-            window.removeEventListener('mousemove', handleActivity);
-            window.removeEventListener('keydown', handleActivity);
-            window.removeEventListener('scroll', handleActivity);
-            window.removeEventListener('click', handleActivity);
-        }
-    };
-
-    if (activeView === 'resume' && !idleTriggeredRef.current) {
-        window.addEventListener('mousemove', handleActivity);
-        window.addEventListener('keydown', handleActivity);
-        window.addEventListener('scroll', handleActivity);
-        window.addEventListener('click', handleActivity);
-        resetTimer();
-    }
-
-    return () => {
-        clearTimeout(activityTimer);
-        window.removeEventListener('mousemove', handleActivity);
-        window.removeEventListener('keydown', handleActivity);
-        window.removeEventListener('scroll', handleActivity);
-        window.removeEventListener('click', handleActivity);
-    };
-  }, [activeView]);
-
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
@@ -100,7 +56,7 @@ const App: React.FC = () => {
           toggleTheme={toggleTheme}
         />
         <main className="flex-grow container mx-auto px-2 sm:px-6 lg:px-8 py-12">
-          <ExecutiveSummary onShowSpecs={() => setSpecsModalOpen(true)} />
+          <ExecutiveSummary onShowSpecs={() => setSpecsModalOpen(true)} onShowToast={setToastMessage} />
           <SectionNavigator 
             ref={navigatorRef}
             activeSection={activeView} 

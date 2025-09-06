@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import { jsPDF } from 'jspdf';
+import React from 'react';
 import { resumeData } from '@/data/resume';
 import type { Job as JobType } from '@/data/resume';
-import { DownloadIcon, SpinnerIcon } from '@/components/Icons';
 
 const ResumeSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="mb-8">
@@ -35,156 +33,12 @@ const skillColors = [
 
 const Resume: React.FC = () => {
   const { name, contact, summary, experience, education, skills } = resumeData;
-  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
-
-  const handleDownload = () => {
-    if (isGeneratingPdf) return;
-    setIsGeneratingPdf(true);
-
-    // Use a small timeout to allow React to re-render the button into its loading state
-    // before the browser's main thread gets blocked by the synchronous PDF generation.
-    setTimeout(() => {
-      try {
-        const doc = new jsPDF('p', 'pt', 'a4');
-        const margin = 40;
-        const pageWidth = doc.internal.pageSize.getWidth();
-        const pageHeight = doc.internal.pageSize.getHeight();
-        const contentWidth = pageWidth - margin * 2;
-        let y = margin;
-        
-        const FONT_SIZE_NORMAL = 10;
-        const FONT_SIZE_HEADER = 12;
-        const FONT_SIZE_TITLE = 11;
-        const FONT_SIZE_NAME = 24;
-        const LINE_HEIGHT_NORMAL = 1.2 * FONT_SIZE_NORMAL;
-        const LINE_HEIGHT_TITLE = 1.2 * FONT_SIZE_TITLE;
-
-        const checkPageBreak = (neededHeight: number) => {
-            if (y + neededHeight > pageHeight - margin) {
-                doc.addPage();
-                y = margin;
-            }
-        };
-
-        // --- Header ---
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(FONT_SIZE_NAME);
-        doc.setTextColor('#1A202C'); // Dark gray, almost black
-        doc.text(name, margin, y);
-        y += FONT_SIZE_NAME * 1.2;
-
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(FONT_SIZE_NORMAL);
-        doc.setTextColor('#4A5568'); // Medium gray
-        const contactLine = `${contact.phone} | ${contact.email} | ${contact.location}`;
-        doc.text(contactLine, margin, y);
-        y += LINE_HEIGHT_NORMAL * 2;
-        
-        // --- Section Renderer ---
-        const renderSection = (title: string, content: () => void) => {
-            checkPageBreak(FONT_SIZE_HEADER + 5 + 15); // Title, line, gap
-            doc.setFont('helvetica', 'bold');
-            doc.setFontSize(FONT_SIZE_HEADER);
-            doc.setTextColor('#2D3748');
-            doc.text(title.toUpperCase(), margin, y);
-            y += 5;
-            doc.setDrawColor('#CBD5E0'); // Lighter gray for line
-            doc.line(margin, y, pageWidth - margin, y);
-            y += 15;
-            content();
-        };
-
-        // --- Summary ---
-        renderSection('Summary', () => {
-            doc.setFont('helvetica', 'normal');
-            doc.setFontSize(FONT_SIZE_NORMAL);
-            doc.setTextColor('#4A5568');
-            const summaryLines = doc.splitTextToSize(summary, contentWidth);
-            checkPageBreak(summaryLines.length * LINE_HEIGHT_NORMAL);
-            doc.text(summaryLines, margin, y);
-            y += summaryLines.length * LINE_HEIGHT_NORMAL + 20;
-        });
-
-        // --- Work Experience ---
-        renderSection('Work Experience', () => {
-            experience.forEach(job => {
-                const neededHeight = LINE_HEIGHT_TITLE + LINE_HEIGHT_NORMAL + (job.responsibilities.length * LINE_HEIGHT_NORMAL * 2) + 15;
-                checkPageBreak(neededHeight);
-
-                doc.setFont('helvetica', 'bold');
-                doc.setFontSize(FONT_SIZE_TITLE);
-                doc.setTextColor('#1A202C');
-                doc.text(job.title, margin, y);
-                y += LINE_HEIGHT_TITLE;
-
-                doc.setFont('helvetica', 'normal');
-                doc.setFontSize(FONT_SIZE_NORMAL);
-                doc.setTextColor('#4A5568');
-                doc.text(`${job.company} | ${job.duration}`, margin, y);
-                y += LINE_HEIGHT_NORMAL * 1.5;
-                
-                job.responsibilities.forEach(res => {
-                    const resLines = doc.splitTextToSize(res, contentWidth - 10);
-                    checkPageBreak(resLines.length * LINE_HEIGHT_NORMAL);
-                    doc.text('•', margin + 5, y);
-                    doc.text(resLines, margin + 15, y);
-                    y += resLines.length * LINE_HEIGHT_NORMAL;
-                });
-                y += 15;
-            });
-        });
-
-        // --- Education ---
-        renderSection('Education', () => {
-            checkPageBreak(LINE_HEIGHT_TITLE + LINE_HEIGHT_NORMAL + 25);
-            doc.setFont('helvetica', 'bold');
-            doc.setFontSize(FONT_SIZE_TITLE);
-            doc.setTextColor('#1A202C');
-            doc.text(education.institution, margin, y);
-            y += LINE_HEIGHT_TITLE;
-            doc.setFont('helvetica', 'normal');
-            doc.setFontSize(FONT_SIZE_NORMAL);
-            doc.setTextColor('#4A5568');
-            doc.text(education.degree, margin, y);
-            y += 25;
-        });
-        
-        // --- Skills ---
-        renderSection('Skills', () => {
-            doc.setFont('helvetica', 'normal');
-            doc.setFontSize(FONT_SIZE_NORMAL);
-            doc.setTextColor('#4A5568');
-            const skillsText = skills.join(', ');
-            const skillsLines = doc.splitTextToSize(skillsText, contentWidth);
-            checkPageBreak(skillsLines.length * LINE_HEIGHT_NORMAL);
-            doc.text(skillsLines, margin, y);
-        });
-
-        doc.save('Alejandro_Ubilla_Resume.pdf');
-      } finally {
-        setIsGeneratingPdf(false);
-      }
-    }, 10);
-  };
 
   return (
     <section className="max-w-5xl mx-auto bg-white dark:bg-zinc-900 p-8 md:p-12 shadow-lg rounded-lg">
-      <div className="flex flex-col sm:flex-row justify-between items-start mb-4">
-        <div>
-          <h2 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">{name}</h2>
-        </div>
-        <button
-          onClick={handleDownload}
-          disabled={isGeneratingPdf}
-          className="mt-4 sm:mt-0 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-zinc-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
-        >
-          {isGeneratingPdf ? <SpinnerIcon className="h-5 w-5" /> : <DownloadIcon className="h-5 w-5" />}
-          {isGeneratingPdf ? 'Generating...' : 'Download PDF'}
-        </button>
-      </div>
-      
-      <div className="border-b border-zinc-200 dark:border-zinc-700 pb-8 mb-8">
-        <p className="text-zinc-700 dark:text-zinc-400 text-center sm:text-left">
+      <div className="mb-8 text-center sm:text-left">
+        <h2 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">{name}</h2>
+        <p className="text-zinc-700 dark:text-zinc-400 mt-2">
           {contact.phone} &nbsp;|&nbsp; {contact.email} &nbsp;|&nbsp; {contact.location}
         </p>
       </div>

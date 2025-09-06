@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 
 interface ExecutiveSummaryProps {
   onShowSpecs: () => void;
+  onShowToast: (message: string) => void;
 }
 
 const competencies = [
@@ -27,7 +28,7 @@ const CompetencyPills = () => (
   </>
 );
 
-const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs }) => {
+const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs, onShowToast }) => {
   const clickTimestamps = useRef<number[]>([]);
   
   const marqueeContainerRef = useRef<HTMLDivElement>(null);
@@ -126,14 +127,24 @@ const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs }) => {
 
   const handleImageClick = () => {
     const now = Date.now();
-    clickTimestamps.current.push(now);
-    clickTimestamps.current = clickTimestamps.current.filter(
-      (timestamp) => now - timestamp < 1000
+    
+    // Filter out clicks older than 1.5 seconds to define the "sequence" window.
+    const recentTimestamps = clickTimestamps.current.filter(
+      (timestamp) => now - timestamp < 1500
     );
 
-    if (clickTimestamps.current.length >= 3) {
+    recentTimestamps.push(now);
+    clickTimestamps.current = recentTimestamps;
+
+    const clickCount = recentTimestamps.length;
+
+    if (clickCount === 1) {
+      onShowToast("Tap two more times to see the app's tech specs!");
+    } else if (clickCount === 2) {
+      onShowToast("Tap one more time!");
+    } else if (clickCount >= 3) {
       onShowSpecs();
-      clickTimestamps.current = [];
+      clickTimestamps.current = []; // Reset after success
     }
   };
 
