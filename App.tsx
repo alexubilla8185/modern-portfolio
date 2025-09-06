@@ -9,8 +9,6 @@ import Toast from '@/components/Toast';
 import AppSpecifications from '@/components/AppSpecifications';
 import { Theme, ActiveSection } from '@/types';
 
-const ContactPage = React.lazy(() => import('@/components/ContactPage'));
-
 const App: React.FC = () => {
   const [activeView, setActiveView] = useState<ActiveSection>('projects');
   const [isSpecsModalOpen, setSpecsModalOpen] = useState(false);
@@ -111,15 +109,6 @@ const App: React.FC = () => {
           <div key={activeView} className="mt-8 animate-fade-in">
             {activeView === 'projects' && <ProjectShowcase />}
             {activeView === 'resume' && <Resume />}
-            {activeView === 'contact' && (
-              <Suspense fallback={
-                <div className="text-center p-8">
-                  <p className="text-zinc-500 dark:text-zinc-400">Loading Contact Form...</p>
-                </div>
-              }>
-                <ContactPage />
-              </Suspense>
-            )}
           </div>
         </main>
       </div>

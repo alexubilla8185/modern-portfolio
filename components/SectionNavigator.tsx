@@ -10,7 +10,6 @@ const SectionNavigator = forwardRef<HTMLDivElement, SectionNavigatorProps>(({ ac
     const sections: { id: ActiveSection; label: string }[] = [
         { id: 'projects', label: 'Projects' },
         { id: 'resume', label: 'Resume' },
-        { id: 'contact', label: 'Contact' },
     ];
 
     return (

@@ -8,12 +8,6 @@ export interface Project {
   nerd_facts?: string[];
 }
 
-export type ActiveSection = 'projects' | 'resume' | 'contact';
+export type ActiveSection = 'projects' | 'resume';
 
 export type Theme = 'light' | 'dark';
-
-// FIX: Define and export the ChatMessage interface.
-export interface ChatMessage {
-  role: 'user' | 'model';
-  text: string;
-}

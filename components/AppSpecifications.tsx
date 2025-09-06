@@ -21,7 +21,6 @@ const AppSpecifications: React.FC = () => {
             <ul className="space-y-2">
                 <ListItem><strong>Modern SPA without Bundler:</strong> Built as a Single Page Application using an `importmap` for native ES module resolution, avoiding complex build steps for a lightweight setup.</ListItem>
                 <ListItem><strong>Custom SPA Routing:</strong> A client-side router managed by React state (`useState`) handles view changes between 'Projects' and 'Resume' without page reloads.</ListItem>
-                <ListItem><strong>Lazy Loading:</strong> The contact form component is lazy-loaded using `React.lazy()` and `Suspense` to improve initial page load performance.</ListItem>
             </ul>
         </SpecSection>
         
@@ -38,7 +37,7 @@ const AppSpecifications: React.FC = () => {
                 <ListItem><strong>Framer Motion:</strong> Powers the interactive 3D project carousel and toast notifications, using spring physics for fluid, tactile animations.</ListItem>
                 <ListItem><strong>Custom CSS Animations:</strong> A performance-optimized CSS `marquee` animation creates the seamless, auto-scrolling effect for the Core Competencies.</ListItem>
                 <ListItem><strong>Idle User Nudge:</strong> An inactivity timer on the resume page triggers a scroll-to-top and a toast notification, playfully guiding users to discover the app specs easter egg.</ListItem>
-                <ListItem><strong>Stateful UI:</strong> The app features a persistent light/dark theme, interactive modals, and a contact form, all managed with React state and hooks.</ListItem>
+                <ListItem><strong>Stateful UI:</strong> The app features a persistent light/dark theme and interactive modals, all managed with React state and hooks.</ListItem>
             </ul>
         </SpecSection>
 
