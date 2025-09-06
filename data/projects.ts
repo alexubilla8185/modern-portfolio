@@ -102,21 +102,6 @@ const projects: Project[] = [
   },
   {
     "id": 8,
-    "title": "Interactive 3D Carousel",
-    "description": "Created a reusable React component for showcasing content in an engaging, 3D animated carousel. This portfolio uses it to display projects!",
-    "live_link": "#",
-    "github_link": "https://github.com/alexubilla8185/modern-portfolio/blob/main/components/ProjectShowcase.tsx",
-    "tech_stack": ["React", "TypeScript", "Framer Motion"],
-    "nerd_facts": [
-      "Uses CSS 'perspective' for the core 3D spatial effect.",
-      "Calculates card positions and transformations in JavaScript for precise control.",
-      "Fully accessible via keyboard navigation (left/right arrow keys).",
-      "Responsive design adjusts card sizes and positioning for mobile screens.",
-      "Uses spring physics from Framer Motion for a natural, fluid feel."
-    ]
-  },
-  {
-    "id": 9,
     "title": "GreenWave",
     "description": "Created a community hub for cannabis enthusiasts in South Florida, integrating Google Maps API to help users find local dispensaries and discover product information.",
     "live_link": "https://greenwavesoflo.netlify.app/",
@@ -130,7 +115,7 @@ const projects: Project[] = [
     ]
   },
   {
-    "id": 10,
+    "id": 9,
     "title": "Meet4Weed",
     "description": "Developed a social networking proof-of-concept for the cannabis community, designed with real-time features to connect users and facilitate sharing in a user-friendly, modern environment.",
     "live_link": "https://meet4weed.netlify.app/",
@@ -144,7 +129,7 @@ const projects: Project[] = [
     ]
   },
   {
-    "id": 11,
+    "id": 10,
     "title": "Real Stone & Granite",
     "description": "Delivered a sleek, professional website for a local stone and granite business, building a digital showroom to showcase their products and attract new customers.",
     "live_link": "https://real-stone.netlify.app/",
@@ -158,7 +143,7 @@ const projects: Project[] = [
     ]
   },
   {
-    "id": 12,
+    "id": 11,
     "title": "Real Estate Showcase",
     "description": "Designed and launched a promotional single-page website for a vacation rental property, featuring an image gallery and booking information to attract potential renters.",
     "live_link": "https://palm-city-condo.netlify.app",
@@ -172,7 +157,7 @@ const projects: Project[] = [
     ]
   },
   {
-    "id": 13,
+    "id": 12,
     "title": "Meet4Weed (Dev)",
     "description": "Developed a social networking proof-of-concept for the cannabis community, designed with real-time features to connect users and facilitate sharing in a user-friendly, modern environment.",
     "live_link": "https://meet4weed-dev.netlify.app/",
@@ -186,7 +171,7 @@ const projects: Project[] = [
     ]
   },
   {
-    "id": 14,
+    "id": 13,
     "title": "Higher Please",
     "description": "Created a modern web app that asks a series of funny and challenging questions, puzzles, or quizzes to determine your level of 'highness', then gives you a score and tips.",
     "live_link": "https://higher-please.netlify.app/",
@@ -200,12 +185,12 @@ const projects: Project[] = [
     ]
   },
   {
-    "id": 15,
+    "id": 14,
     "title": "My Place",
     "description": "Engineered a AI-powered productivity web app, leveraging the Google Gemini API for features like note summarization and voice transcription, and offering full offline support.",
     "live_link": "https://my-place-a.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/my-place-a",
-    "tech_stack": ["React", "Gemini API", "PWA", "Offline First"],
+    "tech_stack": ["React", "Gemini API", "PWA"],
     "nerd_facts": [
       "Leverages the Google Gemini API for advanced AI features like text summarization.",
       "Built as a Progressive Web App (PWA) with service workers for full offline functionality.",
