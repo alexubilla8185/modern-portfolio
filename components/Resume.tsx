@@ -161,9 +161,9 @@ const Resume: React.FC = () => {
         <div>
           <h2 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">{name}</h2>
           <div className="mt-2 text-zinc-600 dark:text-zinc-500 space-y-1 sm:space-y-0 sm:flex sm:flex-wrap sm:gap-x-4">
-             <p>{contact.phone}</p>
+             <a href={`tel:${contact.phone}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">{contact.phone}</a>
              <p className="hidden sm:inline">|</p>
-             <p>{contact.email}</p>
+             <a href={`mailto:${contact.email}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">{contact.email}</a>
              <p className="hidden sm:inline">|</p>
              <p>{contact.location}</p>
           </div>
