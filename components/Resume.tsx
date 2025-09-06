@@ -2,7 +2,7 @@ import React from 'react';
 import { jsPDF } from 'jspdf';
 import { resumeData } from '@/data/resume';
 import type { Job as JobType } from '@/data/resume';
-import { DownloadIcon } from '@/components/Icons';
+import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon } from '@/components/Icons';
 
 const ResumeSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="mb-8">
@@ -204,6 +204,28 @@ const Resume: React.FC = () => {
               {skill}
             </span>
           ))}
+        </div>
+      </ResumeSection>
+      
+      <div className="border-t-2 border-zinc-200 dark:border-zinc-700 my-8"></div>
+
+      <ResumeSection title="Let's Connect">
+        <p className="text-zinc-700 dark:text-zinc-400 mb-6">
+          I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious team. Feel free to reach out.
+        </p>
+        <div className="flex flex-wrap gap-4">
+          <a href={`mailto:${contact.email}`} className="inline-flex items-center gap-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
+            <MailIcon className="h-5 w-5" />
+            Email
+          </a>
+          <a href="https://github.com/alexubilla8185" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
+            <GitHubIcon className="h-5 w-5" />
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/alejandro-ubilla-a85b42131/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
+            <LinkedInIcon className="h-5 w-5" />
+            LinkedIn
+          </a>
         </div>
       </ResumeSection>
     </section>

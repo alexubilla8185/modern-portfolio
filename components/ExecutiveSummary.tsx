@@ -41,6 +41,11 @@ const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs }) => {
   useEffect(() => {
     const container = marqueeContainerRef.current;
     if (!container) return;
+    
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) {
+      return; // Respect user's motion preference and disable autoscroll
+    }
 
     const scrollContent = () => {
       if (!isHoveringRef.current && !isDraggingRef.current) {

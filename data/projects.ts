@@ -87,8 +87,8 @@ const projects: Project[] = [
   },
   {
     "id": 7,
-    "title": "Portfolio Website",
-    "description": "Built a dynamic, single-page portfolio from scratch to showcase skills in modern web development, featuring an interactive project carousel and a clean, responsive UI.",
+    "title": "Interactive Portfolio (This Site!)",
+    "description": "This portfolio! A dynamic, single-page application built from scratch to showcase my skills in modern web development, featuring this very interactive project carousel and a clean, responsive UI.",
     "live_link": "https://my-modern-resume.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/modern-portfolio",
     "tech_stack": ["React", "TypeScript", "Tailwind CSS"],
