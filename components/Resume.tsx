@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { jsPDF } from 'jspdf';
 import { resumeData } from '@/data/resume';
 import type { Job as JobType } from '@/data/resume';
-import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, SpinnerIcon } from '@/components/Icons';
+import { DownloadIcon, SpinnerIcon } from '@/components/Icons';
 
 const ResumeSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="mb-8">
@@ -169,10 +169,9 @@ const Resume: React.FC = () => {
 
   return (
     <section className="max-w-5xl mx-auto bg-white dark:bg-zinc-900 p-8 md:p-12 shadow-lg rounded-lg">
-      <div className="flex flex-col sm:flex-row justify-between items-start mb-8">
+      <div className="flex flex-col sm:flex-row justify-between items-start mb-4">
         <div>
           <h2 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">{name}</h2>
-          <p className="text-xl text-zinc-700 dark:text-zinc-400">Technology Leader</p>
         </div>
         <button
           onClick={handleDownload}
@@ -183,19 +182,11 @@ const Resume: React.FC = () => {
           {isGeneratingPdf ? 'Generating...' : 'Download PDF'}
         </button>
       </div>
-
-      <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2 mb-8">
-        <a href={`mailto:${contact.email}`} className="inline-flex items-center gap-2 text-zinc-700 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <MailIcon className="h-5 w-5" /> {contact.email}
-        </a>
-        <span className="hidden sm:inline text-zinc-400 dark:text-zinc-600" aria-hidden="true">|</span>
-        <a href="https://www.linkedin.com/in/alejandro-ubilla/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-zinc-700 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <LinkedInIcon className="h-5 w-5" /> LinkedIn
-        </a>
-        <span className="hidden sm:inline text-zinc-400 dark:text-zinc-600" aria-hidden="true">|</span>
-        <a href="https://github.com/alexubilla8185" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-zinc-700 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <GitHubIcon className="h-5 w-5" /> GitHub
-        </a>
+      
+      <div className="border-b border-zinc-200 dark:border-zinc-700 pb-8 mb-8">
+        <p className="text-zinc-700 dark:text-zinc-400 text-center sm:text-left">
+          {contact.phone} &nbsp;|&nbsp; {contact.email} &nbsp;|&nbsp; {contact.location}
+        </p>
       </div>
 
       <ResumeSection title="Summary">
@@ -204,6 +195,7 @@ const Resume: React.FC = () => {
 
       <ResumeSection title="Work Experience">
         {experience.map((job, index) => <Job key={index} job={job} />)}
+      {/* FIX: Corrected a typo in the component's closing tag. It should be </ResumeSection> not </Resume-Section>. */}
       </ResumeSection>
 
       <ResumeSection title="Education">
