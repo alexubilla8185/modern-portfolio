@@ -104,10 +104,10 @@ const Resume: React.FC = () => {
           </div>
           <button
               onClick={() => setPreviewOpen(true)}
-              className="p-2 rounded-full text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-900 transition-colors ml-4 flex-shrink-0"
+              className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-900 transition-colors ml-4 flex-shrink-0"
               aria-label="Open document preview"
           >
-              <FullscreenIcon className="h-6 w-6" />
+              <FullscreenIcon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
           </button>
         </div>
 
