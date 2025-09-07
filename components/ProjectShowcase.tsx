@@ -106,7 +106,7 @@ const ProjectShowcase: React.FC = () => {
         <section className="overflow-hidden">
             <div className="text-center mb-8 md:mb-12 px-4">
                 <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">Project Showcase</h2>
-                <p className="mt-4 max-w-2xl mx-auto text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+                <p className="mt-4 max-w-2xl mx-auto text-lg leading-8 text-zinc-600">
                     A curated selection of my work. Use your arrow keys or click the cards to explore each project.
                 </p>
             </div>

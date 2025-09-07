@@ -31,7 +31,7 @@ const renderMarkdown = (text: string) => {
       codeContent += line + '\n';
     } else {
        if (line.trim()) {
-         elements.push(<p key={`line-${i}`} className="text-zinc-700 dark:text-zinc-400 text-sm md:text-base mb-2 last:mb-0 leading-relaxed">{line}</p>);
+         elements.push(<p key={`line-${i}`} className="text-zinc-700 text-sm md:text-base mb-2 last:mb-0 leading-relaxed">{line}</p>);
        }
     }
   }
@@ -118,7 +118,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
                         <ExternalLinkIcon className="h-5 w-5" />
                         Open App
                     </a>
-                    <div className="flex items-center text-zinc-500 dark:text-zinc-400 pointer-events-none">
+                    <div className="flex items-center text-zinc-500 dark:text-zinc-300 pointer-events-none">
                         <span className="text-xs font-semibold mr-2 hidden sm:inline">Tech Highlights</span>
                         <FlipIcon className="h-5 w-5" />
                     </div>
@@ -157,13 +157,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
               {project.nerd_facts?.map((fact, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <SparklesIcon className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-zinc-700 dark:text-zinc-400">{fact}</span>
+                  <span className="text-sm text-zinc-700">{fact}</span>
                 </li>
               ))}
             </ul>
           </div>
           <div className="flex-shrink-0 mt-auto p-6 pt-4 border-t border-zinc-200 dark:border-zinc-700">
-            <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 font-semibold transition-colors" aria-label={`View source code for ${project.title}`}>
+            <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-zinc-600 hover:text-zinc-800 dark:text-zinc-300 dark:hover:text-zinc-100 font-semibold transition-colors" aria-label={`View source code for ${project.title}`}>
               <GitHubIcon className="h-5 w-5" />
               Source Code
             </a>

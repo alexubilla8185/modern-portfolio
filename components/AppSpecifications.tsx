@@ -3,7 +3,7 @@ import React from 'react';
 const SpecSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="break-inside-avoid">
     <h3 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">{title}</h3>
-    <div className="text-zinc-700 dark:text-zinc-400 space-y-1">{children}</div>
+    <div className="text-zinc-700 space-y-1">{children}</div>
   </div>
 );
 
@@ -57,12 +57,9 @@ const AppSpecifications: React.FC = () => {
                 <ListItem><strong>Dynamic Gradients:</strong> Project cards feature unique, algorithmically assigned gradients for a vibrant and professional look.</ListItem>
             </ul>
         </SpecSection>
-
-         <SpecSection title="Hosting & Deployment">
-             <p>Hosted on <strong>Netlify</strong> for continuous deployment from a GitHub repository, providing a global CDN, and high performance out-of-the-box.</p>
-        </SpecSection>
     </div>
   );
 };
 
+// FIX: Added a default export for the component and fixed a syntax error at the end of the file.
 export default AppSpecifications;

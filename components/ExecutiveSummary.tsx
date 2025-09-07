@@ -187,7 +187,7 @@ const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs, onShow
                   </div>
               </div>
             </div>
-            <p className="text-lg text-zinc-700 dark:text-zinc-400 leading-relaxed">
+            <p className="text-lg text-zinc-700 leading-relaxed">
               Technology Leader with 15+ years of experience defining strategic roadmaps and leading high-performing teams. I bridge the gap between complex technology and human understanding, specializing in initiatives that improve product quality and leverage AI to drive business growth. My focus is on continuous improvement and delivering exceptional customer satisfaction.
             </p>
           </div>
