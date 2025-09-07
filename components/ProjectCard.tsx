@@ -110,25 +110,25 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
                         href={project.live_link} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold transition-colors" 
+                        className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-semibold transition-colors" 
                         aria-label={`View live application for ${project.title}`}
                         onClick={(e) => e.stopPropagation()}
                         onKeyDown={(e) => e.stopPropagation()}
                     >
                         <ExternalLinkIcon className="h-5 w-5" />
-                        Open App
+                        <span className="hidden sm:inline">Open App</span>
                     </a>
                     <div className="flex items-center text-zinc-500 dark:text-zinc-100 pointer-events-none">
-                        <span className="text-xs font-semibold mr-2 hidden sm:inline">Tech Highlights</span>
+                        <span className="text-sm font-semibold mr-2 hidden sm:inline">Tech Highlights</span>
                         <FlipIcon className="h-5 w-5" />
                     </div>
                 </div>
               ) : (
                   <div className="mt-4 pt-4 border-t border-zinc-200 dark:border-zinc-700 flex items-center justify-between">
                       <div className="flex items-center">
-                          <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold transition-colors" aria-label={`View live application for ${project.title}`}>
+                          <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-semibold transition-colors" aria-label={`View live application for ${project.title}`}>
                               <ExternalLinkIcon className="h-5 w-5" />
-                              Open App
+                              <span className="hidden sm:inline">Open App</span>
                           </a>
                       </div>
                   </div>
