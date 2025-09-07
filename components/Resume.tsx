@@ -8,44 +8,53 @@ import { DownloadIcon, MailIcon, PhoneIcon, LocationIcon, SpinnerIcon } from '@/
 const ResumeForPDF = React.forwardRef<HTMLDivElement>((_props, ref) => {
     const { name, contact, summary, experience, education, skills } = resumeData;
     return (
-        <div ref={ref} className="bg-white text-zinc-900 font-sans p-[40pt]" style={{ width: '612pt' }}>
-             <div className="mb-6">
-                <h1 className="text-3xl font-bold text-zinc-900">{name}</h1>
-                <p className="text-zinc-600 mt-1 text-base">
-                  {contact.phone} &nbsp;|&nbsp; {contact.email}
-                  {contact.location && <span> &nbsp;|&nbsp; {contact.location}</span>}
+        <div ref={ref} className="bg-white text-black font-sans" style={{ width: '612pt', padding: '40pt' }}>
+            {/* Header Section */}
+            <div className="text-center mb-6">
+                <h1 className="text-4xl font-bold tracking-wider">{name.toUpperCase()}</h1>
+                <p className="text-sm mt-2">
+                    {contact.phone} | {contact.email}
                 </p>
             </div>
-            
+
+            {/* Summary Section */}
             <div className="mb-5">
-                <h2 className="text-2xl font-bold text-blue-700 border-b-2 border-zinc-300 pb-1 mb-2">Summary</h2>
-                <p className="text-zinc-700 leading-relaxed text-base">{summary}</p>
+                <h2 className="text-lg font-bold uppercase tracking-widest border-b border-black pb-1 mb-2">Summary</h2>
+                <p className="text-sm leading-normal">{summary}</p>
             </div>
 
+            {/* Experience Section */}
             <div className="mb-5">
-                 <h2 className="text-2xl font-bold text-blue-700 border-b-2 border-zinc-300 pb-1 mb-3">Work Experience</h2>
-                 {experience.map((job, index) => (
-                    <div key={index} className="mb-4 last:mb-0">
-                        <h3 className="text-lg font-semibold text-zinc-800">{job.title}</h3>
-                        <p className="text-base text-zinc-600 font-medium">{job.company} | {job.duration}</p>
-                        <ul className="list-disc list-inside mt-1 text-zinc-700 space-y-1 text-base">
+                <h2 className="text-lg font-bold uppercase tracking-widest border-b border-black pb-1 mb-3">Work Experience</h2>
+                {experience.map((job, index) => (
+                    <div key={index} className="mb-4">
+                        <div className="flex justify-between items-baseline">
+                            <h3 className="text-base font-bold">{job.title}</h3>
+                            <p className="text-sm font-medium">{job.duration}</p>
+                        </div>
+                        <p className="text-sm font-semibold italic">{job.company}</p>
+                        <ul className="list-disc pl-5 mt-1 text-sm space-y-1">
                             {job.responsibilities.map((item, i) => <li key={i}>{item}</li>)}
                         </ul>
                     </div>
-                 ))}
+                ))}
             </div>
 
+            {/* Education Section */}
             <div className="mb-5">
-                <h2 className="text-2xl font-bold text-blue-700 border-b-2 border-zinc-300 pb-1 mb-2">Education</h2>
-                <h3 className="text-lg font-semibold text-zinc-800">{education.institution}</h3>
-                <p className="text-base text-zinc-600">{education.degree}</p>
+                <h2 className="text-lg font-bold uppercase tracking-widest border-b border-black pb-1 mb-2">Education</h2>
+                <div className="flex justify-between items-baseline">
+                    <h3 className="text-base font-bold">{education.institution}</h3>
+                </div>
+                <p className="text-sm italic">{education.degree}</p>
             </div>
 
+            {/* Skills Section */}
             <div>
-                 <h2 className="text-2xl font-bold text-blue-700 border-b-2 border-zinc-300 pb-1 mb-2">Skills</h2>
-                 <p className="text-zinc-700 leading-relaxed text-base">
-                    {skills.join(', ')}
-                 </p>
+                <h2 className="text-lg font-bold uppercase tracking-widest border-b border-black pb-1 mb-2">Skills</h2>
+                <p className="text-sm leading-normal">
+                    {skills.join(' • ')}
+                </p>
             </div>
         </div>
     );
@@ -62,7 +71,7 @@ const ResumeSection: React.FC<{ title: string; children: React.ReactNode }> = ({
 const Job: React.FC<{ job: JobType }> = ({ job }) => (
   <div className="mb-6">
     <h4 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">{job.title}</h4>
-    <p className="text-md text-zinc-700 dark:text-zinc-300 font-medium">{job.company} | {job.duration}</p>
+    <p className="text-md text-zinc-700 dark:text-zinc-100 font-medium">{job.company} | {job.duration}</p>
     <ul className="list-disc list-inside mt-2 text-zinc-700 space-y-1">
       {job.responsibilities.map((item, index) => <li key={index}>{item}</li>)}
     </ul>
@@ -108,7 +117,7 @@ const Resume: React.FC = () => {
         <div className="flex justify-between items-start mb-8">
           <div className="flex-grow text-center sm:text-left">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-900 dark:text-zinc-100">{name}</h2>
-            <div className="mt-2 flex flex-wrap justify-center sm:justify-start items-center gap-x-4 gap-y-1 text-sm text-zinc-700 dark:text-zinc-300">
+            <div className="mt-2 flex flex-wrap justify-center sm:justify-start items-center gap-x-4 gap-y-1 text-sm text-zinc-700 dark:text-zinc-100">
                 <a href={`tel:${contact.phone.replace(/\D/g, '')}`} className="flex items-center gap-2 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
                     <PhoneIcon className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-400" />
                     <span>{contact.phone}</span>
@@ -149,7 +158,7 @@ const Resume: React.FC = () => {
 
         <ResumeSection title="Education">
           <h4 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">{education.institution}</h4>
-          <p className="text-md text-zinc-700 dark:text-zinc-300">{education.degree}</p>
+          <p className="text-md text-zinc-700 dark:text-zinc-100">{education.degree}</p>
         </ResumeSection>
 
         <ResumeSection title="Skills">

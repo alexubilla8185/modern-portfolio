@@ -150,8 +150,29 @@ const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs, onShow
   };
 
   return (
-    <section className="max-w-4xl mx-auto">
-      <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+    <section>
+      <div className="text-center mb-12">
+        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-4">At a Glance</h2>
+        <div 
+          ref={marqueeContainerRef}
+          className="relative flex overflow-hidden cursor-grab active:cursor-grabbing"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onMouseEnter={() => (isHoveringRef.current = true)}
+        >
+            <div className="flex">
+                <CompetencyPills />
+                <CompetencyPills aria-hidden="true" />
+            </div>
+        </div>
+      </div>
+      
+      <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
         <div className="flex-shrink-0">
           <button 
             onClick={handleImageClick} 
@@ -165,32 +186,10 @@ const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs, onShow
             />
           </button>
         </div>
-        <div className="flex-grow w-full overflow-hidden">
-          <div className="flex flex-col">
-            <div className="mb-6 text-center">
-              <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-300 mb-3">At a Glance:</h3>
-              <div 
-                ref={marqueeContainerRef}
-                className="relative flex overflow-hidden cursor-grab active:cursor-grabbing"
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseLeave}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-                onMouseEnter={() => (isHoveringRef.current = true)}
-              >
-                  <div className="flex">
-                      <CompetencyPills />
-                      <CompetencyPills aria-hidden="true" />
-                  </div>
-              </div>
-            </div>
-            <p className="text-lg text-zinc-700 leading-relaxed">
-              Technology Leader with 15+ years of experience defining strategic roadmaps and leading high-performing teams. I bridge the gap between complex technology and human understanding, specializing in initiatives that improve product quality and leverage AI to drive business growth. My focus is on continuous improvement and delivering exceptional customer satisfaction.
-            </p>
-          </div>
+        <div className="flex-grow">
+          <p className="text-lg text-zinc-700 leading-relaxed">
+            Technology Leader with 15+ years of experience defining strategic roadmaps and leading high-performing teams. I bridge the gap between complex technology and human understanding, specializing in initiatives that improve product quality and leverage AI to drive business growth. My focus is on continuous improvement and delivering exceptional customer satisfaction.
+          </p>
         </div>
       </div>
     </section>

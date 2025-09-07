@@ -165,14 +165,14 @@ const ProjectShowcase: React.FC = () => {
                     className="absolute left-0 top-1/2 -translate-y-1/2 z-[999] p-1.5 rounded-full bg-zinc-100/50 hover:bg-zinc-100 dark:bg-zinc-800/50 dark:hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-950"
                     aria-label="Previous Project"
                 >
-                    <ChevronLeftIcon className="h-5 w-5 md:h-8 md:w-8 text-zinc-800 dark:text-zinc-300" />
+                    <ChevronLeftIcon className="h-5 w-5 md:h-8 md:w-8 text-zinc-800 dark:text-zinc-100" />
                 </button>
                 <button
                     onClick={handleNext}
                     className="absolute right-0 top-1/2 -translate-y-1/2 z-[999] p-1.5 rounded-full bg-zinc-100/50 hover:bg-zinc-100 dark:bg-zinc-800/50 dark:hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-950"
                     aria-label="Next Project"
                 >
-                    <ChevronRightIcon className="h-5 w-5 md:h-8 md:w-8 text-zinc-800 dark:text-zinc-300" />
+                    <ChevronRightIcon className="h-5 w-5 md:h-8 md:w-8 text-zinc-800 dark:text-zinc-100" />
                 </button>
             </div>
         </section>
