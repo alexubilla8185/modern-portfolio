@@ -5,7 +5,7 @@ import type { Job as JobType } from '@/data/resume';
 import { DownloadIcon, MailIcon, PhoneIcon, LocationIcon, SpinnerIcon } from '@/components/Icons';
 
 const ResumeSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
-  <div className="mb-8">
+  <div className="mb-12">
     <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 border-b-2 border-zinc-200 dark:border-zinc-700 pb-2 mb-4">{title}</h3>
     {children}
   </div>
@@ -50,17 +50,19 @@ const Resume: React.FC = () => {
         // --- Header ---
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(FONT_HEADER);
-        doc.text(name, PAGE_WIDTH / 2, y, { align: 'center' });
+        doc.text(name, MARGIN, y);
         y += FONT_HEADER * 0.75;
 
         doc.setFont('helvetica', 'normal');
         doc.setFontSize(FONT_NORMAL);
-        doc.text(`${contact.phone} | ${contact.email}`, PAGE_WIDTH / 2, y, { align: 'center' });
+        doc.text(`${contact.phone} | ${contact.email}`, MARGIN, y);
         y += FONT_NORMAL * LINE_HEIGHT * 2;
 
         // --- Section Title Helper ---
-        const addSectionTitle = (title: string) => {
-            y += 5;
+        const addSectionTitle = (title: string, addExtraSpace = false) => {
+            if (addExtraSpace) {
+                y += FONT_NORMAL * LINE_HEIGHT;
+            }
             doc.setFont('helvetica', 'bold');
             doc.setFontSize(FONT_LARGE);
             doc.text(title.toUpperCase(), MARGIN, y);
@@ -79,7 +81,7 @@ const Resume: React.FC = () => {
         y += summaryLines.length * FONT_NORMAL * LINE_HEIGHT;
 
         // --- Work Experience ---
-        addSectionTitle('Work Experience');
+        addSectionTitle('Work Experience', true);
         experience.forEach((job, jobIndex) => {
             doc.setFont('helvetica', 'bold');
             doc.setFontSize(FONT_LARGE);
@@ -102,10 +104,9 @@ const Resume: React.FC = () => {
                y += FONT_NORMAL * LINE_HEIGHT;
             }
         });
-        y += FONT_NORMAL * LINE_HEIGHT; // Added space after work experience section
-
+        
         // --- Education ---
-        addSectionTitle('Education');
+        addSectionTitle('Education', true);
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(FONT_LARGE);
         doc.text(education.institution, MARGIN, y);
@@ -114,13 +115,13 @@ const Resume: React.FC = () => {
         doc.setFont('helvetica', 'normal');
         doc.setFontSize(FONT_NORMAL);
         doc.text(education.degree, MARGIN, y);
-        y += FONT_NORMAL * LINE_HEIGHT * 2; // Added space after education section
-
+        y += FONT_NORMAL * LINE_HEIGHT * 2; // Add space after degree
+        
         // --- Skills ---
         addSectionTitle('Skills');
         doc.setFont('helvetica', 'normal');
         doc.setFontSize(FONT_NORMAL);
-        const skillsText = skills.join(', ');
+        const skillsText = skills.join(', ').trim(); // Ensure no trailing spaces
         const skillsLines = doc.splitTextToSize(skillsText, CONTENT_WIDTH);
         doc.text(skillsLines, MARGIN, y);
 
