@@ -8,8 +8,8 @@ import { FullscreenIcon, MailIcon, PhoneIcon, LocationIcon } from '@/components/
 const ResumePreview: React.FC = () => {
     const { name, contact, summary, experience, education, skills } = resumeData;
     return (
-        <div className="bg-zinc-100 dark:bg-zinc-800 h-full w-full py-4 sm:py-8">
-            <div className="bg-white text-zinc-900 font-sans p-6 sm:p-8 md:p-10 max-w-4xl mx-auto shadow-lg" id="resume-preview-content">
+        <div className="bg-zinc-100 dark:bg-zinc-800 h-full w-full">
+            <div className="bg-white text-zinc-900 font-sans p-6 sm:p-8 md:p-10 max-w-4xl mx-auto shadow-lg my-4 sm:my-8" id="resume-preview-content">
                  <div className="mb-6">
                     <h1 className="text-3xl sm:text-4xl font-bold text-zinc-900">{name}</h1>
                     <p className="text-zinc-600 mt-1 text-sm sm:text-base">
