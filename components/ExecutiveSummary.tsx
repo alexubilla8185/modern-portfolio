@@ -151,45 +151,50 @@ const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs, onShow
 
   return (
     <section>
-      <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-4">At a Glance</h2>
-        <div 
-          ref={marqueeContainerRef}
-          className="relative flex overflow-hidden cursor-grab active:cursor-grabbing"
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-          onMouseEnter={() => (isHoveringRef.current = true)}
-        >
-            <div className="flex">
-                <CompetencyPills />
-                <CompetencyPills aria-hidden="true" />
-            </div>
-        </div>
-      </div>
-      
-      <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
-        <div className="flex-shrink-0">
-          <button 
-            onClick={handleImageClick} 
-            className={`rounded-full focus:outline-none focus:ring-4 focus:ring-blue-500/50 ${pulseProfile ? 'animate-pulse-glow' : ''}`} 
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-x-12 gap-y-8 items-center">
+        {/* Left Column: Profile Picture */}
+        <div className="md:col-span-1 flex justify-center md:justify-start">
+          <button
+            onClick={handleImageClick}
+            className={`rounded-full focus:outline-none focus:ring-4 focus:ring-blue-500/50 ${pulseProfile ? 'animate-pulse-glow' : ''}`}
             aria-label="Show app specifications easter egg"
           >
             <img
-              className="h-40 w-40 rounded-full object-cover shadow-lg border-4 border-zinc-200 dark:border-blue-500 cursor-pointer"
+              className="h-52 w-52 rounded-full object-cover shadow-lg border-4 border-zinc-200 dark:border-blue-500 cursor-pointer"
               src="https://media.licdn.com/dms/image/v2/D4E03AQH2PbjlUdTZHg/profile-displayphoto-scale_400_400/B4EZkhMrKdGUAg-/0/1757198596649?e=1759968000&v=beta&t=iP_xv-4kwI0frMZ6nL1QXBNVdXfsMEAgqvg9rtE-pw0"
               alt="Profile portrait of Alejandro Ubilla"
             />
           </button>
         </div>
-        <div className="flex-grow">
-          <p className="text-lg text-zinc-700 leading-relaxed">
-            Technology Leader with 15+ years of experience defining strategic roadmaps and leading high-performing teams. I bridge the gap between complex technology and human understanding, specializing in initiatives that improve product quality and leverage AI to drive business growth. My focus is on continuous improvement and delivering exceptional customer satisfaction.
-          </p>
+
+        {/* Right Column: Content */}
+        <div className="md:col-span-3">
+          <div className="text-center md:text-left">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-4">Core Competencies</h2>
+            <div
+              ref={marqueeContainerRef}
+              className="relative flex overflow-hidden cursor-grab active:cursor-grabbing"
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseLeave}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onMouseEnter={() => (isHoveringRef.current = true)}
+            >
+              <div className="flex">
+                <CompetencyPills />
+                <CompetencyPills aria-hidden="true" />
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <p className="text-lg text-zinc-700 dark:text-zinc-200 leading-relaxed text-center md:text-left">
+              Technology Leader with 15+ years of experience defining strategic roadmaps and leading high-performing teams. I bridge the gap between complex technology and human understanding, specializing in initiatives that improve product quality and leverage AI to drive business growth. My focus is on continuous improvement and delivering exceptional customer satisfaction.
+            </p>
+          </div>
         </div>
       </div>
     </section>

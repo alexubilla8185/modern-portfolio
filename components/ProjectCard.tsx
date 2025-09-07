@@ -31,7 +31,7 @@ const renderMarkdown = (text: string) => {
       codeContent += line + '\n';
     } else {
        if (line.trim()) {
-         elements.push(<p key={`line-${i}`} className="text-zinc-700 text-sm md:text-base mb-2 last:mb-0 leading-relaxed">{line}</p>);
+         elements.push(<p key={`line-${i}`} className="text-zinc-700 dark:text-zinc-200 text-sm md:text-base mb-2 last:mb-0 leading-relaxed">{line}</p>);
        }
     }
   }
@@ -157,7 +157,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, gradient }) => {
               {project.nerd_facts?.map((fact, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <SparklesIcon className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-zinc-700">{fact}</span>
+                  <span className="text-sm text-zinc-700 dark:text-zinc-200">{fact}</span>
                 </li>
               ))}
             </ul>

@@ -1,65 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import jsPDF from 'jspdf';
 import { resumeData } from '@/data/resume';
 import type { Job as JobType } from '@/data/resume';
 import { DownloadIcon, MailIcon, PhoneIcon, LocationIcon, SpinnerIcon } from '@/components/Icons';
-
-// This component is rendered off-screen with a fixed width for PDF generation.
-const ResumeForPDF = React.forwardRef<HTMLDivElement>((_props, ref) => {
-    const { name, contact, summary, experience, education, skills } = resumeData;
-    return (
-        <div ref={ref} className="bg-white text-black font-sans" style={{ width: '612pt', padding: '40pt' }}>
-            {/* Header Section */}
-            <div className="text-center mb-6">
-                <h1 className="text-4xl font-bold tracking-wider">{name.toUpperCase()}</h1>
-                <p className="text-sm mt-2">
-                    {contact.phone} | {contact.email}
-                </p>
-            </div>
-
-            {/* Summary Section */}
-            <div className="mb-5">
-                <h2 className="text-lg font-bold uppercase tracking-widest border-b border-black pb-1 mb-2">Summary</h2>
-                <p className="text-sm leading-normal">{summary}</p>
-            </div>
-
-            {/* Experience Section */}
-            <div className="mb-5">
-                <h2 className="text-lg font-bold uppercase tracking-widest border-b border-black pb-1 mb-3">Work Experience</h2>
-                {experience.map((job, index) => (
-                    <div key={index} className="mb-4">
-                        <div className="flex justify-between items-baseline">
-                            <h3 className="text-base font-bold">{job.title}</h3>
-                            <p className="text-sm font-medium">{job.duration}</p>
-                        </div>
-                        <p className="text-sm font-semibold italic">{job.company}</p>
-                        <ul className="list-disc pl-5 mt-1 text-sm space-y-1">
-                            {job.responsibilities.map((item, i) => <li key={i}>{item}</li>)}
-                        </ul>
-                    </div>
-                ))}
-            </div>
-
-            {/* Education Section */}
-            <div className="mb-5">
-                <h2 className="text-lg font-bold uppercase tracking-widest border-b border-black pb-1 mb-2">Education</h2>
-                <div className="flex justify-between items-baseline">
-                    <h3 className="text-base font-bold">{education.institution}</h3>
-                </div>
-                <p className="text-sm italic">{education.degree}</p>
-            </div>
-
-            {/* Skills Section */}
-            <div>
-                <h2 className="text-lg font-bold uppercase tracking-widest border-b border-black pb-1 mb-2">Skills</h2>
-                <p className="text-sm leading-normal">
-                    {skills.join(' • ')}
-                </p>
-            </div>
-        </div>
-    );
-});
-
 
 const ResumeSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="mb-8">
@@ -71,8 +14,8 @@ const ResumeSection: React.FC<{ title: string; children: React.ReactNode }> = ({
 const Job: React.FC<{ job: JobType }> = ({ job }) => (
   <div className="mb-6">
     <h4 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">{job.title}</h4>
-    <p className="text-md text-zinc-700 dark:text-zinc-100 font-medium">{job.company} | {job.duration}</p>
-    <ul className="list-disc list-inside mt-2 text-zinc-700 space-y-1">
+    <p className="text-md text-zinc-700 dark:text-zinc-200 font-medium">{job.company} | {job.duration}</p>
+    <ul className="list-disc list-inside mt-2 text-zinc-700 dark:text-zinc-200 space-y-1">
       {job.responsibilities.map((item, index) => <li key={index}>{item}</li>)}
     </ul>
   </div>
@@ -80,15 +23,12 @@ const Job: React.FC<{ job: JobType }> = ({ job }) => (
 
 const Resume: React.FC = () => {
   const [isDownloading, setIsDownloading] = useState(false);
-  const pdfRef = useRef<HTMLDivElement>(null);
   const { name, contact, summary, experience, education, skills } = resumeData;
 
   const handleDownloadPdf = async () => {
-    if (isDownloading || !pdfRef.current) return;
-    
+    if (isDownloading) return;
     setIsDownloading(true);
-    const content = pdfRef.current;
-    
+
     try {
         const doc = new jsPDF({
             orientation: 'p',
@@ -96,23 +36,114 @@ const Resume: React.FC = () => {
             format: 'letter',
         });
 
-        await doc.html(content, {
-            callback: (doc) => {
-                doc.save('Alejandro-Ubilla-Resume.pdf');
-                setIsDownloading(false);
-            },
-            x: 0,
-            y: 0,
+        const margin = 40;
+        const pageHeight = doc.internal.pageSize.getHeight();
+        const contentWidth = doc.internal.pageSize.getWidth() - margin * 2;
+        let y = margin + 10;
+
+        const checkPageBreak = (heightNeeded: number) => {
+            if (y + heightNeeded > pageHeight - margin) {
+                doc.addPage();
+                y = margin;
+            }
+        };
+
+        // --- Header ---
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(26);
+        doc.text(name, doc.internal.pageSize.getWidth() / 2, y, { align: 'center' });
+        y += 30;
+
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(10);
+        const contactInfo = `${contact.phone} | ${contact.email}${contact.location ? ` | ${contact.location}` : ''}`;
+        doc.text(contactInfo, doc.internal.pageSize.getWidth() / 2, y, { align: 'center' });
+        y += 30;
+
+        // --- Section Title Helper ---
+        const addSectionTitle = (title: string) => {
+            checkPageBreak(40);
+            y += 10;
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(12);
+            doc.text(title.toUpperCase(), margin, y);
+            y += 12;
+            doc.setDrawColor(0);
+            doc.setLineWidth(0.5);
+            doc.line(margin, y, margin + contentWidth, y);
+            y += 15;
+        };
+        
+        // --- Summary ---
+        addSectionTitle('Summary');
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(10);
+        const summaryLines = doc.splitTextToSize(summary, contentWidth);
+        checkPageBreak(summaryLines.length * 12);
+        doc.text(summaryLines, margin, y);
+        y += summaryLines.length * 12 + 10;
+
+        // --- Work Experience ---
+        addSectionTitle('Work Experience');
+        experience.forEach(job => {
+            const respLines = job.responsibilities
+                .flatMap(r => doc.splitTextToSize(r, contentWidth - 15));
+
+            const totalJobHeight = 14 + 14 + (respLines.length * 12) + 15;
+            checkPageBreak(totalJobHeight);
+
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(11);
+            doc.text(job.title, margin, y);
+            y += 14;
+
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(10);
+            doc.text(`${job.company} | ${job.duration}`, margin, y);
+            y += 15;
+            
+            respLines.forEach(line => {
+                checkPageBreak(12);
+                doc.text('•', margin + 5, y);
+                doc.text(line, margin + 15, y);
+                y += 12;
+            });
+            y += 10;
         });
+
+        // --- Education ---
+        addSectionTitle('Education');
+        checkPageBreak(40);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(11);
+        doc.text(education.institution, margin, y);
+        y += 14;
+
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(10);
+        doc.text(education.degree, margin, y);
+        y += 25;
+
+        // --- Skills ---
+        addSectionTitle('Skills');
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(10);
+        const skillsText = skills.join(', ');
+        const skillsLines = doc.splitTextToSize(skillsText, contentWidth);
+        checkPageBreak(skillsLines.length * 12);
+        doc.text(skillsLines, margin, y);
+
+        doc.save('Alejandro-Ubilla-Resume.pdf');
+
     } catch (error) {
         console.error("Failed to generate PDF:", error);
+    } finally {
         setIsDownloading(false);
     }
   };
 
 
   return (
-    <>
       <section className="max-w-5xl mx-auto bg-white dark:bg-zinc-900 p-8 md:p-12 shadow-lg rounded-lg">
         <div className="flex justify-between items-start mb-8">
           <div className="flex-grow text-center sm:text-left">
@@ -149,7 +180,7 @@ const Resume: React.FC = () => {
         </div>
 
         <ResumeSection title="Summary">
-          <p className="text-zinc-700 leading-relaxed">{summary}</p>
+          <p className="text-zinc-700 dark:text-zinc-200 leading-relaxed">{summary}</p>
         </ResumeSection>
 
         <ResumeSection title="Work Experience">
@@ -158,11 +189,11 @@ const Resume: React.FC = () => {
 
         <ResumeSection title="Education">
           <h4 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">{education.institution}</h4>
-          <p className="text-md text-zinc-700 dark:text-zinc-100">{education.degree}</p>
+          <p className="text-md text-zinc-700 dark:text-zinc-200">{education.degree}</p>
         </ResumeSection>
 
         <ResumeSection title="Skills">
-           <p className="text-zinc-700 leading-relaxed">
+           <p className="text-zinc-700 dark:text-zinc-200 leading-relaxed">
             {skills.map((skill, index) => (
               <React.Fragment key={skill}>
                 {skill}
@@ -172,12 +203,6 @@ const Resume: React.FC = () => {
           </p>
         </ResumeSection>
       </section>
-      
-      {/* Hidden component, rendered off-screen, used for PDF generation */}
-      <div className="absolute -left-[9999px] top-auto opacity-0 pointer-events-none" aria-hidden="true">
-        <ResumeForPDF ref={pdfRef} />
-      </div>
-    </>
   );
 };
 

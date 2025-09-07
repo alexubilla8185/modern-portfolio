@@ -22,7 +22,7 @@ const SectionNavigator = forwardRef<HTMLDivElement, SectionNavigatorProps>(({ ac
                         className={`px-6 py-2 text-sm font-semibold rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-800 ${
                             activeSection === section.id
                                 ? 'bg-white dark:bg-zinc-900 text-blue-600 dark:text-blue-400 shadow'
-                                : 'text-zinc-700 dark:text-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                                : 'text-zinc-700 dark:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-700'
                         }`}
                     >
                         {section.label}
