@@ -6,9 +6,10 @@ interface ModalProps {
   onClose: () => void;
   title: string;
   children: React.ReactNode;
+  size?: 'default' | 'fullscreen';
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, size = 'default' }) => {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -30,6 +31,16 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
   if (!isOpen) {
     return null;
   }
+  
+  const baseDialogClasses = "relative bg-white dark:bg-zinc-900 shadow-xl flex flex-col animate-fade-in";
+  
+  const sizeClasses = {
+    default: "w-full max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-4xl max-h-[90vh] rounded-lg mx-4",
+    fullscreen: "w-screen h-screen sm:w-[95vw] sm:h-[95vh] sm:max-w-5xl sm:rounded-lg"
+  };
+
+  const contentPaddingClass = size === 'default' ? 'p-6' : 'p-0';
+
 
   return (
     <div
@@ -40,7 +51,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-4xl max-h-[90vh] bg-white dark:bg-zinc-900 rounded-lg shadow-xl mx-4 flex flex-col animate-fade-in"
+        className={`${baseDialogClasses} ${sizeClasses[size]}`}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex-shrink-0 flex items-start justify-between p-4 border-b border-zinc-200 dark:border-zinc-700">
@@ -55,7 +66,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
             <CloseIcon className="h-6 w-6" />
           </button>
         </div>
-        <div className="flex-grow p-6 overflow-y-auto">
+        <div className={`flex-grow overflow-y-auto ${contentPaddingClass}`}>
           {children}
         </div>
       </div>
