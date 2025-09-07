@@ -36,102 +36,93 @@ const Resume: React.FC = () => {
             format: 'letter',
         });
 
-        const margin = 40;
-        const pageHeight = doc.internal.pageSize.getHeight();
-        const contentWidth = doc.internal.pageSize.getWidth() - margin * 2;
-        let y = margin + 10;
+        // Constants for styling
+        const MARGIN = 40;
+        const PAGE_WIDTH = doc.internal.pageSize.getWidth();
+        const CONTENT_WIDTH = PAGE_WIDTH - MARGIN * 2;
+        const FONT_NORMAL = 10;
+        const FONT_LARGE = 11;
+        const FONT_HEADER = 24;
+        const LINE_HEIGHT = 1.25;
 
-        const checkPageBreak = (heightNeeded: number) => {
-            if (y + heightNeeded > pageHeight - margin) {
-                doc.addPage();
-                y = margin;
-            }
-        };
+        let y = MARGIN + 10;
 
         // --- Header ---
         doc.setFont('helvetica', 'bold');
-        doc.setFontSize(26);
-        doc.text(name, doc.internal.pageSize.getWidth() / 2, y, { align: 'center' });
-        y += 30;
+        doc.setFontSize(FONT_HEADER);
+        doc.text(name, PAGE_WIDTH / 2, y, { align: 'center' });
+        y += FONT_HEADER * 0.75;
 
         doc.setFont('helvetica', 'normal');
-        doc.setFontSize(10);
-        const contactInfo = `${contact.phone} | ${contact.email}${contact.location ? ` | ${contact.location}` : ''}`;
-        doc.text(contactInfo, doc.internal.pageSize.getWidth() / 2, y, { align: 'center' });
-        y += 30;
+        doc.setFontSize(FONT_NORMAL);
+        doc.text(`${contact.phone} | ${contact.email}`, PAGE_WIDTH / 2, y, { align: 'center' });
+        y += FONT_NORMAL * LINE_HEIGHT * 2;
 
         // --- Section Title Helper ---
         const addSectionTitle = (title: string) => {
-            checkPageBreak(40);
-            y += 10;
+            y += 5;
             doc.setFont('helvetica', 'bold');
-            doc.setFontSize(12);
-            doc.text(title.toUpperCase(), margin, y);
-            y += 12;
-            doc.setDrawColor(0);
+            doc.setFontSize(FONT_LARGE);
+            doc.text(title.toUpperCase(), MARGIN, y);
+            y += FONT_LARGE * 0.4; // Reduced space between title and line
             doc.setLineWidth(0.5);
-            doc.line(margin, y, margin + contentWidth, y);
-            y += 15;
+            doc.line(MARGIN, y, MARGIN + CONTENT_WIDTH, y);
+            y += FONT_NORMAL * LINE_HEIGHT * 1.2;
         };
         
         // --- Summary ---
         addSectionTitle('Summary');
         doc.setFont('helvetica', 'normal');
-        doc.setFontSize(10);
-        const summaryLines = doc.splitTextToSize(summary, contentWidth);
-        checkPageBreak(summaryLines.length * 12);
-        doc.text(summaryLines, margin, y);
-        y += summaryLines.length * 12 + 10;
+        doc.setFontSize(FONT_NORMAL);
+        const summaryLines = doc.splitTextToSize(summary, CONTENT_WIDTH);
+        doc.text(summaryLines, MARGIN, y);
+        y += summaryLines.length * FONT_NORMAL * LINE_HEIGHT;
 
         // --- Work Experience ---
         addSectionTitle('Work Experience');
-        experience.forEach(job => {
-            const respLines = job.responsibilities
-                .flatMap(r => doc.splitTextToSize(r, contentWidth - 15));
-
-            const totalJobHeight = 14 + 14 + (respLines.length * 12) + 15;
-            checkPageBreak(totalJobHeight);
-
+        experience.forEach((job, jobIndex) => {
             doc.setFont('helvetica', 'bold');
-            doc.setFontSize(11);
-            doc.text(job.title, margin, y);
-            y += 14;
+            doc.setFontSize(FONT_LARGE);
+            doc.text(job.title, MARGIN, y);
+            y += FONT_LARGE * LINE_HEIGHT;
 
             doc.setFont('helvetica', 'normal');
-            doc.setFontSize(10);
-            doc.text(`${job.company} | ${job.duration}`, margin, y);
-            y += 15;
+            doc.setFontSize(FONT_NORMAL);
+            doc.text(`${job.company} | ${job.duration}`, MARGIN, y);
+            y += FONT_NORMAL * LINE_HEIGHT * 1.2;
             
-            respLines.forEach(line => {
-                checkPageBreak(12);
-                doc.text('•', margin + 5, y);
-                doc.text(line, margin + 15, y);
-                y += 12;
+            job.responsibilities.forEach(resp => {
+                const respLines = doc.splitTextToSize(resp, CONTENT_WIDTH - 15);
+                doc.text('•', MARGIN + 5, y);
+                doc.text(respLines, MARGIN + 15, y);
+                y += respLines.length * FONT_NORMAL * LINE_HEIGHT;
             });
-            y += 10;
+            
+            if (jobIndex < experience.length - 1) {
+               y += FONT_NORMAL * LINE_HEIGHT;
+            }
         });
+        y += FONT_NORMAL * LINE_HEIGHT; // Added space after work experience section
 
         // --- Education ---
         addSectionTitle('Education');
-        checkPageBreak(40);
         doc.setFont('helvetica', 'bold');
-        doc.setFontSize(11);
-        doc.text(education.institution, margin, y);
-        y += 14;
+        doc.setFontSize(FONT_LARGE);
+        doc.text(education.institution, MARGIN, y);
+        y += FONT_LARGE * LINE_HEIGHT;
 
         doc.setFont('helvetica', 'normal');
-        doc.setFontSize(10);
-        doc.text(education.degree, margin, y);
-        y += 25;
+        doc.setFontSize(FONT_NORMAL);
+        doc.text(education.degree, MARGIN, y);
+        y += FONT_NORMAL * LINE_HEIGHT * 2; // Added space after education section
 
         // --- Skills ---
         addSectionTitle('Skills');
         doc.setFont('helvetica', 'normal');
-        doc.setFontSize(10);
+        doc.setFontSize(FONT_NORMAL);
         const skillsText = skills.join(', ');
-        const skillsLines = doc.splitTextToSize(skillsText, contentWidth);
-        checkPageBreak(skillsLines.length * 12);
-        doc.text(skillsLines, margin, y);
+        const skillsLines = doc.splitTextToSize(skillsText, CONTENT_WIDTH);
+        doc.text(skillsLines, MARGIN, y);
 
         doc.save('Alejandro-Ubilla-Resume.pdf');
 
