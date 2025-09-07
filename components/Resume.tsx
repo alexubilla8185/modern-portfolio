@@ -84,7 +84,7 @@ const Resume: React.FC = () => {
       <section className="max-w-5xl mx-auto bg-white dark:bg-zinc-900 p-8 md:p-12 shadow-lg rounded-lg">
         <div className="flex justify-between items-start mb-8">
           <div className="flex-grow text-center sm:text-left">
-            <h2 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">{name}</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-100">{name}</h2>
             <div className="mt-2 flex flex-wrap justify-center sm:justify-start items-center gap-x-4 gap-y-1 text-sm text-zinc-700 dark:text-zinc-300">
                 <a href={`tel:${contact.phone.replace(/\D/g, '')}`} className="flex items-center gap-2 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
                     <PhoneIcon className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-400" />
