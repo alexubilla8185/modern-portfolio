@@ -22,6 +22,8 @@ const App: React.FC = () => {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const navigatorRef = useRef<HTMLDivElement>(null);
   const isInitialMount = useRef(true);
+  const [pulseProfile, setPulseProfile] = useState(false);
+  const lastScrollY = useRef(window.scrollY);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -43,6 +45,32 @@ const App: React.FC = () => {
     }
   }, [activeView]);
 
+  // This hook manages the scroll detection and triggers the pulse.
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      // Trigger if scrolling up and near the top.
+      if (lastScrollY.current > currentScrollY && currentScrollY < 100) {
+        setPulseProfile(true);
+      }
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []); // Run only once.
+
+  // This hook acts as a cooldown reset for the pulse animation.
+  useEffect(() => {
+    if (pulseProfile) {
+      const timer = setTimeout(() => {
+        setPulseProfile(false);
+      }, 2000); // Duration should match the CSS animation.
+      return () => clearTimeout(timer);
+    }
+  }, [pulseProfile]);
+
+
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
@@ -56,7 +84,11 @@ const App: React.FC = () => {
           toggleTheme={toggleTheme}
         />
         <main className="flex-grow container mx-auto px-2 sm:px-6 lg:px-8 py-12">
-          <ExecutiveSummary onShowSpecs={() => { setSpecsModalOpen(true); setToastMessage(null); }} onShowToast={setToastMessage} />
+          <ExecutiveSummary 
+            onShowSpecs={() => { setSpecsModalOpen(true); setToastMessage(null); }} 
+            onShowToast={setToastMessage} 
+            pulseProfile={pulseProfile} 
+          />
           <SectionNavigator 
             ref={navigatorRef}
             activeSection={activeView} 

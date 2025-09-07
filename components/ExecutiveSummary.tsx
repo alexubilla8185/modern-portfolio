@@ -3,6 +3,7 @@ import React, { useRef, useEffect } from 'react';
 interface ExecutiveSummaryProps {
   onShowSpecs: () => void;
   onShowToast: (message: string) => void;
+  pulseProfile: boolean;
 }
 
 const competencies = [
@@ -28,7 +29,7 @@ const CompetencyPills = () => (
   </>
 );
 
-const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs, onShowToast }) => {
+const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs, onShowToast, pulseProfile }) => {
   const clickTimestamps = useRef<number[]>([]);
   
   const marqueeContainerRef = useRef<HTMLDivElement>(null);
@@ -152,7 +153,11 @@ const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs, onShow
     <section className="max-w-4xl mx-auto">
       <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
         <div className="flex-shrink-0">
-          <button onClick={handleImageClick} className="rounded-full focus:outline-none focus:ring-4 focus:ring-blue-500/50" aria-label="Show app specifications easter egg">
+          <button 
+            onClick={handleImageClick} 
+            className={`rounded-full focus:outline-none focus:ring-4 focus:ring-blue-500/50 ${pulseProfile ? 'animate-pulse-glow' : ''}`} 
+            aria-label="Show app specifications easter egg"
+          >
             <img
               className="h-40 w-40 rounded-full object-cover shadow-lg border-4 border-zinc-200 dark:border-blue-500 cursor-pointer"
               src="https://media.licdn.com/dms/image/v2/D4E03AQH2PbjlUdTZHg/profile-displayphoto-scale_400_400/B4EZkhMrKdGUAg-/0/1757198596649?e=1759968000&v=beta&t=iP_xv-4kwI0frMZ6nL1QXBNVdXfsMEAgqvg9rtE-pw0"
