@@ -26,7 +26,7 @@ export const resumeData: ResumeData = {
   contact: {
     phone: '+1 772-634-9743',
     email: 'alexubilla8185@gmail.com',
-    location: 'Pompano Beach, FL',
+    location: '',
   },
   summary: 'Technology Leader with over 15 years of experience driving business growth through strategic roadmaps and high-performing teams. I specialize in leveraging AI solutions to improve product quality and deliver exceptional customer satisfaction.',
   experience: [

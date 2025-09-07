@@ -13,7 +13,8 @@ const ResumePreview: React.FC = () => {
                  <div className="mb-6">
                     <h1 className="text-3xl sm:text-4xl font-bold text-zinc-900">{name}</h1>
                     <p className="text-zinc-600 mt-1 text-sm sm:text-base">
-                      {contact.phone} &nbsp;|&nbsp; {contact.email} &nbsp;|&nbsp; {contact.location}
+                      {contact.phone} &nbsp;|&nbsp; {contact.email}
+                      {contact.location && <span> &nbsp;|&nbsp; {contact.location}</span>}
                     </p>
                 </div>
                 
@@ -67,8 +68,8 @@ const ResumeSection: React.FC<{ title: string; children: React.ReactNode }> = ({
 const Job: React.FC<{ job: JobType }> = ({ job }) => (
   <div className="mb-6">
     <h4 className="text-xl font-semibold text-zinc-900 dark:text-zinc-200">{job.title}</h4>
-    <p className="text-md text-zinc-700 dark:text-zinc-400 font-medium">{job.company} | {job.duration}</p>
-    <ul className="list-disc list-inside mt-2 text-zinc-700 dark:text-zinc-400 space-y-1">
+    <p className="text-md text-zinc-700 dark:text-zinc-300 font-medium">{job.company} | {job.duration}</p>
+    <ul className="list-disc list-inside mt-2 text-zinc-700 dark:text-zinc-300 space-y-1">
       {job.responsibilities.map((item, index) => <li key={index}>{item}</li>)}
     </ul>
   </div>
@@ -84,7 +85,7 @@ const Resume: React.FC = () => {
         <div className="flex justify-between items-start mb-8">
           <div className="flex-grow text-center sm:text-left">
             <h2 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">{name}</h2>
-            <div className="mt-2 flex flex-wrap justify-center sm:justify-start items-center gap-x-4 gap-y-1 text-sm text-zinc-700 dark:text-zinc-400">
+            <div className="mt-2 flex flex-wrap justify-center sm:justify-start items-center gap-x-4 gap-y-1 text-sm text-zinc-700 dark:text-zinc-300">
                 <a href={`tel:${contact.phone.replace(/\D/g, '')}`} className="flex items-center gap-2 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
                     <PhoneIcon className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-400" />
                     <span>{contact.phone}</span>
@@ -93,10 +94,12 @@ const Resume: React.FC = () => {
                     <MailIcon className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-400" />
                     <span>{contact.email}</span>
                 </a>
-                <div className="flex items-center gap-2">
-                    <LocationIcon className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-400" />
-                    <span>{contact.location}</span>
-                </div>
+                {contact.location && (
+                  <div className="flex items-center gap-2">
+                      <LocationIcon className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-400" />
+                      <span>{contact.location}</span>
+                  </div>
+                )}
             </div>
           </div>
           <button
@@ -109,7 +112,7 @@ const Resume: React.FC = () => {
         </div>
 
         <ResumeSection title="Summary">
-          <p className="text-zinc-700 dark:text-zinc-400 leading-relaxed">{summary}</p>
+          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{summary}</p>
         </ResumeSection>
 
         <ResumeSection title="Work Experience">
@@ -118,11 +121,11 @@ const Resume: React.FC = () => {
 
         <ResumeSection title="Education">
           <h4 className="text-xl font-semibold text-zinc-900 dark:text-zinc-200">{education.institution}</h4>
-          <p className="text-md text-zinc-700 dark:text-zinc-400">{education.degree}</p>
+          <p className="text-md text-zinc-700 dark:text-zinc-300">{education.degree}</p>
         </ResumeSection>
 
         <ResumeSection title="Skills">
-           <p className="text-zinc-700 dark:text-zinc-400 leading-relaxed">
+           <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
             {skills.map((skill, index) => (
               <React.Fragment key={skill}>
                 {skill}
