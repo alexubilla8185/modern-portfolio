@@ -161,7 +161,7 @@ const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({ onShowSpecs, onShow
           >
             <img
               className="h-52 w-52 rounded-full object-cover shadow-lg border-4 border-zinc-200 dark:border-blue-500 cursor-pointer"
-              src="https://media.licdn.com/dms/image/v2/D4E03AQH2PbjlUdTZHg/profile-displayphoto-scale_400_400/B4EZkhMrKdGUAg-/0/1757198596649?e=1759968000&v=beta&t=iP_xv-4kwI0frMZ6nL1QXBNVdXfsMEAgqvg9rtE-pw0"
+              src="https://media.licdn.com/dms/image/v2/D4E03AQEW2m4hVN5gmQ/profile-displayphoto-crop_800_800/B4EZkiQIGQIoAI-/0/1757216278178?e=1759968000&v=beta&t=vhlLWj3eadaAIB1xdQiGz_RJcke7v3xMqNoGe9yccGQ"
               alt="Profile portrait of Alejandro Ubilla"
             />
           </button>
