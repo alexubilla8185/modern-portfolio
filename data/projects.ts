@@ -101,6 +101,20 @@ const projects: Project[] = [
     ]
   },
   {
+    "id": 15,
+    "title": "TEKGUYZ (Beta)",
+    "description": "A beta version of the TEKGUYZ consultancy website, serving as a testbed for new features, including an innovative AI-powered quoting system to streamline client engagement.",
+    "live_link": "https://tekguyz-beta.netlify.app/",
+    "github_link": "https://github.com/alexubilla8185/tekguyz-beta",
+    "tech_stack": ["React", "Gemini API", "AI", "Tailwind CSS"],
+    "nerd_facts": [
+      "Integrates the Gemini API to provide AI-powered project quotes, streamlining the client onboarding process.",
+      "Serves as a beta platform for testing new features and UI/UX concepts before deploying to the main site.",
+      "Built with a focus on performance and a minimalist design to quickly deliver key information.",
+      "Leverages modern frontend technologies for a responsive and interactive user experience."
+    ]
+  },
+  {
     "id": 8,
     "title": "GreenWave",
     "description": "Created a community hub for cannabis enthusiasts in South Florida, integrating Google Maps API to help users find local dispensaries and discover product information.",
