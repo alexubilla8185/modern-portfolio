@@ -2,214 +2,120 @@ import type { Project } from '@/types';
 
 const projects: Project[] = [
   {
-    "id": 1,
-    "title": "Dem Boyz BBQ",
-    "description": "Developed a responsive and appetizing website for a local BBQ restaurant, driving online engagement and providing customers with easy access to menus, catering info, and location details.",
-    "live_link": "https://demboyzbbq.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/dem-boyz-bbq",
-    "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
+    "id": 7,
+    "title": "My Portfolio",
+    "description": "A personal portfolio demonstrating cutting-edge web development, featuring native ES modules, a 3D carousel, and dynamic PDF generation.",
+    "live_link": "https://my-modern-resume.netlify.app/",
+    "github_link": "https://github.com/alexubilla8185/modern-portfolio",
+    "tech_stack": ["React", "TypeScript", "Tailwind CSS"],
     "nerd_facts": [
-      "Fully responsive design adapts from mobile menus to large desktop displays.",
-      "Optimized for fast load times to prevent losing hungry customers.",
-      "Clean UI focuses user attention on the food and contact info.",
-      "Built as a static site for peak performance, security, and low hosting costs."
+      "Built without a bundler, using importmaps for native ES module resolution.",
+      "Features a 3D carousel with spring physics powered by Framer Motion.",
+      "Dynamically generates an up-to-date PDF resume on-the-fly in the browser."
     ]
   },
   {
-    "id": 2,
-    "title": "Dark Trap",
-    "description": "Developed a dark, techy, cyberpunk-themed peer-to-peer video chat application using WebRTC for secure and direct communication.",
-    "live_link": "https://darktrap.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/darktrap",
-    "tech_stack": ["WebRTC", "React", "P2P"],
+    "id": 14,
+    "title": "My Place",
+    "description": "An AI-powered PWA with robust offline capabilities, using the Gemini API for summarization and transcription to create a powerful notes tool.",
+    "live_link": "https://my-place-a.netlify.app/",
+    "github_link": "https://github.com/alexubilla8185/my-place-a",
+    "tech_stack": ["React", "Gemini API", "PWA"],
     "nerd_facts": [
-      "Employs WebRTC for direct peer-to-peer video streaming, eliminating server middlemen.",
-      "End-to-end encryption is inherent to the WebRTC architecture, ensuring privacy.",
-      "Signaling for the initial peer handshake is managed via a lightweight WebSocket server.",
-      "Focuses on a minimalist, yet stylized, interface for secure communication."
-    ]
-  },
-  {
-    "id": 3,
-    "title": "Full Belly Sundays",
-    "description": "Built a web application for a non-profit to streamline the process of connecting food donations with local communities in need, featuring an intuitive interface for volunteers and recipients.",
-    "live_link": "https://full-belly-sundays.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/full-belly-sundays",
-    "tech_stack": ["React", "Firebase", "Maps API"],
-    "nerd_facts": [
-      "Integrates with Firebase for real-time data synchronization.",
-      "Uses Google Maps API to visualize donation and distribution points.",
-      "Secure authentication for volunteers and administrators.",
-      "Firestore security rules ensure data integrity and user privacy."
+      "Leverages the Google Gemini API for advanced AI features.",
+      "Built as a Progressive Web App (PWA) with full offline functionality.",
+      "Uses IndexedDB for robust client-side storage, ensuring data is always available."
     ]
   },
   {
     "id": 4,
     "title": "FancyFam",
-    "description": "Designed a modern and interactive digital business card platform to make a memorable first impression with a clean, elegant interface and seamless sharing capabilities.",
+    "description": "A sleek digital business card platform focused on creating a memorable first impression with elegant animations and a mobile-first design.",
     "live_link": "https://fancyfam.com/",
     "github_link": "https://github.com/alexubilla8185/fancy-fam",
-    "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
+    "tech_stack": ["React", "Tailwind CSS", "UI/UX"],
     "nerd_facts": [
-      "Focus on elegant animations and micro-interactions for a premium feel.",
+      "Features elegant animations and micro-interactions for a premium feel.",
       "Designed for effortless sharing on mobile devices.",
-      "Lightweight and fast, ensuring a great first impression.",
-      "Built with a mobile-first philosophy for optimal on-the-go use."
+      "Lightweight and fast to ensure a great first impression."
     ]
   },
   {
-    "id": 5,
-    "title": "TEKGUYZ",
-    "description": "Launched the official business website for a tech consultancy, establishing a professional online presence to attract clients and showcase services in DevOps, software development, and strategy.",
-    "live_link": "https://tekguyz.com/",
-    "github_link": "https://github.com/alexubilla8185/tek-guyz-site",
-    "tech_stack": ["React", "TypeScript", "Tailwind CSS"],
+    "id": 2,
+    "title": "Dark Trap",
+    "description": "A secure, peer-to-peer video chat app with a cyberpunk theme, providing end-to-end encrypted communication without a central server.",
+    "live_link": "https://darktrap.netlify.app/",
+    "github_link": "https://github.com/alexubilla8185/darktrap",
+    "tech_stack": ["WebRTC", "React", "P2P"],
     "nerd_facts": [
-      "Static site generation for maximum performance and security.",
-      "SEO-optimized to attract new clients through organic search.",
-      "Clean, professional design reflects the company's brand.",
-      "Minimalist aesthetic focuses on the company's value proposition."
+      "Employs WebRTC for direct, end-to-end encrypted peer-to-peer video streaming.",
+      "Eliminates the need for a central server, ensuring user privacy.",
+      "Features a minimalist, yet highly stylized, interface for secure communication."
     ]
   },
   {
-    "id": 6,
-    "title": "AfterLife",
-    "description": "Engineered an AI-powered digital memorial platform where users can create a personalized legacy, allowing loved ones to interact with memories and AI-generated responses.",
-    "live_link": "https://afterlife-alpha.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/afterlife",
-    "tech_stack": ["React", "Gemini API", "Firebase"],
+    "id": 1,
+    "title": "Dem Boyz BBQ",
+    "description": "A visually appealing, responsive website for a local BBQ restaurant, optimized for fast load times and a seamless mobile experience.",
+    "live_link": "https://demboyzbbq.netlify.app/",
+    "github_link": "https://github.com/alexubilla8185/dem-boyz-bbq",
+    "tech_stack": ["React", "Tailwind CSS", "UI/UX"],
     "nerd_facts": [
-      "Leverages the Gemini API for generative AI responses.",
-      "Uses Firebase for secure storage of user data and memories.",
-      "Real-time database features allow for instant updates across clients.",
-      "Carefully crafted system prompts guide AI responses with sensitivity and respect."
-    ]
-  },
-  {
-    "id": 7,
-    "title": "Interactive Portfolio (This Site!)",
-    "description": "This portfolio! A dynamic, single-page application built from scratch to showcase my skills in modern web development, featuring this very interactive project carousel and a clean, responsive UI.",
-    "live_link": "https://my-modern-resume.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/modern-portfolio",
-    "tech_stack": ["React", "TypeScript", "Tailwind CSS"],
-    "nerd_facts": [
-      "Built without a bundler using importmaps for native ES module resolution.",
-      "Features a 3D carousel with spring physics via Framer Motion.",
-      "Dynamically generates a PDF resume on-the-fly in the browser.",
-      "Fully accessible, with ARIA attributes and keyboard navigation throughout.",
-      "Persistent light/dark theme using localStorage and CSS classes on the HTML root."
-    ]
-  },
-  {
-    "id": 15,
-    "title": "TEKGUYZ (Beta)",
-    "description": "A beta version of the TEKGUYZ consultancy website, serving as a testbed for new features, including an innovative AI-powered quoting system to streamline client engagement.",
-    "live_link": "https://tekguyz-beta.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/tekguyz-beta",
-    "tech_stack": ["React", "Gemini API", "AI", "Tailwind CSS"],
-    "nerd_facts": [
-      "Integrates the Gemini API to provide AI-powered project quotes, streamlining the client onboarding process.",
-      "Serves as a beta platform for testing new features and UI/UX concepts before deploying to the main site.",
-      "Built with a focus on performance and a minimalist design to quickly deliver key information.",
-      "Leverages modern frontend technologies for a responsive and interactive user experience."
-    ]
-  },
-  {
-    "id": 8,
-    "title": "GreenWave",
-    "description": "Created a community hub for cannabis enthusiasts in South Florida, integrating Google Maps API to help users find local dispensaries and discover product information.",
-    "live_link": "https://greenwavesoflo.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/greenwavesoflo",
-    "tech_stack": ["React", "Maps API", "Community"],
-    "nerd_facts": [
-      "Uses Google Maps API for location-based search and discovery.",
-      "Built with a community-first approach to UI/UX.",
-      "Scalable architecture to handle a growing user base.",
-      "Efficiently renders numerous map markers without performance degradation."
-    ]
-  },
-  {
-    "id": 9,
-    "title": "Meet4Weed",
-    "description": "Developed a social networking proof-of-concept for the cannabis community, designed with real-time features to connect users and facilitate sharing in a user-friendly, modern environment.",
-    "live_link": "https://meet4weed.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/meet4weed",
-    "tech_stack": ["React", "Socket.IO", "Firebase"],
-    "nerd_facts": [
-      "Utilizes Socket.IO for real-time chat and notifications.",
-      "Firebase backend for user authentication and data storage.",
-      "Proof-of-concept for a scalable social networking platform.",
-      "Manages real-time connection state for 'online' user presence indicators."
+      "Fully responsive design adapts from mobile menus to large desktop displays.",
+      "Optimized for fast load times to prevent losing hungry customers.",
+      "Clean UI focuses user attention on the food and key business information."
     ]
   },
   {
     "id": 10,
     "title": "Real Stone & Granite",
-    "description": "Delivered a sleek, professional website for a local stone and granite business, building a digital showroom to showcase their products and attract new customers.",
+    "description": "A professional digital showroom for a local stone business, featuring a high-res, lazy-loaded image gallery to generate leads.",
     "live_link": "https://real-stone.netlify.app/",
     "github_link": "https://github.com/alexubilla8185/real-stone",
-    "tech_stack": ["React", "Tailwind CSS", "UI/UX Design"],
+    "tech_stack": ["React", "Tailwind CSS", "UI/UX"],
     "nerd_facts": [
       "Features a high-resolution image gallery to showcase products.",
       "Mobile-first design ensures a great experience for contractors on-site.",
-      "Contact forms are integrated for easy lead generation.",
       "Lazy loading for gallery images improves initial page speed."
     ]
   },
   {
     "id": 11,
     "title": "Real Estate Showcase",
-    "description": "Designed and launched a promotional single-page website for a vacation rental property, featuring an image gallery and booking information to attract potential renters.",
+    "description": "A promotional SPA to showcase a vacation rental property, optimized for visual appeal, quick loading, and SEO to drive booking inquiries.",
     "live_link": "https://palm-city-condo.netlify.app",
     "github_link": "https://github.com/alexubilla8185/palm-city-condo",
     "tech_stack": ["React", "Tailwind CSS", "Real Estate"],
     "nerd_facts": [
       "Single-page application design for a fast, seamless user experience.",
-      "Image-heavy design optimized for quick loading and visual appeal.",
-      "Clear calls-to-action to drive booking inquiries from potential renters.",
-      "SEO-friendly markup to improve search engine ranking."
+      "Image-heavy design is optimized for quick loading and visual appeal.",
+      "Clear calls-to-action drive booking inquiries from potential renters."
     ]
   },
   {
-    "id": 12,
-    "title": "Meet4Weed (Dev)",
-    "description": "Developed a social networking proof-of-concept for the cannabis community, designed with real-time features to connect users and facilitate sharing in a user-friendly, modern environment.",
-    "live_link": "https://meet4weed-dev.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/meet-4-weed",
+    "id": 8,
+    "title": "GreenWave",
+    "description": "A community hub for cannabis enthusiasts in South Florida, using the Google Maps API for location-based discovery and social connection.",
+    "live_link": "https://greenwavesoflo.netlify.app/",
+    "github_link": "https://github.com/alexubilla8185/greenwavesoflo",
+    "tech_stack": ["React", "Maps API", "Community"],
+    "nerd_facts": [
+      "Uses Google Maps API for location-based search and discovery.",
+      "Built with a community-first approach to UI/UX.",
+      "Efficiently renders numerous map markers without performance degradation."
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Meet4Weed",
+    "description": "A proof-of-concept social network for the cannabis community, demonstrating a scalable model for real-time chat and an interactive app.",
+    "live_link": "https://meet4weed.netlify.app/",
+    "github_link": "https://github.com/alexubilla8185/meet4weed",
     "tech_stack": ["React", "Socket.IO", "Firebase"],
     "nerd_facts": [
       "Utilizes Socket.IO for real-time chat and notifications.",
       "Firebase backend for user authentication and data storage.",
-      "Proof-of-concept for a scalable social networking platform.",
-      "Manages real-time connection state for 'online' user presence indicators."
-    ]
-  },
-  {
-    "id": 13,
-    "title": "Higher Please",
-    "description": "Created a modern web app that asks a series of funny and challenging questions, puzzles, or quizzes to determine your level of 'highness', then gives you a score and tips.",
-    "live_link": "https://higher-please.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/higher-please",
-    "tech_stack": ["React", "Tailwind CSS", "Gamification"],
-    "nerd_facts": [
-      "Interactive quiz format with dynamic scoring and conditional logic.",
-      "Humorous and engaging content designed for a specific niche audience.",
-      "Lightweight single-page application for a fast, game-like experience.",
-      "Focus on a clean, simple UI to keep the user engaged with the quiz."
-    ]
-  },
-  {
-    "id": 14,
-    "title": "My Place",
-    "description": "Engineered a AI-powered productivity web app, leveraging the Google Gemini API for features like note summarization and voice transcription, and offering full offline support.",
-    "live_link": "https://my-place-a.netlify.app/",
-    "github_link": "https://github.com/alexubilla8185/my-place-a",
-    "tech_stack": ["React", "Gemini API", "PWA"],
-    "nerd_facts": [
-      "Leverages the Google Gemini API for advanced AI features like text summarization.",
-      "Built as a Progressive Web App (PWA) with service workers for full offline functionality.",
-      "Includes voice-to-text transcription for hands-free note-taking.",
-      "Uses IndexedDB for robust client-side storage, ensuring data is available offline."
+      "Proof-of-concept demonstrates a scalable social networking platform."
     ]
   }
 ];

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { Theme } from '@/types';
 import { SunIcon, MoonIcon, ShareIcon } from '@/components/Icons';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface HeaderProps {
   theme: Theme;
@@ -50,14 +51,26 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
           <div className="flex items-center space-x-2 sm:space-x-4">
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300 ${
-                theme === 'light'
-                  ? 'text-blue-600' // Blue moon icon for light mode
-                  : 'text-yellow-400' // Yellow sun icon for dark mode
-              }`}
+              className="p-2 w-10 h-10 flex items-center justify-center rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
+              {/* @ts-ignore */}
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={theme}
+                  initial={{ rotate: -180, opacity: 0, scale: 0.8 }}
+                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                  exit={{ rotate: 180, opacity: 0, scale: 0.8 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                  className={
+                    theme === 'light'
+                      ? 'text-blue-600' // Blue moon icon for light mode
+                      : 'text-yellow-400' // Yellow sun icon for dark mode
+                  }
+                >
+                  {theme === 'light' ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
+                </motion.div>
+              </AnimatePresence>
             </button>
             <div className="relative">
                 <button

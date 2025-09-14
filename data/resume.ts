@@ -31,13 +31,13 @@ export const resumeData: ResumeData = {
   summary: 'Technology Leader with over 15 years of experience driving business growth through strategic roadmaps and high-performing teams. I specialize in leveraging AI solutions to improve product quality and deliver exceptional customer satisfaction.',
   experience: [
     {
-      title: 'Founder & CEO',
+      title: 'Founder & Principal Engineer',
       company: 'TEKGUYZ',
       duration: 'August 2023 - Present',
       responsibilities: [
-        'Shaped company vision, strategic goals, and technology roadmaps',
-        'Built and launched application with React, TypeScript, Tailwind CSS, hosted on Netlify',
-        'Led digital presence initiatives from GoDaddy domain and Microsoft 365 integration to social media',
+        'Founded a technology consultancy, conceptualizing and delivering strategic roadmaps',
+        'Designed and launched a professional company website using React, TypeScript, and Tailwind CSS',
+        'Orchestrated digital presence initiatives to attract and engage potential clients',
       ],
     },
     {
@@ -45,9 +45,9 @@ export const resumeData: ResumeData = {
       company: 'Q Link Wireless',
       duration: 'September 2019 - March 2023',
       responsibilities: [
-        'Defined project scope and requirements, using MantisBT for issue tracking and Asana for project management',
+        'Managed multiple high-quality SDLC projects, defining project scope and requirements',
+        'Utilized MantisBT for issue tracking and Asana for project management, ensuring project milestones were met',
         'Maintained transparent stakeholder communication via Slack and daily Zoom stand-ups',
-        'Delivered multiple high-quality SDLC projects, including Hello Mobile and Lifeline phone service',
       ],
     },
     {
@@ -56,8 +56,8 @@ export const resumeData: ResumeData = {
       duration: 'August 2016 - June 2019',
       responsibilities: [
         'Developed user manuals, installation guides, and release notes, boosting product adoption',
-        'Ensured content accuracy by collaborating with engineering and product teams, utilizing Google products',
-        'Managed multiple concurrent projects, consistently delivering on or before strict deadlines, utilizing Trello',
+        'Ensured content accuracy by collaborating with engineering and product teams',
+        'Managed multiple concurrent projects on or before strict deadlines, utilizing Trello',
       ],
     },
     {
@@ -65,7 +65,7 @@ export const resumeData: ResumeData = {
         company: 'Advantage Software',
         duration: 'January 2012 - June 2016',
         responsibilities: [
-            'Conducted thorough testing of desktop, mobile, and web applications, custom web servers, and installers to identify defects, bugs, and usability issues',
+            'Conducted thorough testing of desktop, mobile, and web applications to identify defects, bugs, and usability issues',
             'Developed and executed test plans, test cases, and test scripts to ensure software functionality',
             'Managed issue tracking, project management, and revision control for all QA initiatives using Assembla',
         ],
@@ -75,8 +75,9 @@ export const resumeData: ResumeData = {
         company: 'Advantage Software',
         duration: 'August 2009 - January 2012',
         responsibilities: [
-            'Provided technical support to customers via phone, email, LogMeIn Rescue, forums, and chat, effectively troubleshooting hardware and software issues',
+            'Provided technical support to customers via phone, email, and chat, effectively troubleshooting hardware and software issues',
             'Documented customer interactions and solutions, ensuring clarity and future reference through technical writing',
+            'Resolved hardware and software issues with a high level of customer satisfaction',
         ],
     },
   ],
